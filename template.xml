@@ -1,1 +1,1943 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='true' b:layoutsVersion='3' b:responsive='true' b:templateVersion='2.5' expr:dir='data:blog.languageDirection' lang='id' xml:lang='id' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+&lt;!--<head>--&gt;&lt;head&gt;
+<b:comment>TITLE</b:comment>
+<b:if cond='data:view.isHomepage or (data:view.isSearch and !data:view.isLabelSearch and !data:blog.searchQuery)'>
+  <title><data:view.title.escaped/></title>
+  <meta expr:content='data:view.title' property='og:title'/>
+  <meta expr:content='data:view.title' property='og:image:alt'/>
+  <meta expr:content='data:view.title' name='twitter:title'/>
+  <meta expr:content='data:view.title' name='twitter:image:alt'/>
+<b:elseif cond='data:view.isSingleItem or data:view.isSearch or data:view.isArchive'/>
+  <title><data:blog.pageName/> &#8211; <data:blog.title/></title>
+  <meta expr:content='data:blog.pageName + &quot; - &quot; + data:blog.title' property='og:title'/>
+  <meta expr:content='data:blog.pageName + &quot; - &quot; + data:blog.title' property='og:image:alt'/>
+  <meta expr:content='data:blog.pageName + &quot; - &quot; + data:blog.title' name='twitter:title'/>
+  <meta expr:content='data:blog.pageName + &quot; - &quot; + data:blog.title' name='twitter:image:alt'/>
+<b:elseif cond='data:view.isError'/>
+  <title>Page Not Found - <data:blog.title/></title>
+  <meta expr:content='&quot;Page Not Found - &quot; + data:blog.title' property='og:title'/>
+  <meta expr:content='&quot;Page Not Found - &quot; + data:blog.title' property='og:image:alt'/>
+  <meta expr:content='&quot;Page Not Found - &quot; + data:blog.title' name='twitter:title'/>
+  <meta expr:content='&quot;Page Not Found - &quot; + data:blog.title' name='twitter:image:alt'/>
+<b:else/>
+  <title><data:view.title/></title>
+  <meta expr:content='data:view.title' property='og:title'/>
+  <meta expr:content='data:view.title' property='og:image:alt'/>
+  <meta expr:content='data:view.title' name='twitter:title'/>
+  <meta expr:content='data:view.title' name='twitter:image:alt'/>
+</b:if>
+<meta expr:content='data:blog.title' property='og:site_name'/>
+  
+<b:comment>THUMBNAIL</b:comment>
+<b:if cond='data:view.featuredImage'>
+  <meta expr:content='data:view.featuredImage' property='og:image'/>
+  <meta expr:content='data:view.featuredImage' name='twitter:image'/>
+<b:elseif cond='data:blog.postImageUrl'/>
+  <meta expr:content='data:blog.postImageUrl' property='og:image'/>
+  <meta expr:content='data:blog.postImageUrl' name='twitter:image'/>
+<b:else/>
+  <meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggDL3FQ17uIFJx6cEhdLAauragMmqA7Hb6_m5lwvwrqBKg5DsQ0II8vTMmKVfcQ76xgkRvRkwI9QRkUQJkqv33A23L2QlgxfnbG8PVuum15epq05lpHhuy4w5gFmGxmnKyPuGiK5TUnvIfuzLEmi5611u1CK5E8-HFKo35eEAarOIvgajVfnFise-oCFtS/s600/KaiKomik_v1.png' property='og:image'/>
+  <meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggDL3FQ17uIFJx6cEhdLAauragMmqA7Hb6_m5lwvwrqBKg5DsQ0II8vTMmKVfcQ76xgkRvRkwI9QRkUQJkqv33A23L2QlgxfnbG8PVuum15epq05lpHhuy4w5gFmGxmnKyPuGiK5TUnvIfuzLEmi5611u1CK5E8-HFKo35eEAarOIvgajVfnFise-oCFtS/s600/KaiKomik_v1.png' name='twitter:image'/>
+</b:if>
+  
+<b:comment>DESCRIPTION</b:comment>
+<b:if cond='data:view.isHomepage'>
+   <meta expr:content='data:blog.metaDescription' name='description'/>
+   <meta expr:content='data:blog.metaDescription' name='og:description'/>
+   <meta expr:content='data:blog.metaDescription' name='twitter:description'/>
+   <b:else/>
+   <meta expr:content='&quot;Read the latest manga &quot; + data:view.title.escaped + &quot; at &quot; + data:blog.title + &quot; .&quot;' name='description'/>
+   <meta expr:content='&quot;Read the latest manga &quot; + data:view.title.escaped + &quot; at &quot; + data:blog.title + &quot; .&quot;' name='og:description'/>
+   <meta expr:content='&quot;Read the latest manga &quot; + data:view.title.escaped + &quot; at &quot; + data:blog.title + &quot; .&quot;' name='twitter:description'/>
+  </b:if>
+  
+<b:comment>KEYWORD</b:comment>
+<meta content='Write your keyword here, separated with commas' name='keywords'/>
+<meta content='Write your keyword here, separated with commas' property='article:tag'/>
+  
+<b:comment>CANONICAL</b:comment>
+<link expr:href='data:blog.url.canonical' rel='canonical'/><link expr:href='data:blog.url.canonical appendParams { m: &quot;1&quot; }' rel='alternate'/><meta expr:content='data:blog.url.canonical' property='og:url'/>
+  
+<b:comment>FAVICON</b:comment>
+<link expr:href='data:blog.blogspotFaviconUrl' rel='icon' type='image/x-icon'/>
+<link expr:href='data:blog.blogspotFaviconUrl' rel='apple-touch-icon'/>
+  
+<b:comment>ADDRESS BAR COLOR (MOBILE ONLY)</b:comment>
+<b:if cond='data:widgets'>
+  <b:comment>Chrome, Firefox OS, Opera, Vivaldi</b:comment>
+  <meta expr:content='data:skin.vars.main_color' name='theme-color'/>
+  <b:comment>Windows Phone</b:comment>
+  <meta expr:content='data:skin.vars.main_color' name='msapplication-navbutton-color'/>
+  <b:comment>iOS Safari</b:comment>
+  <meta expr:content='data:skin.vars.main_color' name='apple-mobile-web-app-status-bar-style'/>
+  <meta content='yes' name='apple-mobile-web-app-capable'/>
+</b:if>
+  
+<b:comment>BLOG FEED</b:comment>
+<b:if cond='data:blog.adultContent'><meta content='adult' name='rating'/></b:if><meta content='blogger' name='generator'/><link href='https://www.blogger.com/openid-server.g' rel='openid.server'/><link expr:href='data:blog.homepageUrl.canonical' rel='openid.delegate'/><link expr:href='data:blog.homepageUrl.canonical + &quot;feeds/posts/default&quot;' expr:title='data:blog.title + &quot; - Atom&quot;' rel='alternate' type='application/atom+xml'/><link expr:href='data:blog.homepageUrl.canonical + &quot;feeds/posts/default?alt=rss&quot;' expr:title='data:blog.title + &quot; - RSS&quot;' rel='alternate' type='application/rss+xml'/>
+  
+<b:comment>OTHER SOCIAL MEDIA TAG</b:comment>
+<b:comment>Facebook</b:comment>
+<meta content='article' property='og:type'/>
+<meta content='id_ID' property='og:locale'/>
+<meta content='en_US' property='og:locale:alternate'/>
+<meta content='en_GB' property='og:locale:alternate'/>
+<b:comment>Twitter</b:comment>
+<meta content='summary_large_image' name='twitter:card'/>
+  
+<b:comment>OTHER META TAG</b:comment>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=5.0' name='viewport'/>
+<meta expr:content='&quot;text/html; charset=&quot; + data:blog.encoding' http-equiv='Content-Type'/>
+<meta content='all-language' http-equiv='Content-Language'/>
+<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>
+<b:if cond='data:view.isError'>
+  <meta content='noindex,nofollow' name='robots'/>
+</b:if>
 
+<b:comment>DNS PREFETCH</b:comment>
+<b:if cond='data:view.isMultipleItems'><link crossorigin='crossorigin' expr:href='data:blog.homepageUrl.canonical + &quot;feeds/posts/summary&quot;' rel='preconnect dns-prefetch'/></b:if><link crossorigin='crossorigin' href='//fonts.gstatic.com' rel='preconnect dns-prefetch'/><link href='//fonts.googleapis.com' rel='preconnect dns-prefetch'/><link href='//cdn.statically.io' rel='preconnect dns-prefetch'/><link href='//blogger.googleusercontent.com' rel='preconnect dns-prefetch'/><link href='//4.bp.blogspot.com' rel='preconnect dns-prefetch'/><link href='//2.bp.blogspot.com' rel='preconnect dns-prefetch'/><link href='//3.bp.blogspot.com' rel='preconnect dns-prefetch'/><link href='//4.bp.blogspot.com' rel='preconnect dns-prefetch'/><link href='//lh1.googleusercontent.com' rel='preconnect dns-prefetch'/><link href='//lh2.googleusercontent.com' rel='preconnect dns-prefetch'/><link href='//lh3.googleusercontent.com' rel='preconnect dns-prefetch'/><link href='//lh4.googleusercontent.com' rel='preconnect dns-prefetch'/><link href='//img.youtube.com' rel='preconnect dns-prefetch'/><link href='//i.ytimg.com' rel='preconnect dns-prefetch'/><link href='//apis.google.com' rel='preconnect dns-prefetch'/><link href='//ajax.googleapis.com' rel='preconnect dns-prefetch'/><link href='//www.google-analytics.com' rel='preconnect dns-prefetch'/><link href='//googleads.g.doubleclick.net' rel='preconnect dns-prefetch'/><link href='//www.gstatic.com' rel='preconnect dns-prefetch'/><link href='//www.googletagservices.com' rel='preconnect dns-prefetch'/><link href='//tpc.googlesyndication.com' rel='preconnect dns-prefetch'/><link href='//www.googletagmanager.com' rel='preconnect dns-prefetch'/>
+  
+<b:comment>TRACKING CODE</b:comment>
+<meta content='xxxxxxxxx' name='google-site-verification'/>
+<meta content='xxxxxxxx' name='msvalidate.01'/>
+<b:if cond='data:view.isHomepage'>
+<script type='application/ld+json'>
+  {
+    &quot;@context&quot;: &quot;https://schema.org&quot;,
+    &quot;@type&quot;: &quot;WebSite&quot;,
+    &quot;url&quot;: &quot;<data:blog.homepageUrl.canonical/>&quot;,
+    &quot;name&quot;: &quot;<data:blog.title/>&quot;,
+    &quot;alternateName&quot;: &quot;<data:blog.title/>&quot;,
+    &quot;potentialAction&quot;: {
+      &quot;@type&quot;: &quot;SearchAction&quot;,
+      &quot;target&quot;: &quot;<data:blog.homepageUrl.canonical/>search?q={search_term_string}&quot;,
+      &quot;query-input&quot;: &quot;required name=search_term_string&quot;
+    }
+  }
+</script>
+</b:if>
+<b:skin><![CDATA[/*
+<Group description="Dark Theme">
+  <Variable name="body.background.color" description="Body Background Color Dark" type="color" default="#1c1d21" value="#1c1d21"/>
+</Group>
+*/
+/* ======================================
+KaiKomik - Designed by Haruto (kaitheme)
+======================================
+Nama      : KaiKomik
+Version   : 1.0
+***************************************
+Free
+*************************************** */
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap);
+:root {
+  --bodyBg: $(body.background.color);
+}
+body,html{background-color:var(--bodyBg);box-sizing:border-box;font-family:Poppins,sans-serif;margin:0;color:#fff;}*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb;}.hidden,.separator,.ntitle{display:none!important;}img{max-width:100%;object-fit:cover;}ol,ul,li{margin:0;padding:0;list-style:none;}div,dl,dt,dd,form,h1,h2,h3,h4,h5,h6,img,ol,ul,li,table,th,td,p,span,a{border:0;}a{color:#fff;text-decoration:none;transition:color .1s linear;-moz-transition:color .1s linear;-webkit-transition:color .1s linear;}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:initial;background-image:none;}button,select{text-transform:none;}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0;}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle;}
+
+#header-wrapper{position:fixed;top:0;left:0;right:0;z-index:9999;background:var(--bodyBg);}
+#header{height:56px;padding:0 16px;align-items:center;display:flex;box-sizing:border-box;flex-direction:row;justify-content:space-between;left:0;margin:auto;max-width:1170px;}
+#Header1{background-position:left center;background-repeat:no-repeat;background-size:contain;}
+#header h1{font-size:20px;margin:0 auto;max-width:25vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:bold;}
+@media (min-width:768px){#header{height:70px;padding:0 30px;}}
+.searchk form{display:block;position:relative;}
+#form #s{outline:none;font-weight:300;background:#28292c;box-shadow:none!important;display:block;width:100%;height:32px;padding:0 10px;font-family:inherit;font-size:13px;line-height:1.42857143;color:#fff;background-image:none;border:0;border-radius:5px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;}
+#form #submit{position:absolute;cursor:pointer;font-family:inherit;border:0;padding:4px;top:0;right:0;line-height:36px;}
+.header-right{margin-left:auto;position:relative;transition:all .3s ease;}
+.header-right.show{transform:translateY(0);opacity:1;visibility:visible;}
+.header-right nav{color:rgb(51 65 85 / 1);line-height:1.5rem;font-weight:600;font-size:.875rem;line-height:1.25rem;}
+.header-right nav ul{display:flex;}
+.header-right nav ul>:not([hidden])~:not([hidden]){margin-left:30px;}
+.searchk{position:relative;margin-left:auto;color:rgb(100 116 139 / 1);width:100%;transition:all .3s ease;}
+.searchk.show{opacity:1;visibility:visible;}
+.buttonsearch,.buttonmenu{position:relative;color:rgb(100 116 139 / 1);justify-content:center;align-items:center;width:2rem;height:2rem;display:flex;margin-right:auto;background:#28292c;border-radius:5px;}
+.ml-1{display:flex;margin-left:10px;margin-right:0;border-radius:20px;}
+.ml-1 > div:before{content:'';height:24px;width:24px;display:block;background-size:contain;background-repeat:no-repeat;background-position:center;}
+.buttonsearch:before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' color='white' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' width='24'%3E%3Cpath d='m19 19-3.5-3.5'%3E%3C/path%3E%3Ccircle cx='11' cy='11' r='6'%3E%3C/circle%3E%3C/svg%3E");}
+.ml-1 .buttonmenu:before{background-image:url("data:image/svg+xml,%3Csvg aria-hidden='true' fill='white' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z'%3E%3C/path%3E%3C/svg%3E");}
+@media (min-width:600px){.ml-1{display:none;}.buttonsearch,.buttonmenu{margin-left:10px;}.searchk{width:20%;}}
+@media (min-width:1024px){.header-right{align-items:center;display:flex;}.searchk{width:25%;}.ml-2{margin-right:0;}}
+@media only screen and (max-width:600px){.searchk{position:absolute;top:56px;left:0;right:0;padding-left:10px;padding-bottom:7px;padding-right:15px;padding-top:7px;z-index:99;background:#28292c;border-bottom:1px solid hsla(0,0%,100%,.08);opacity:0;visibility:hidden;}.header-right{position:fixed;top:56px;left:0;right:0;z-index:999;background:#111;opacity:0;visibility:hidden;transform:translateX(-100%);}.header-right nav ul{display:block;}.header-right nav ul li{margin:10px!important;padding:10px;}}
+@media (min-width:1024px){.header-right{align-items:center;display:flex;}.ml-2{margin-right:0;}}
+.content{overflow:hidden;margin:auto;max-width:1170px;padding:0 30px;margin-top:80px;}
+@media (max-width:768px){.content{width:100%;padding:0 16px;margin-top:60px;}}
+#main > div{margin:0;position:relative;margin-bottom:15px;overflow:hidden;}
+#main .wrapernum3{position:relative;overflow:hidden;margin-bottom:20px;border-radius:5px;}
+.bannershad{background:linear-gradient(to bottom,rgb(25 26 28 / .6),#1c1d21);top:0;right:0;bottom:0;left:0;position:absolute;z-index:2;}
+.bannerku{background-repeat:no-repeat;background-size:cover;background-position:center;overflow:hidden;height:260px;display:flex;position:relative;}
+.rcontent{position:absolute;bottom:10px;padding:22px;width:100%;}
+.sliderflex{height:100%;display:flex;z-index:20;position:relative;}
+@media (min-width:800px){.sliderflex{padding:20px;gap:3rem;}.bannerku{height:320px;}}
+.hfull{border-radius:.25rem;width:100%;height:100%;}
+.fontbold{font-weight:600;font-size:20px;line-height:1.75rem;-webkit-line-clamp:2;display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;margin:5px 0 5px 0;}
+.htitle{align-items:center;display:flex;justify-content:space-between;}
+.htitle h2{margin:0;font-size:18px;font-weight:500;line-height:28px;color:#fff;flex:1 1;}
+.viewall{background-color:#28292c;border-radius:5px;padding-top:.25rem;padding-bottom:.25rem;padding-left:.75rem;padding-right:.35rem;font-size:12px;font-weight:500;line-height:18px;align-items:center;cursor:pointer;display:flex;justify-content:center;color:#b5b6bb;}
+.viewall:hover,.htitle:hover .viewall{background:#374151;}
+.listmanga{display:grid;grid-template-columns:repeat(auto-fill,148px);grid-gap:12px;white-space:nowrap;grid-auto-flow:column;overflow:auto;scrollbar-width:none;}
+.bs{float:left;width:14.25%;padding:0 6px;margin-bottom:15px;}
+.listmanga .bs{max-width:100%;vertical-align:top;width:148px;margin-bottom:15px;padding:0;}
+.limit{border-radius:4px;position:relative;display:block;overflow:hidden;padding-top:145%;background:#28292c;}
+.listmanga .limit{background-size:cover;background-repeat:no-repeat;border-radius:4px;display:grid;grid-template-rows:1fr auto;height:210px;margin-bottom:10px;overflow:hidden;position:relative;width:148px;padding-top:0;}
+.ply,.ply:before{position:absolute;top:0;height:100%;width:100%;transition:all .5s ease;}
+.ply{z-index:1;background:rgba(0,0,0,.5);opacity:0;}
+.ply:before{content:'';background-repeat:no-repeat;background-position:center;background-size:50px;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22.0795C11.7 22.0795 11.4 22.0095 11.15 21.8695C9.28 20.8495 5.99 19.7695 3.93 19.4995L3.64 19.4595C2.33 19.2995 1.25 18.0695 1.25 16.7395V4.65952C1.25 3.86952 1.56 3.14952 2.13 2.62952C2.7 2.10952 3.44 1.85952 4.22 1.92952C6.42 2.09952 9.74 3.19952 11.62 4.37952L11.86 4.51952C11.93 4.55952 12.08 4.55952 12.14 4.52952L12.3 4.42952C14.18 3.24952 17.5 2.12952 19.71 1.93952C19.73 1.93952 19.81 1.93952 19.83 1.93952C20.56 1.86952 21.31 2.12952 21.87 2.64952C22.44 3.16952 22.75 3.88952 22.75 4.67952V16.7495C22.75 18.0895 21.67 19.3095 20.35 19.4695L20.02 19.5095C17.96 19.7795 14.66 20.8695 12.83 21.8795C12.59 22.0195 12.3 22.0795 12 22.0795ZM3.98 3.41952C3.66 3.41952 3.37 3.52952 3.14 3.73952C2.89 3.96952 2.75 4.29952 2.75 4.65952V16.7395C2.75 17.3295 3.26 17.8995 3.83 17.9795L4.13 18.0195C6.38 18.3195 9.83 19.4495 11.83 20.5395C11.92 20.5795 12.05 20.5895 12.1 20.5695C14.1 19.4595 17.57 18.3195 19.83 18.0195L20.17 17.9795C20.74 17.9095 21.25 17.3295 21.25 16.7395V4.66952C21.25 4.29952 21.11 3.97952 20.86 3.73952C20.6 3.50952 20.27 3.39952 19.9 3.41952C19.88 3.41952 19.8 3.41952 19.78 3.41952C17.87 3.58952 14.79 4.61952 13.11 5.66952L12.95 5.77952C12.4 6.11952 11.62 6.11952 11.09 5.78952L10.85 5.64952C9.14 4.59952 6.06 3.57952 4.1 3.41952C4.06 3.41952 4.02 3.41952 3.98 3.41952Z M12 21.2383C11.59 21.2383 11.25 20.8983 11.25 20.4883V5.48828C11.25 5.07828 11.59 4.73828 12 4.73828C12.41 4.73828 12.75 5.07828 12.75 5.48828V20.4883C12.75 20.9083 12.41 21.2383 12 21.2383Z M7.75 9.23828H5.5C5.09 9.23828 4.75 8.89828 4.75 8.48828C4.75 8.07828 5.09 7.73828 5.5 7.73828H7.75C8.16 7.73828 8.5 8.07828 8.5 8.48828C8.5 8.89828 8.16 9.23828 7.75 9.23828Z M8.5 12.2383H5.5C5.09 12.2383 4.75 11.8983 4.75 11.4883C4.75 11.0783 5.09 10.7383 5.5 10.7383H8.5C8.91 10.7383 9.25 11.0783 9.25 11.4883C9.25 11.8983 8.91 12.2383 8.5 12.2383Z' fill='%23fff'/%3E%3C/svg%3E");}
+.bs:hover .ply{opacity:1;}
+.limit img{width:100%;height:100%;top:0;position:absolute;object-fit:;transition:all .15s ease-out;}
+.subItem{height:50px;margin-bottom:5px;}
+.char{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-bottom:3px;}
+.char a:visited{color:#d13030;}
+.char a{background:#28292c;color:#fff;display:inline-block;font-size:12px;font-weight:600;padding:0 7px;border-radius:5px;position:relative;}
+.char span{font-size:11px;font-weight:500;color:#999;float:right;margin-top:5px;}
+.char:hover span{color:#fff;}
+.type{background-repeat:no-repeat;background-size:contain;position:absolute;bottom:.375rem;right:.375rem;z-index:1;width:25px;height:17px;overflow:hidden;box-shadow:1px 1px 2px rgba(0,0,0,.5);}
+.type.Comic{display:none;}
+.type.Manga{background-image:url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5biulIBXJVQb_CPH4OVfnebG3jyc5ddbL8QH-h0LKQGGG_vnaGHKZh9HuhJgndUPGOfmhT_UztIoUXwowcN-E2s6q1qltkT3CnVkr3w8rraWm_Xe-eCgJJBLNEnAkm44bwp0eZbNhwipJZbjXyY6VMz4gYZM3O4L2P_1yLmevWX1VqzspgDQrSTt6Iw/s25/manga.png);}
+.type.Manhwa{background-image:url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZmEY033lv8ttwDh4JqkAsZpQm4ugZ4lvvXWATgnsEnKz9QHvQLUIFDCKjBcwFx2u64K9keDz_nz2IQFMX42id0XI3osO06jX2W0-UsrNQkJt_YxJ9pN0I72i7hWocwj5Y913359TeiLU42hwpbcwxhD8mI2_t6fjAjcJvY17wPRbxIjuC2yfntuykQg/s25/manhwa.png);}
+.type.Manhua{background-image:url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvyBBT7pF9dwR4xVHE2YBIrcJJ8tMn0KZfi9CgW0O-3_1LYqDit8z0Hui6_0klNO0Io9xrd9gaC8BPEbyT_YqGYJ28T1pNpdmycWeG-I7r20MlYiSXrsbA-qa8ZFdegaX9rwhCa0pY1c6brm0A0BXiFFooh94APPCko8SCgerxbcAtaEddQIHlNg584w/s25/manhua.png);}
+.hot{position:absolute;top:5px;right:5px;z-index:9;background:#fff;border-radius:50%;box-sizing:border-box;}
+.hot:before{content:'';background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.66 14.18C14.69 14.29 14.7 14.4 14.7 14.5C14.73 15.15 16.44 15.85 13.97 16.28C13.75 16.47 13.39 16.67 13.11 16.75C12.23 17.06 11.35 16.62 10.83 14.11C11.77 15.89 12.32 15.21 12.5 14.5C12.62 13.89 12.37 13.38 12.27 12.78C12.17 12.2 12.19 11.71 12.4 11.18C12.55 11.47 12.71 11.77 12.9 12C13.5 12.78 14.45 13.12 14.66 14.18M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12 6.5 2 12 2 22 6.5 22 12M17.16 12.56L17.06 12.36C16.9 12 16.45 11.38 14.45 11.38C16.27 11.15 16.05 10.94 15.85 10.74C15.32 10.27 14.73 9.94 14.22 9.45C13.05 8.31 12.79 6.44 13.54 5C12.79 5.18 12.14 5.58 11.58 6.03C9.55 7.65 8.75 10.5 9.71 12.95C9.74 13.03 9.77 13.11 9.77 13.21C9.77 13.38 9.65 13.53 9.5 13.6C9.31 13.67 9.13 13.63 9 13.5C8.93 13.46 8.9 13.42 8.87 13.37C8 12.26 7.84 10.66 8.43 9.39C7.12 10.45 6.41 12.24 6.5 13.92C6.56 14.31 6.6 14.7 6.74 15.09C6.85 15.56 7.06 16 7.3 16.44C8.14 17.78 9.61 18.75 11.19 18.94C12.87 19.15 14.67 18.85 15.96 17.7C17.4 16.4 17.9 14.33 17.16 12.56Z' fill='%23bd2828'/%3E%3C/svg%3E");width:30px;height:30px;background-repeat:no-repeat;box-sizing:border-box;padding:0;margin:-3px;display:block;}
+.colored{position:absolute;z-index:1;bottom:5px;left:5px;background:#ebcf04;color:rgba(0,0,0,0.7);font-weight:700;font-size:10px;padding:2px 5px;border-radius:3px;text-transform:uppercase;display:flex;}
+.colored:before{content:'';background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12px' height='12px' viewBox='0 0 24 24'%3E%3Cpath fill='%23463e00' d='M17.5 12a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 17.5 9a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-3-4A1.5 1.5 0 0 1 13 6.5A1.5 1.5 0 0 1 14.5 5A1.5 1.5 0 0 1 16 6.5A1.5 1.5 0 0 1 14.5 8m-5 0A1.5 1.5 0 0 1 8 6.5A1.5 1.5 0 0 1 9.5 5A1.5 1.5 0 0 1 11 6.5A1.5 1.5 0 0 1 9.5 8m-3 4A1.5 1.5 0 0 1 5 10.5A1.5 1.5 0 0 1 6.5 9A1.5 1.5 0 0 1 8 10.5A1.5 1.5 0 0 1 6.5 12M12 3a9 9 0 0 0-9 9a9 9 0 0 0 9 9a1.5 1.5 0 0 0 1.5-1.5c0-.39-.15-.74-.39-1c-.23-.27-.38-.62-.38-1a1.5 1.5 0 0 1 1.5-1.5H16a5 5 0 0 0 5-5c0-4.42-4.03-8-9-8'/%3E%3C/svg%3E");width:15px;height:15px;float:left;margin-right:3px;background-position:center;background-repeat:no-repeat;}
+.dtitle{border-radius:4px;font-size:12px;margin:8px 0;margin-bottom:5px;font-weight:400;line-height:16px;overflow:hidden;text-overflow:ellipsis;text-align:center;white-space:nowrap;}
+@media only screen and (max-width:680px){.bs{width:33.33333333%;}}
+@media only screen and (max-width:480px){.bs{width:50%;}}
+@media (min-width:768px){.dtitle{font-size:13px;font-weight:600;line-height:20px;}}
+.dhentry{display:flex;flex-direction:column;}
+@media (min-width:600px){.dhentry{float:left;min-width:360px;width:360px;margin-right:10px;}}
+@media (min-width:768px){.dhentry{width:35%;float:left;padding:0;}}
+@media (min-width:960px){.dhentry{float:left;margin-right:20px;min-width:416px;width:416px;}}
+.cover{background-color:#28292c;border-radius:10px;height:0;overflow:hidden;padding-top:100%;position:relative;width:100%;background-size:cover;background-repeat:no-repeat;}
+.dinfo{display:flex;flex-direction:column;width:100%;}
+.dtag{align-items:center;display:flex;margin-bottom:5px;}
+.tagg{color:#83868e;font-size:12px;font-weight:400;line-height:18px;}
+.entry-title{font-size:24px;font-weight:600;line-height:32px;color:#fff;}
+.mangainfo{cursor:pointer;position:relative;width:100%;}
+.desc{-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;font-size:12px;font-weight:400;line-height:19px;color:#cdcfd2;margin-right:40px;margin-bottom:10px;overflow:hidden;}
+.desc:after{content:'';position:absolute;right:7px;top:15px;width:12px;height:12px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAAAnNCSVQICFXsRgQAAAACYktHRAAAqo0jMgAAAF96VFh0UmF3IHByb2ZpbGUgdHlwZSBBUFAxAAAImeNKT81LLcpMVigoyk/LzEnlUgADYxMuE0sTS6NEAwMDCwMIMDQwMDYEkkZAtjlUKNEABZiYm6UBoblZspkpiM8FAE+6FWgbLdiMAAAAiElEQVRIie3MQRWAIBBFUSIYhUhGMALNNAJNjPDcoKKizgwsecuZ869zvV6zGFjw6pVnZrgyEVh1FJ4ViAeVGHRUYsgoRs6EVMYATPs56KgbE/KXgvpgNNQPI6UEjIQSMn+UgvmilMwbZWBKlJEpUFbmQdmZF8rCFCgrc6NqmIyqZRLVgun1BG2OvLubtiIWBwAAAABJRU5ErkJggg==) no-repeat center;background-size:contain;}
+.desc.active:after{background:url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhd-K6vz7y2NADyREG9V3dC3l8lCu09KBE5xS4US9vF-3E38SBWkMNd5XMB0L5jlrVIddOpJdSYg2b540Gg7Ax81B22xojgRbRvtWyBLkp2WbutEKlGIDx0BlW0XDVo9tora9pB1f7m9ef7Wz7DDru-KC4ZdFRruzRZBhbGl6o9ngHVh8UQez4bPAly4K58/s36/arrow-up_12x12.png) no-repeat center;background-size:contain;}
+.infotable > div{display:flex;margin-bottom:10px;}
+.infotable > div b,.infotable > div span{font-size:12px;font-weight:400;line-height:20px;}
+.infotable > div b{-webkit-box-orient:vertical;-webkit-line-clamp:2;color:#6c6e76;display:-webkit-box;max-height:40px;overflow:hidden;text-overflow:ellipsis;width:115px;}
+.infotable > div span{color:#cdcfd2;flex:1 1;}
+.dmore{padding-left:5px;flex-direction:row;}
+.dmore,.dcon{align-items:center;display:flex;}
+.dcon{transition:all 300ms ease;cursor:pointer;flex-direction:column;}
+.dcot{font-size:10px;font-weight:400;line-height:15px;color:#83868e;display:flex;flex:1 1;flex-direction:column;margin-top:8px;overflow:hidden;}
+.dcon.rate:before{content:'';background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABsCAMAAAC4uKf/AAAAA3NCSVQICAjb4U/gAAAAIVBMVEVHcEzLz9HMztHNz9LNz9LPz8/Nz9LNz9LNz9LO0NLNz9K16+wOAAAACnRSTlMAPoK/3Rqi72dPX4PZZgAAAAFiS0dEAIgFHUgAAABfelRYdFJhdyBwcm9maWxlIHR5cGUgQVBQMQAACJnjSk/NSy3KTFYoKMpPy8xJ5VIAA2MTLhNLE0ujRAMDAwsDCDA0MDA2BJJGQLY5VCjRAAWYmJulAaG5WbKZKYjPBQBPuhVoGy3YjAAAAYxJREFUaIHtmMGygyAMABWDqP//wW8AtdLaV1kNp+ylzrR2BZIQ7DrDMAzDMAzjDO/CIqNv4prDEpG+gatfVoL+2LxsssWpy5IruDiVQdvl0ph8/lSexym5pvVCV+bDtlb6I8vBIfFyVF+zIbn8djlounJw5FyO8zkquuZDcnnlPMsLto4mlZFZ2SVrAM6vCdXAFeVQN/JzcOwTpxr5/Vvl1Yz8IjgimpFfBEe3Rr6MR9z00BKWwdEdNtCCRzqFvdTvzKcy2CmcPHlRLty5jHUKnzIpvnfyQTj5GZX9jvMpvE+2oizfBJIv3Te6Fbn4J7GsgBqWZHtoXS0XU3GXsqxvKWs6srRm1S4ouxpIT8hoX4JktC9BMtoqINlwpzbWyujuTWQ9rMNIBlOayWBKMxnu7oCMHzWAjB81gIx3/0BGUxrJeENeL8MpTWQ4pYkMpzSRwV0aye68PaiW3Xl7UC2DzfBLVrTf4v5lwSn97WT5A3rGJjKhh1wgw656mbg2r/kNwzAMwzAMwzCa8QeH5CRPdZjmowAAAABJRU5ErkJggg==");height:36px;width:36px;display:block;background-size:contain;background-repeat:no-repeat;background-position:center;}
+.dcon.rated:before{content:'';background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABsCAQAAAAlb59GAAAAAnNCSVQICFXsRgQAAAACYktHRAAAqo0jMgAAAF96VFh0UmF3IHByb2ZpbGUgdHlwZSBBUFAxAAAImeNKT81LLcpMVigoyk/LzEnlUgADYxMuE0sTS6NEAwMDCwMIMDQwMDYEkkZAtjlUKNEABZiYm6UBoblZspkpiM8FAE+6FWgbLdiMAAAB6klEQVR4nO2a3VmDQBBFb6wgJVBC7CBWYDrQDixBU4F2YAmWEKwgWkHoAFPB9cEHI0ICw67MxHteYdg937CzPwAIIYQQQgghhBBCCNEGCz6xJrnjM4upe5MMrljzmx0XU/coCVywSc351L0aDQvufomRD1P3azTctmiR9dT9GgnvW7VIhi4hvO3UiizG4kctbBK1fHQUjfhjjC9HtMhNvpYv8j0a4D1WR2/Y52w9G1wdzRYZcx47Mbq+uM7XfqZXkXNsUJy8Ld6ryMeT2SLjFfsjK41DohX7lnV8OxmLfYYxxgIvPW+tUrd9yCz1A7lF3w3kG946r+2xxeusStKlFPQcXX3xcoDAu6Ra5F8eIHDZaHp5cG2TXIysbVnLulZMwrx3MfqBfzFgwZvhQRHEgNvhITHElsMXXzHE0GNB3SCK2Nlm7GNoQBCxWffiq4MYYuXwkBhi78NDYogZdm4xxM40Y5VlXxZBzJCvGGKlJSiC2OA5DAghNistUf7FSluYfzFT6YggZjxW9S92phkzTc6AfzFjvvyLldZA72KmyRlwL2abnAHvYqU91LeYuXR4FxvxzdO32JlmzDw5A77FyjHBfsUqrMeEexWrcDXu07pHsQprXDr6Y0AIIYQQQgghhBBCCCGEEOIf8gmPQeo4m7YaBQAAAABJRU5ErkJggg==");height:36px;width:36px;display:block;background-size:contain;background-repeat:no-repeat;background-position:center;}
+.dcon.share:before{content:'';background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABsCAMAAAC4uKf/AAAAA3NCSVQICAjb4U/gAAAAElBMVEVHcEzLzdHNz9PMz9PNz9LNz9LVKvFxAAAABXRSTlMAgKJE33e3fMAAAAABYktHRACIBR1IAAAAX3pUWHRSYXcgcHJvZmlsZSB0eXBlIEFQUDEAAAiZ40pPzUstykxWKCjKT8vMSeVSAANjEy4TSxNLo0QDAwMLAwgwNDAwNgSSRkC2OVQo0QAFmJibpQGhuVmymSmIzwUAT7oVaBst2IwAAADBSURBVGiB7dhZDoMwDEXRDHT/Wy5SaQsotmjIc6d7vy2OAlICpERERERERH9Xzc28gdqN5Uur4g1k+2pd2BSJ/czKjo2WQKwErqwE3sabVUKwxUoR2N2KwB5WAPa09NjKkmNrS41tLDG2tbTYzpJieysNOKkPWyfzsNGWhw23HGy8ZWMCy8QUloVJLAPTWG2saixjZVliWc8sG9Y0N35vNDbAkLcrMDAwMDCwz8deC+zNmPHb1qv/Y5CIiIiIiL62KyY3EA3AhlPOAAAAAElFTkSuQmCC");height:36px;width:36px;display:block;background-size:contain;background-repeat:no-repeat;background-position:center;}
+.dside{display:flex;flex-direction:column;}
+.tilchap{align-items:center;display:flex;flex-direction:row;justify-content:space-between;padding:10px 0;}
+.numchap{font-size:15px;font-weight:600;line-height:20px;margin-top:1px;}
+.sortchap{align-items:center;cursor:pointer;display:flex;flex-direction:row;}
+.sortchap::before{content:"";display:block;width:14px;height:14px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABHNCSVQICAgIfAhkiAAAAF96VFh0UmF3IHByb2ZpbGUgdHlwZSBBUFAxAAAImeNKT81LLcpMVigoyk/LzEnlUgADYxMuE0sTS6NEAwMDCwMIMDQwMDYEkkZAtjlUKNEABZiYm6UBoblZspkpiM8FAE+6FWgbLdiMAAAA7ElEQVQokZ2SsUoDQRRFz0tWAlorWMXFP/AT8gdb2VhZuxMFNwErsUgh2ExhaWVjbWMh2FkIfodF/IEp9Fo4A5vFjCEXHo97h8e77zImiXXQ6/Ay1v+QlKqU9BmrbOlI4qSevLd52jgEnoE34BV4AfYXNhgHbVrEfg7cADuRPwGnQL3MaRp0gIDLyG8By52YrP4VbTbubqoro8g9Nk2zFYIden99lzTnJseDgR6ygyFsbMq+zurxdA+gHk+vMKtCKB6zVr2fzU39EVBFqTL1R7/64pfbjf2jLTp3sY1936PekfezOUB3cGWsneoPoCJjiWWb5MEAAAAASUVORK5CYII=);background-size:contain;background-repeat:no-repeat;background-position:center;}
+.sortchap.active::before{content:"";width:14px;height:14px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABHNCSVQICAgIfAhkiAAAAF96VFh0UmF3IHByb2ZpbGUgdHlwZSBBUFAxAAAImeNKT81LLcpMVigoyk/LzEnlUgADYxMuE0sTS6NEAwMDCwMIMDQwMDYEkkZAtjlUKNEABZiYm6UBoblZspkpiM8FAE+6FWgbLdiMAAAA0klEQVQokaWRMU4CURRFz30zFfS2MhtwEbACeitqfoSEiS2hk8RCrOzdgY0VGyAuwMIVsAWSS8GQjIaBMN7u3P9P/sv7sk2bRB1SKouUyuIqMaWyIGJDxKZB/qqDbDMez26VZWvMt+Wd0J3swWq1/KndNaAj5ACKbIZ4Bm6EQHzamgCpaVTZRpJsOz08zgFeX57mx67pxQDwidWe6uqJc4f/EbvA6E83Arr5BbEDTIFexQtgCHxcErdAH1hXPKx4+0vMI387I78D9xUfvqNNWm91D6+yRQzS9HU4AAAAAElFTkSuQmCC);background-size:contain;background-repeat:no-repeat;background-position:center;}
+.sortt{font-size:14px;font-weight:400;line-height:21px;color:#9dafbd}
+.chlist{align-items:center;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:row;margin:2px 0;padding:7px 0;position:relative;width:100%;}
+.chapter .chlist{padding:7px 16px;}
+.chapbox{background-color:#28292c;overflow:hidden;position:relative;}
+.chapbox,.chapbox img{border-radius:4px;height:72px;width:72px;}
+.chnum{font-size:14px;font-weight:400;line-height:21px;}
+.chdate{font-size:10px;font-weight:400;line-height:16px;color:#83868e;}
+.tablang::before,.flagch::after{content:"";display:block;width:18px;height:18px;background-image:url("data:image/svg+xml,%3Csvg%20id%3D%22flag-icons-id%22%20viewBox%3D%220%200%20640%20480%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M0%200h640v240H0Z%22%20fill%3D%22%23e70011%22%2F%3E%3Cpath%20d%3D%22M0%20240h640v240H0Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E");background-size:contain;background-repeat:no-repeat;background-position:center;}
+.tablang.english::before,.flagch.english::after{background-image:url("data:image/svg+xml,%3Csvg%20id%3D%22flag-icons-gb%22%20viewBox%3D%220%200%20640%20480%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M0%200h640v480H0z%22%20fill%3D%22%23012169%22%2F%3E%3Cpath%20d%3D%22m75%200%20244%20181L562%200h78v62L400%20241l240%20178v61h-80L320%20301%2081%20480H0v-60l239-178L0%2064V0z%22%20fill%3D%22%23FFF%22%2F%3E%3Cpath%20d%3D%22m424%20281%20216%20159v40L369%20281zm-184%2020%206%2035L54%20480H0zM640%200v3L391%20191l2-44L590%200zM0%200l239%20176h-60L0%2042z%22%20fill%3D%22%23C8102E%22%2F%3E%3Cpath%20d%3D%22M241%200v480h160V0zM0%20160v160h640V160z%22%20fill%3D%22%23FFF%22%2F%3E%3Cpath%20d%3D%22M0%20193v96h640v-96zM273%200v480h96V0z%22%20fill%3D%22%23C8102E%22%2F%3E%3C%2Fsvg%3E");}
+.tablang.japan::before,.flagch.japan::after{background-image:url("data:image/svg+xml,%3Csvg%20id%3D%22flag-icons-jp%22%20viewBox%3D%220%200%20640%20480%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath%20id%3D%22jp-a%22%3E%3Cpath%20d%3D%22M-88%2032h640v480H-88z%22%20fill-opacity%3D%22.7%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg%20clip-path%3D%22url(%23jp-a)%22%20fill-rule%3D%22evenodd%22%20stroke-width%3D%221pt%22%20transform%3D%22translate(88%20-32)%22%3E%3Cpath%20d%3D%22M-128%2032h720v480h-720z%22%20fill%3D%22%23fff%22%2F%3E%3Ccircle%20cx%3D%22523.1%22%20cy%3D%22344.1%22%20fill%3D%22%23bc002d%22%20r%3D%22194.9%22%20transform%3D%22translate(-168.4%208.6)scale(.76554)%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");}
+.tablang.korea::before,.flagch.korea::after{background-image:url("data:image/svg+xml,%3Csvg%20id%3D%22flag-icons-kr%22%20viewBox%3D%220%200%20640%20480%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cdefs%3E%3CclipPath%20id%3D%22kr-a%22%3E%3Cpath%20d%3D%22M-95.8-.4h682.7v512H-95.8z%22%20fill-opacity%3D%22.7%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg%20clip-path%3D%22url(%23kr-a)%22%20fill-rule%3D%22evenodd%22%20transform%3D%22translate(89.8%20.4)scale(.9375)%22%3E%3Cpath%20d%3D%22M-95.8-.4H587v512H-95.8Z%22%20fill%3D%22%23fff%22%2F%3E%3Cg%20transform%3D%22rotate(-56.3%20361.6%20-101.3)scale(10.66667)%22%3E%3Cg%20id%3D%22kr-c%22%3E%3Cpath%20d%3D%22M-6-26H6v2H-6Zm0%203H6v2H-6Zm0%203H6v2H-6Z%22%20fill%3D%22%23000001%22%20id%3D%22kr-b%22%2F%3E%3Cuse%20height%3D%22100%25%22%20width%3D%22100%25%22%20xlink%3Ahref%3D%22%23kr-b%22%20y%3D%2244%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22M0%2017v10%22%20stroke%3D%22%23fff%22%2F%3E%3Cpath%20d%3D%22M0-12a12%2012%200%200%201%200%2024Z%22%20fill%3D%22%23cd2e3a%22%2F%3E%3Cpath%20d%3D%22M0-12a12%2012%200%200%200%200%2024A6%206%200%200%200%200%200Z%22%20fill%3D%22%230047a0%22%2F%3E%3Ccircle%20cy%3D%22-6%22%20fill%3D%22%23cd2e3a%22%20r%3D%226%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22rotate(-123.7%20191.2%2062.2)scale(10.66667)%22%3E%3Cuse%20height%3D%22100%25%22%20width%3D%22100%25%22%20xlink%3Ahref%3D%22%23kr-c%22%2F%3E%3Cpath%20d%3D%22M0-23.5v3M0%2017v3.5m0%203v3%22%20stroke%3D%22%23fff%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");}
+.tablang.china::before,.flagch.china::after{background-image:url("data:image/svg+xml,%3Csvg%20id%3D%22flag-icons-cn%22%20viewBox%3D%220%200%20640%20480%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cdefs%3E%3Cpath%20d%3D%22M-.6.8%200-1%20.6.8-1-.3h2z%22%20fill%3D%22%23ff0%22%20id%3D%22cn-a%22%2F%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M0%200h640v480H0z%22%20fill%3D%22%23ee1c25%22%2F%3E%3Cuse%20height%3D%2220%22%20transform%3D%22matrix(71.9991%200%200%2072%20120%20120)%22%20width%3D%2230%22%20xlink%3Ahref%3D%22%23cn-a%22%2F%3E%3Cuse%20height%3D%2220%22%20transform%3D%22matrix(-12.33562%20-20.5871%2020.58684%20-12.33577%20240.3%2048)%22%20width%3D%2230%22%20xlink%3Ahref%3D%22%23cn-a%22%2F%3E%3Cuse%20height%3D%2220%22%20transform%3D%22matrix(-3.38573%20-23.75998%2023.75968%20-3.38578%20288%2095.8)%22%20width%3D%2230%22%20xlink%3Ahref%3D%22%23cn-a%22%2F%3E%3Cuse%20height%3D%2220%22%20transform%3D%22matrix(6.5991%20-23.0749%2023.0746%206.59919%20288%20168)%22%20width%3D%2230%22%20xlink%3Ahref%3D%22%23cn-a%22%2F%3E%3Cuse%20height%3D%2220%22%20transform%3D%22matrix(14.9991%20-18.73557%2018.73533%2014.99929%20240%20216)%22%20width%3D%2230%22%20xlink%3Ahref%3D%22%23cn-a%22%2F%3E%3C%2Fsvg%3E");}
+.tabs{display:flex;overflow-x:auto;white-space:nowrap;scrollbar-width:none;margin-bottom:5px;}
+.tablang{flex:0 0 auto;padding:4px 10px;cursor:pointer;border-radius:4px;background-color:#28292c;transition:background-color 0.3s ease;display:flex;justify-content:center;align-items:center;font-size:12px;}
+.tablang::before{margin-right:7px;}
+.tablang.active{background-color:#007bff;/* Warna latar belakang tab aktif */
+  color:white;/* Warna teks tab aktif */;}
+.seemore{border-bottom:1px solid hsla(0,0%,100%,.08);align-items:center;cursor:pointer;display:flex;flex-direction:row;justify-content:center;padding:10px 0;}
+.seemore::after{content:"";display:block;width:12px;height:12px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAAAnNCSVQICFXsRgQAAAACYktHRAAAqo0jMgAAAF96VFh0UmF3IHByb2ZpbGUgdHlwZSBBUFAxAAAImeNKT81LLcpMVigoyk/LzEnlUgADYxMuE0sTS6NEAwMDCwMIMDQwMDYEkkZAtjlUKNEABZiYm6UBoblZspkpiM8FAE+6FWgbLdiMAAAAiElEQVRIie3MQRWAIBBFUSIYhUhGMALNNAJNjPDcoKKizgwsecuZ869zvV6zGFjw6pVnZrgyEVh1FJ4ViAeVGHRUYsgoRs6EVMYATPs56KgbE/KXgvpgNNQPI6UEjIQSMn+UgvmilMwbZWBKlJEpUFbmQdmZF8rCFCgrc6NqmIyqZRLVgun1BG2OvLubtiIWBwAAAABJRU5ErkJggg==);background-size:contain;background-repeat:no-repeat;background-position:center;}
+.titlemore{font-size:13px;font-weight:500;line-height:19.5px;}
+.rtitle{font-size:15px;font-weight:500;line-height:22.5px;}
+.tags{display:flex;flex-direction:row;flex-wrap:wrap;white-space:nowrap;}
+.tags a{background-color:#28292c;border-radius:4px;color:#b5b6bb;margin-bottom:7px;margin-right:6px;padding:5.5px 11px;font-size:12px;font-weight:400;line-height:18px;}
+@media (min-width:600px){.dside{padding-left:15px;}.rtitle{font-size:16px;font-weight:500;line-height:24px;}}
+.navtop{height:56px;background-color:#000;left:0;overflow:hidden;position:fixed;transition:transform .2s;width:100%;z-index:10000;top:0;}
+.navflex{height:100%;margin:auto;max-width:1170px;padding:0 16px;}
+.navflex,.navi,.nextprev,.navbflex,#navi{align-items:center;display:flex;flex-direction:row;}
+.navtitle{font-size:16px;font-weight:500;line-height:24px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.settp{position:relative;align-items:center;display:flex;flex-direction:row;margin-left:auto;background:#1c1d21;padding:6px;border-radius:20px;cursor:pointer;}
+.settp.download{color:red;}
+.navbot{height:56px;background-color:#000;left:0;overflow:hidden;position:fixed;transition:transform .2s;width:100%;z-index:10000;bottom:0;}
+.navbflex{padding:0 16px;height:100%;margin:auto;max-width:1170px;justify-content:space-between;position:absolute;}
+.navbtitle{align-items:center;cursor:pointer;display:flex;flex-direction:row;}
+.navbtitle::before{content:"";display:block;width:24px;height:24px;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABIAgMAAAAog1vUAAAADFBMVEUAAAD///////////84wDuoAAAAA3RSTlMAgEC3KR0FAAAAMUlEQVQ4y2MYqYApNIGBMxQOGoBCjP8vMLD/hwMH6gph2jhiAXrg0FpoxILRRD5QAABm2dMZLWL8RAAAAABJRU5ErkJggg==");background-size:contain;background-repeat:no-repeat;background-position:center;}
+@media (min-width:768px){.navtitle{max-width:none;}.navtop,.navbot{height:70px;}}
+.chtitle{font-size:16px;line-height:24px;font-weight:500;}
+#navi{width:30px;cursor:pointer;justify-content:center;padding:12px 0;}
+.nextprev{padding:0 16px;}
+.nextprev{height:100%;margin:auto;max-width:1170px;justify-content:space-between;}
+.nextprev a{display:flex;align-items:center;justify-content:center;}
+.nextprev a span{display:none;}
+#prev-chapter::before{content:"";display:block;width:30px;height:30px;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaBAMAAADKhlwxAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMA3yCAEO+gMNBgX5CvcG+Lpp5NAAAA2UlEQVRYw+2WzQ0BURSFb4wQ7DSADiaZAljqwJIO2GhA7OmADuhECUoQmRBEcr27sj0nb95mcs/6y5eXvPsnHo+n8hQMnGlO0GMtcbilqmeYXgb6yaj1DcJNU+sepKcGz1D1LsCPVQp1YxDgO6oembpPqYe1Vq9NvQXh9jzAr0kKddfUX1R9MvUCVSvTMjdGnRlc4lMhJOfUJB3/knj5VZmB1qF+Rw7495j8X1VExVLdwMk3QnYxNSFcDm4SfkvFyy+GH6nN/UlzFUgPa1D+muEvJSnE4/FUkx/wseS1aEh5MgAAAABJRU5ErkJggg==");background-size:contain;background-repeat:no-repeat;background-position:center;}
+#next-chapter::after{content:"";display:block;width:30px;height:30px;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaBAMAAADKhlwxAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMA3yCAEO+gMNDPYF+Qr3DKLJr5AAAA6ElEQVRYw2MYBaNgFFAFMBuQotr+MylG//9PguHn////Q7Ritv9AkECsai6Q6m9EG74epPwKsarZ44GqfzoQq7wUZPgUGhmuCDJciFjVTPJA1R8VRg1HM3w+UPXXAmKVe4IMDydWNQtphvuCDI8mOuXmg5RvICkT/SYhgwLBA+IzPxAQX1rYg5QbUGY45aoRLqGJ0fngECQldn6RZPQCUlJVFLEptp+UFOsBzg0UGU15LkaUEMPa6EKw0aTUJD8cSKmlWmhi9H6Q0SlEKuYG19zUbhUgCrRvlLVmKG8pIVpho2AUjAKqAwBkW+WB1/KxFgAAAABJRU5ErkJggg==");background-size:contain;background-repeat:no-repeat;background-position:center;}
+.image-gallery{margin:auto;position:relative;width:100%;max-width:700px;min-height:100vh;}
+.image-gallery img{max-width:100%;margin:0 auto;inset:0;color:transparent;clear:both;text-align:center;transition:opacity 0.5s ease-in-out;}
+.dside.popup{padding-left:15px;padding-right:15px;opacity:0;visibility:hidden;transform:translateY(100%);transition:all .3s ease;display:;background-color:#1c1d21;overflow:hidden;position:fixed;border-top-left-radius:24px;border-top-right-radius:24px;bottom:0;width:100%;z-index:999999;}
+.close{cursor:pointer;position:relative;right:0;top:13px;height:55px;width:100%;display:flex;justify-content:right;}
+.close:before{content:'';background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAAS1BMVEUAAAAuLjEtLTAwMDAuLjAwMDAuLjEtLTAwMDAtLTAuLjAtLTEuLjAwMDAuLjAtLTIuLjAuLjMsLDIuLjH///+xsbI7Oz7Y2NmXl5ijwhEAAAAAE3RSTlMA32AQcCDvv0CgkK/PMLCPUG+QWk7QGwAAAilJREFUaN7V2ttyozAQBNAZSUhcbW8aHP//ly6VZItyhUUX1E7lPPph2hqBkIUljW3d2zCqx8prGN5ca6UWazrFjrEzTYXqLuBAOJnRBkQNt/Ivr0iiRkr88VjRIlrFihbRDMjWZUy32brDGIS9otDVJrVHUUwT2jR5nKBTtP04yUQufpzmyPUBF+0PrUsTKpki1+dpvtm9vxTV6N4dd0VFV9IEb8zBBHCmoUNlA6lBm/YpQFGdkgcAOO4AAG+5AwDc9wGQZuEGiu1CuoAkfN3EOHZ/4D8edxyzKVN8f58X7Frm93vKNIdY/Xle9uvPsYTw0aF4/TVht348wUY79Jg/Lbv1Vw8cMbF1dCu0RD7e160BI/IT4vW3e80C+Qnx+tsktEhPyK+PVhwyErLrw0mPnITc+ujlgqyEzPq4SEBeQl59jKLIS8irDxWPkoQFibwABQkLkgkKEhbgVwaUtYg+yfzLdOTeaIG+VNAXO/pyTX/g8B+ZosyH/kjftrxi42WZW8eGv/ldOc72fTtQsLwfII18CCC5yKcWJDf+z9gvDhRmO03zIFAR7hDMa45zeBeSkScDKuvkWeNRlTb0Y81velTUv+ZomTYN2rCP91/8gqL2kuFEqAmO/porYlKc4Keff9UoYnsU6q2kMYoC3kiypkO2y9YexiC0lRUtwjtZ0SLUWSl0GxAVWjmjMeGw+vblz2R0I3ZoZ6zUYlvXD+Hf33/GoU/++89fRQAXz2E3dL8AAAAASUVORK5CYII=");height:32px;width:32px;display:block;background-size:contain;background-repeat:no-repeat;background-position:center;}
+.chapter #chapterlist{margin-left:-15px;margin-right:-15px;max-height:calc(100vh - 296px);overflow-y:auto;overscroll-behavior:contain;scrollbar-color:#55575e #17171a;}
+.backpopup{background:#000;top:0;height:150%;position:fixed;width:100%;z-index:100000;display:none;}
+@media (min-width:768px){.nextprev a span{display:block;}[data-post="chapter"] #chapterlist{max-height:430px;}.boxpopup{align-items:center;bottom:0;display:flex;flex-direction:column;justify-content:end;top:0;width:100%;z-index:10000;}.dside.popup{overflow:hidden;}.dside.popup{border:1px solid hsla(0,0%,100%,.1);border-radius:24px;bottom:75px;width:390px;}}
+.popitem{position:relative;overflow:hidden;}
+.poplist{margin-right:16px;align-items:center;display:flex;float:none;margin-bottom:15px;}
+.popthumb{height:106px;min-width:74px;width:74px;border-radius:4px;overflow:hidden;position:relative;}
+.popcount{font-size:22px;font-weight:600;line-height:33px;margin:0 21px;text-align:center;}
+.popinfo{display:flex;flex-direction:column;}
+.poptitle{font-size:14px;font-weight:500;line-height:19px;color:#fff;}
+.popgnr{font-size:11px;font-weight:400;line-height:16px;color:#6c6e76;}
+@media (min-width:768px){.popthumb{height:128px;min-width:90px;width:90px;}.poplist{margin-right:0;min-width:336px;width:calc(100% / 3);float:left;}.poptitle{font-size:15px;font-weight:500;line-height:20px;}.popgnr{font-size:13px;font-weight:400;line-height:20px;}}
+.slidenav{align-items:center;background-color:rgba(0,0,0,.7);border:1px solid hsla(0,0%,100%,.2);border-radius:50%;cursor:pointer;display:flex;height:40px;justify-content:center;position:absolute;transition:opacity .3s cubic-bezier(.15,.46,.28,1);width:40px;z-index:10;opacity:1;top:150px;}
+.slidenav.left{left:-20px;transform:translateY(-50%) rotate(180deg);}
+.slidenav.right{right:-20px;transform:translateY(-50%);}
+.slidenav:before{content:'';display:inline-block;width:7px;height:12px;background-size:contain;background-repeat:no-repeat;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+.slidenav.left:before{background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAjBAMAAACJGlwVAAAAJ1BMVEUAAAD///////////////////////////////////////////////+uPUo5AAAADHRSTlMAoN+AIDCPcBDvUEC/QitlAAAASklEQVQY02NgCGWAA7YzCXB2zJmDSOwzAjA24xkkCZnBKtEAZbLonDkJE3Y6c+Y4QviMAUL4MJ2FmRDCDHsQwgw9CGEGLqUCGBMAg+xHlpIvxNsAAAAASUVORK5CYII=');}
+.slidenav.right:before{background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAjBAMAAACJGlwVAAAAJ1BMVEUAAAD///////////////////////////////////////////////+uPUo5AAAADHRSTlMAoN+AIDCPcBDvUEC/QitlAAAASklEQVQY02NgCGWAA7YzCXB2zJmDSOwzAjA24xkkCZnBKtEAZbLonDkJE3Y6c+Y4QviMAUL4MJ2FmRDCDHsQwgw9CGEGLqUCGBMAg+xHlpIvxNsAAAAASUVORK5CYII=');}
+@media (max-width:768px){.slidenav{display:none;}}
+.hpage{clear:both;width:auto;line-height:17px;position:relative;display:block;overflow:visible;margin:10px 0 20px 0;padding:0;text-align:center;}
+.hpage a{position:relative;background:#111;display:inline-block;font-size:13px;color:#fff;margin:0 4px 0 0;padding:7px 13px;text-decoration:none;border-radius:3px;transition:all .3s;}
+.hpage svg{display:inline-block;}
+.keywor{color:#cdcfd2;text-transform:lowercase;background-color:#28292c;border-radius:5px;cursor:pointer;justify-content:space-between;padding:9px 12px;display:flex;font-size:12px;font-weight:400;line-height:18px;}
+.keywor span{margin-right:10px;}
+.keywor span.active{color:red;}
+footer{position:relative;overflow:hidden;padding:30px;}
+.footer-container{max-width:1100px;margin:auto;}
+.footer-copyright{display:flex;flex-wrap:wrap;text-align:center;align-items:center;justify-content:space-between;}
+.footer-copyright p{margin:0;}
+.footer-copyright .heart{color:#ff0000;}
+@media screen and (max-width:800px){.home header{transition:background 0.5s ease;position:fixed;top:0;left:0;right:0;z-index:99999;}#main > .slider-wrapper{height:260px;}.footer-container{padding:0 12px;}.footer-copyright{justify-content:center;}}
+.err{align-items:center;display:flex;flex-direction:column;height:100vh;justify-content:center;}
+.err1,.err2{text-align:center;white-space:pre-line;}
+.err1{font-size:30px;font-weight:600;line-height:40px;}
+.err2{font-size:15px;font-weight:400;line-height:22.5px;color:#83868e;opacity:.8;}
+.err3{font-size:16px;font-weight:600;line-height:24px;background-color:#676bff;border-radius:6px;color:#fff;padding:10px 30px;}
+.comments{background-color:#28292c;padding:10px;border-radius:5px;text-align:center;cursor:pointer;}
+#hasil{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:20px;}
+#hasil a{display:flex;align-items:center;text-decoration:none;color:inherit;border:1px solid hsla(0,0%,100%,.08);border-radius:10px;overflow:hidden;transition:box-shadow 0.3s ease;}
+#hasil li{display:flex;flex-direction:column;padding:10px;flex-grow:1;}
+#hasil li p:first-child{font-size:16px;font-weight:bold;margin:0 0 5px 0;}
+#hasil li p:last-child{font-size:14px;color:#555;margin:0;}
+#hasil img{width:100px;height:auto;margin-left:10px;border-radius:10px;padding:10px;}
+#blog-pager{clear:both;overflow:hidden;text-align:center;font-size:14px;margin-top:20px;}
+.blog-pager a{display:inline-block;padding:5px 10px;border-radius:4px;color:#fff;background:#28292c;}
+
+/**
+ * Swiper 4.5.1
+ * Most modern mobile touch slider and framework with hardware accelerated transitions
+ * http://www.idangero.us/swiper/
+ *
+ * Copyright 2014-2019 Vladimir Kharlampidi
+ *
+ * Released under the MIT License
+ *
+ * Released on: September 13, 2019
+ */
+.swiper-container{margin-left:auto;margin-right:auto;position:relative;overflow:hidden;list-style:none;padding:0;z-index:1}.swiper-container-no-flexbox .swiper-slide{float:left}.swiper-container-vertical>.swiper-wrapper{-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}.swiper-wrapper{position:relative;width:100%;height:100%;z-index:1;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-transition-property:-webkit-transform;transition-property:-webkit-transform;-o-transition-property:transform;transition-property:transform;transition-property:transform,-webkit-transform;-webkit-box-sizing:content-box;box-sizing:content-box}.swiper-container-android .swiper-slide,.swiper-wrapper{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}.swiper-container-multirow>.swiper-wrapper{-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.swiper-container-free-mode>.swiper-wrapper{-webkit-transition-timing-function:ease-out;-o-transition-timing-function:ease-out;transition-timing-function:ease-out;margin:0 auto}.swiper-slide{-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;width:100%;height:100%;position:relative;-webkit-transition-property:-webkit-transform;transition-property:-webkit-transform;-o-transition-property:transform;transition-property:transform;transition-property:transform,-webkit-transform}.swiper-slide-invisible-blank{visibility:hidden}.swiper-container-autoheight,.swiper-container-autoheight .swiper-slide{height:auto}.swiper-container-autoheight .swiper-wrapper{-webkit-box-align:start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start;-webkit-transition-property:height,-webkit-transform;transition-property:height,-webkit-transform;-o-transition-property:transform,height;transition-property:transform,height;transition-property:transform,height,-webkit-transform}.swiper-container-3d{-webkit-perspective:1200px;perspective:1200px}.swiper-container-3d .swiper-cube-shadow,.swiper-container-3d .swiper-slide,.swiper-container-3d .swiper-slide-shadow-bottom,.swiper-container-3d .swiper-slide-shadow-left,.swiper-container-3d .swiper-slide-shadow-right,.swiper-container-3d .swiper-slide-shadow-top,.swiper-container-3d .swiper-wrapper{-webkit-transform-style:preserve-3d;transform-style:preserve-3d}.swiper-container-3d .swiper-slide-shadow-bottom,.swiper-container-3d .swiper-slide-shadow-left,.swiper-container-3d .swiper-slide-shadow-right,.swiper-container-3d .swiper-slide-shadow-top{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:10}.swiper-container-3d .swiper-slide-shadow-left{background-image:-webkit-gradient(linear,right top,left top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,0)));background-image:-webkit-linear-gradient(right,rgba(0,0,0,.5),rgba(0,0,0,0));background-image:-o-linear-gradient(right,rgba(0,0,0,.5),rgba(0,0,0,0));background-image:linear-gradient(to left,rgba(0,0,0,.5),rgba(0,0,0,0))}.swiper-container-3d .swiper-slide-shadow-right{background-image:-webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,0)));background-image:-webkit-linear-gradient(left,rgba(0,0,0,.5),rgba(0,0,0,0));background-image:-o-linear-gradient(left,rgba(0,0,0,.5),rgba(0,0,0,0));background-image:linear-gradient(to right,rgba(0,0,0,.5),rgba(0,0,0,0))}.swiper-container-3d .swiper-slide-shadow-top{background-image:-webkit-gradient(linear,left bottom,left top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,0)));background-image:-webkit-linear-gradient(bottom,rgba(0,0,0,.5),rgba(0,0,0,0));background-image:-o-linear-gradient(bottom,rgba(0,0,0,.5),rgba(0,0,0,0));background-image:linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,0))}.swiper-container-3d .swiper-slide-shadow-bottom{background-image:-webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.5)),to(rgba(0,0,0,0)));background-image:-webkit-linear-gradient(top,rgba(0,0,0,.5),rgba(0,0,0,0));background-image:-o-linear-gradient(top,rgba(0,0,0,.5),rgba(0,0,0,0));background-image:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,0))}.swiper-container-wp8-horizontal,.swiper-container-wp8-horizontal>.swiper-wrapper{-ms-touch-action:pan-y;touch-action:pan-y}.swiper-container-wp8-vertical,.swiper-container-wp8-vertical>.swiper-wrapper{-ms-touch-action:pan-x;touch-action:pan-x}.swiper-button-next,.swiper-button-prev{position:absolute;top:50%;width:27px;height:44px;margin-top:-22px;z-index:10;cursor:pointer;background-size:27px 44px;background-position:center;background-repeat:no-repeat}.swiper-button-next.swiper-button-disabled,.swiper-button-prev.swiper-button-disabled{opacity:.35;cursor:auto;pointer-events:none}.swiper-button-prev,.swiper-container-rtl .swiper-button-next{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");left:10px;right:auto}.swiper-button-next,.swiper-container-rtl .swiper-button-prev{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");right:10px;left:auto}.swiper-button-prev.swiper-button-white,.swiper-container-rtl .swiper-button-next.swiper-button-white{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E")}.swiper-button-next.swiper-button-white,.swiper-container-rtl .swiper-button-prev.swiper-button-white{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E")}.swiper-button-prev.swiper-button-black,.swiper-container-rtl .swiper-button-next.swiper-button-black{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E")}.swiper-button-next.swiper-button-black,.swiper-container-rtl .swiper-button-prev.swiper-button-black{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E")}.swiper-button-lock{display:none}.swiper-pagination{position:absolute;text-align:center;-webkit-transition:.3s opacity;-o-transition:.3s opacity;transition:.3s opacity;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);z-index:10}.swiper-pagination.swiper-pagination-hidden{opacity:0}.swiper-container-horizontal>.swiper-pagination-bullets,.swiper-pagination-custom,.swiper-pagination-fraction{bottom:10px;left:0;width:100%}.swiper-pagination-bullets-dynamic{overflow:hidden;font-size:0}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet{-webkit-transform:scale(.33);-ms-transform:scale(.33);transform:scale(.33);position:relative}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1)}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1)}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev{-webkit-transform:scale(.66);-ms-transform:scale(.66);transform:scale(.66)}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev{-webkit-transform:scale(.33);-ms-transform:scale(.33);transform:scale(.33)}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next{-webkit-transform:scale(.66);-ms-transform:scale(.66);transform:scale(.66)}.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next{-webkit-transform:scale(.33);-ms-transform:scale(.33);transform:scale(.33)}.swiper-pagination-bullet{width:8px;height:8px;display:inline-block;border-radius:100%;background:#000;opacity:.2}button.swiper-pagination-bullet{border:none;margin:0;padding:0;-webkit-box-shadow:none;box-shadow:none;-webkit-appearance:none;-moz-appearance:none;appearance:none}.swiper-pagination-clickable .swiper-pagination-bullet{cursor:pointer}.swiper-pagination-bullet-active{opacity:1;background:#007aff}.swiper-container-vertical>.swiper-pagination-bullets{right:10px;top:50%;-webkit-transform:translate3d(0,-50%,0);transform:translate3d(0,-50%,0)}.swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet{margin:6px 0;display:block}.swiper-container-vertical>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);width:8px}.swiper-container-vertical>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet{display:inline-block;-webkit-transition:.2s top,.2s -webkit-transform;transition:.2s top,.2s -webkit-transform;-o-transition:.2s transform,.2s top;transition:.2s transform,.2s top;transition:.2s transform,.2s top,.2s -webkit-transform}.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{margin:0 4px}.swiper-container-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);white-space:nowrap}.swiper-container-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet{-webkit-transition:.2s left,.2s -webkit-transform;transition:.2s left,.2s -webkit-transform;-o-transition:.2s transform,.2s left;transition:.2s transform,.2s left;transition:.2s transform,.2s left,.2s -webkit-transform}.swiper-container-horizontal.swiper-container-rtl>.swiper-pagination-bullets-dynamic .swiper-pagination-bullet{-webkit-transition:.2s right,.2s -webkit-transform;transition:.2s right,.2s -webkit-transform;-o-transition:.2s transform,.2s right;transition:.2s transform,.2s right;transition:.2s transform,.2s right,.2s -webkit-transform}.swiper-pagination-progressbar{background:rgba(0,0,0,.25);position:absolute}.swiper-pagination-progressbar .swiper-pagination-progressbar-fill{background:#007aff;position:absolute;left:0;top:0;width:100%;height:100%;-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);-webkit-transform-origin:left top;-ms-transform-origin:left top;transform-origin:left top}.swiper-container-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{-webkit-transform-origin:right top;-ms-transform-origin:right top;transform-origin:right top}.swiper-container-horizontal>.swiper-pagination-progressbar,.swiper-container-vertical>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite{width:100%;height:4px;left:0;top:0}.swiper-container-horizontal>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,.swiper-container-vertical>.swiper-pagination-progressbar{width:4px;height:100%;left:0;top:0}.swiper-pagination-white .swiper-pagination-bullet-active{background:#fff}.swiper-pagination-progressbar.swiper-pagination-white{background:rgba(255,255,255,.25)}.swiper-pagination-progressbar.swiper-pagination-white .swiper-pagination-progressbar-fill{background:#fff}.swiper-pagination-black .swiper-pagination-bullet-active{background:#000}.swiper-pagination-progressbar.swiper-pagination-black{background:rgba(0,0,0,.25)}.swiper-pagination-progressbar.swiper-pagination-black .swiper-pagination-progressbar-fill{background:#000}.swiper-pagination-lock{display:none}.swiper-scrollbar{border-radius:10px;position:relative;-ms-touch-action:none;background:rgba(0,0,0,.1)}.swiper-container-horizontal>.swiper-scrollbar{position:absolute;left:1%;bottom:3px;z-index:50;height:5px;width:98%}.swiper-container-vertical>.swiper-scrollbar{position:absolute;right:3px;top:1%;z-index:50;width:5px;height:98%}.swiper-scrollbar-drag{height:100%;width:100%;position:relative;background:rgba(0,0,0,.5);border-radius:10px;left:0;top:0}.swiper-scrollbar-cursor-drag{cursor:move}.swiper-scrollbar-lock{display:none}.swiper-zoom-container{width:100%;height:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;text-align:center}.swiper-zoom-container>canvas,.swiper-zoom-container>img,.swiper-zoom-container>svg{max-width:100%;max-height:100%;-o-object-fit:contain;object-fit:contain}.swiper-slide-zoomed{cursor:move}.swiper-lazy-preloader{width:42px;height:42px;position:absolute;left:50%;top:50%;margin-left:-21px;margin-top:-21px;z-index:10;-webkit-transform-origin:50%;-ms-transform-origin:50%;transform-origin:50%;-webkit-animation:swiper-preloader-spin 1s steps(12,end) infinite;animation:swiper-preloader-spin 1s steps(12,end) infinite}.swiper-lazy-preloader:after{display:block;content:'';width:100%;height:100%;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%236c6c6c'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-position:50%;background-size:100%;background-repeat:no-repeat}.swiper-lazy-preloader-white:after{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%23fff'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")}@-webkit-keyframes swiper-preloader-spin{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes swiper-preloader-spin{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.swiper-container .swiper-notification{position:absolute;left:0;top:0;pointer-events:none;opacity:0;z-index:-1000}.swiper-container-fade.swiper-container-free-mode .swiper-slide{-webkit-transition-timing-function:ease-out;-o-transition-timing-function:ease-out;transition-timing-function:ease-out}.swiper-container-fade .swiper-slide{pointer-events:none;-webkit-transition-property:opacity;-o-transition-property:opacity;transition-property:opacity}.swiper-container-fade .swiper-slide .swiper-slide{pointer-events:none}.swiper-container-fade .swiper-slide-active,.swiper-container-fade .swiper-slide-active .swiper-slide-active{pointer-events:auto}.swiper-container-cube{overflow:visible}.swiper-container-cube .swiper-slide{pointer-events:none;-webkit-backface-visibility:hidden;backface-visibility:hidden;z-index:1;visibility:hidden;-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0;width:100%;height:100%}.swiper-container-cube .swiper-slide .swiper-slide{pointer-events:none}.swiper-container-cube.swiper-container-rtl .swiper-slide{-webkit-transform-origin:100% 0;-ms-transform-origin:100% 0;transform-origin:100% 0}.swiper-container-cube .swiper-slide-active,.swiper-container-cube .swiper-slide-active .swiper-slide-active{pointer-events:auto}.swiper-container-cube .swiper-slide-active,.swiper-container-cube .swiper-slide-next,.swiper-container-cube .swiper-slide-next+.swiper-slide,.swiper-container-cube .swiper-slide-prev{pointer-events:auto;visibility:visible}.swiper-container-cube .swiper-slide-shadow-bottom,.swiper-container-cube .swiper-slide-shadow-left,.swiper-container-cube .swiper-slide-shadow-right,.swiper-container-cube .swiper-slide-shadow-top{z-index:0;-webkit-backface-visibility:hidden;backface-visibility:hidden}.swiper-container-cube .swiper-cube-shadow{position:absolute;left:0;bottom:0;width:100%;height:100%;background:#000;opacity:.6;-webkit-filter:blur(50px);filter:blur(50px);z-index:0}.swiper-container-flip{overflow:visible}.swiper-container-flip .swiper-slide{pointer-events:none;-webkit-backface-visibility:hidden;backface-visibility:hidden;z-index:1}.swiper-container-flip .swiper-slide .swiper-slide{pointer-events:none}.swiper-container-flip .swiper-slide-active,.swiper-container-flip .swiper-slide-active .swiper-slide-active{pointer-events:auto}.swiper-container-flip .swiper-slide-shadow-bottom,.swiper-container-flip .swiper-slide-shadow-left,.swiper-container-flip .swiper-slide-shadow-right,.swiper-container-flip .swiper-slide-shadow-top{z-index:0;-webkit-backface-visibility:hidden;backface-visibility:hidden}.swiper-container-coverflow .swiper-wrapper{-ms-perspective:1200px}
+ ]]></b:skin>
+ <b:template-skin>
+    <![CDATA[ 
+    
+
+    ]]></b:template-skin>
+  <b:defaultmarkups>
+    <b:defaultmarkup type='Common'>
+      <b:includable id='relatedPost' var='post'>
+        <div class='rtitle'>Related Series</div>
+        <div style='min-height: 12px;'/>
+        <div class='listmanga' id='SeriesLain'>
+          <b:loop expr:values='&quot;1..&quot; + 5' var='i'>
+        <li class='bs' itemscope='itemscope' itemtype='http://schema.org/CreativeWork'>
+                    <a class='tip' href='/' title=''>
+                        <div class='limit'>
+                        </div>
+                    </a>
+                    <div class='dtitle' style='height:38px;background: #28292c;'/>
+                </li>
+      </b:loop>
+<script>
+//<![CDATA[
+var relat = new BloggerScript({
+  jumlah: 5,
+  label: ["Series"],
+  sizeImage: sizeImg
+});
+
+function kerangkaRelated(entry) {
+  let html = '';
+
+  entry.forEach(post => {
+      let isHot = post.label.includes('hot');
+      let isColor = post.label.includes('color');
+
+let tipe = post.label.find(i => kaiTipe.some(s => s === i));
+            let type = tipe ? `<div class='type ${tipe}'></div>` : '';
+
+    html += `<div id="relat-${post.title.replace(/\s+/g, '-')}" class="bs" itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
+                    <a class="tip" href="${post.link}" title="${post.title}">
+                        <div class="limit" style="background-image: url(${post.image})">
+                            ${type}
+                        </div>
+                        <div class="dtitle" style="display: block;">${post.title}</div>
+                    </a>
+            </div>`;
+  })
+
+  document.getElementById('SeriesLain').innerHTML = html;
+}
+
+relat.relatedPost(kerangkaRelated);
+//]]></script>
+                  </div>
+      </b:includable>
+      <b:includable id='postSingle' var='post'>
+      <div class='bs' expr:data-title='data:post.title' itemscope='itemscope' itemtype='http://schema.org/CreativeWork'>
+          <a class='series' expr:href='data:post.url' expr:title='data:post.title'>
+            <div class='limit'>
+              <div class='ply'/>
+              <b:loop values='data:post.labels' var='l'>
+                <b:if cond='data:l.name in data:type'>
+                  <span expr:class='&quot;type &quot; + data:l.name'/>
+                </b:if>
+              </b:loop>
+              <b:if cond='data:post.labels any (l =&gt; l.name == &quot;hot&quot;)'>
+                <span class='hot'><i class='fab fa-hotjar'/></span>
+              </b:if>
+              <b:if cond='data:post.labels any (l =&gt; l.name == &quot;color&quot;)'>
+                <span class='colored'><i class='fas fa-palette'/> Warna</span>
+              </b:if>
+              <img class='ts-post-image lazy' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII='>
+        <b:if cond='data:post.featuredImage'>
+<b:attr expr:value='resizeImage(data:post.featuredImage, 240)' name='data-src'/>
+        </b:if>
+          </img>
+            </div>
+            <div class='dtitle'><data:post.title/></div>
+          </a>
+        <ul class='new subItem'>
+          </ul>
+      </div>
+    </b:includable>
+      <b:includable id='postSingle2' var='post'>
+        <div class='bs' expr:data-title='data:post.title' itemscope='itemscope' itemtype='http://schema.org/CreativeWork'>
+                    <a class='sx' expr:href='data:post.url' expr:title='data:post.title'>
+                        <div class='limit'>
+                          <b:with value='data:post.featuredImage.isResizable ? resizeImage(data:post.featuredImage, 320, &quot;1:2&quot;) : data:post.thumbnail' var='image'>
+                  <b:attr expr:value='&quot;background-image: url(\&quot;&quot; + data:image + &quot;\&quot;);&quot;' name='style'/>
+                 </b:with>
+                          <div class='ply'/>
+                            <b:loop values='data:post.labels' var='l'>
+                <b:if cond='data:l.name in data:type'>
+                  <span expr:class='&quot;type &quot; + data:l.name'/>
+                </b:if>
+              </b:loop>
+                            <b:if cond='data:post.labels any (l =&gt; l.name == &quot;hot&quot;)'>
+                <span class='hot'><i class='fab fa-hotjar'/></span>
+              </b:if>
+              <b:if cond='data:post.labels any (l =&gt; l.name == &quot;color&quot;)'>
+                <span class='colored'><i class='fas fa-palette'/> Warna</span>
+              </b:if>
+                        </div>
+                    <div class='dtitle'><data:post.title/></div>
+</a>
+          <ul class='new subItem'>
+          </ul>
+                </div>
+    </b:includable>
+      <b:includable id='single2' var='post'>
+        <style>header, footer{display:none} .content {margin-top: 0;padding:0;}</style>
+        <b:attr name='class' value='article chapter'/>
+              <b:attr expr:value='data:post.id' name='data-id'/>
+              <b:attr expr:value='data:post.title' name='data-title'/>
+              <b:attr expr:value='data:post.url' name='data-url'/>
+        <div class='navtop' style='transform: translateY(0);'>
+    <div class='navflex'>
+      <a class='logo' hidden='hidden' href='/'>
+        <svg fill='white' viewBox='0 0 24 24' width='30' xmlns='http://www.w3.org/2000/svg'><title>home</title><path d='M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z'/></svg>
+      </a>
+      <a class='navp' href='javascript:void(0);'>
+        <div class='navi'><svg fill='white' viewBox='0 0 24 24' width='28' xmlns='http://www.w3.org/2000/svg'><path d='M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z'/></svg>
+            <div style='min-width: 8px;'/>
+          <b:loop values='data:post.labels' var='l'>
+                      <b:if cond='data:l.name not in [&quot;Chapter&quot;,&quot;Novel&quot;,&quot;Project&quot;]'>
+            <div class='navtitle'><data:l.name/></div>
+                        </b:if>
+                    </b:loop>
+          <div class='ntitle'><data:post.title/></div>
+        </div>
+        </a>
+      <b:loop values='data:post.enclosures' var='enclosure'>
+                            <b:if cond='data:enclosure.mimeType == &quot;Download&quot;'>
+                              <a class='settp download' expr:href='data:enclosure.url' target='_blank'>
+        <svg height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M6.5 20q-2.275 0-3.888-1.575T1 14.575q0-1.95 1.175-3.475T5.25 9.15q.575-2.025 2.138-3.4T11 4.075v8.075L9.4 10.6L8 12l4 4l4-4l-1.4-1.4l-1.6 1.55V4.075q2.575.35 4.288 2.313T19 11q1.725.2 2.863 1.488T23 15.5q0 1.875-1.313 3.188T18.5 20h-12Z' fill='currentColor'/></svg>
+      </a>
+                            </b:if>
+                          </b:loop>
+      <div class='settp hidden'>
+        <svg height='24' viewBox='0 0 1024 1024' width='24' xmlns='http://www.w3.org/2000/svg'><path d='m924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 0 0 9.3-35.2l-.9-2.6a443.74 443.74 0 0 0-79.7-137.9l-1.8-2.1a32.12 32.12 0 0 0-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 0 0-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 0 0-25.8 25.7l-15.8 85.4a351.86 351.86 0 0 0-99 57.4l-81.9-29.1a32 32 0 0 0-35.1 9.5l-1.8 2.1a446.02 446.02 0 0 0-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1c0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 0 0-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0 0 35.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0 0 25.8 25.7l2.7.5a449.4 449.4 0 0 0 159 0l2.7-.5a32.05 32.05 0 0 0 25.8-25.7l15.7-85a350 350 0 0 0 99.7-57.6l81.3 28.9a32 32 0 0 0 35.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1l74.7 63.9a370.03 370.03 0 0 1-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3l-17.9 97a377.5 377.5 0 0 1-85 0l-17.9-97.2l-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9l-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5l-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5c0-15.3 1.2-30.6 3.7-45.5l6.5-40l-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2l31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3l17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97l38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8l92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176s176-78.8 176-176s-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 0 1 512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 0 1 400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 0 1 624 502c0 29.9-11.7 58-32.8 79.2z' fill='currentColor'/></svg>
+      </div>
+    </div>
+</div>
+        
+        <div class='navbot' style='transform: translateY(0);'>
+    <div class='nextprev'>
+      <div id='navi'>
+      <a href='javascript:void(0);' id='prev-chapter'>
+        <span>Prev</span>
+      </a>
+      </div>
+        <div class='navbtitle'>
+            <div style='min-width: 6px;'/>
+            <div class='chtitle'><script>/*<![CDATA[*/eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('l 3(){0 a=4.5(\'.6\');7(!a){8.9(\'f g h "6" 1 2.\');i}0 b=a.j.m();0 c=n(b);0 d=c||\'o 1 2\';0 e=4.5(\'.k\');7(!e){8.9(\'f g h "k" 1 2.\');i}e.j=d}3();',25,25,'var|not|found|displayChapter|document|querySelector|ntitle|if|console|error||||||Element|with|class|return|textContent|chtitle|function|trim|filterTitle2|Chapter'.split('|'),0,{}))/*]]>*/</script></div>
+        </div>
+      <div id='navi'>
+      <a href='javascript:void(0);' id='next-chapter'>
+        <span>Next</span>
+      </a>
+      </div>
+    </div>
+          
+</div>
+        <div class='image-gallery' id='imageGallery'>
+        <data:post.body/>
+          <script>
+const imageGallery=document.getElementById(&#39;imageGallery&#39;);const fallbackImageUrl=&#39;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBzdHlsZT0ibWFyZ2luOiBhdXRvOyBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDApIG5vbmUgcmVwZWF0IHNjcm9sbCAwJSAwJTsgZGlzcGxheTogYmxvY2s7IHNoYXBlLXJlbmRlcmluZzogYXV0bzsiIHdpZHRoPSIyMDBweCIgaGVpZ2h0PSIyMDBweCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIj4KPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMzIiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlPSIjZDJkMmNiIiBzdHJva2UtZGFzaGFycmF5PSI1MC4yNjU0ODI0NTc0MzY2OSA1MC4yNjU0ODI0NTc0MzY2OSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICA8YW5pbWF0ZVRyYW5zZm9ybSBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iIHR5cGU9InJvdGF0ZSIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIGtleVRpbWVzPSIwOzEiIHZhbHVlcz0iMCA1MCA1MDszNjAgNTAgNTAiPjwvYW5pbWF0ZVRyYW5zZm9ybT4KPC9jaXJjbGU+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjIzIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZT0iIzRkNjk1ZCIgc3Ryb2tlLWRhc2hhcnJheT0iMzYuMTI4MzE1NTE2MjgyNjIgMzYuMTI4MzE1NTE2MjgyNjIiIHN0cm9rZS1kYXNob2Zmc2V0PSIzNi4xMjgzMTU1MTYyODI2MiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICA8YW5pbWF0ZVRyYW5zZm9ybSBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iIHR5cGU9InJvdGF0ZSIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIGtleVRpbWVzPSIwOzEiIHZhbHVlcz0iMCA1MCA1MDstMzYwIDUwIDUwIj48L2FuaW1hdGVUcmFuc2Zvcm0+CjwvY2lyY2xlPgo8IS0tIFtsZGlvXSBnZW5lcmF0ZWQgYnkgaHR0cHM6Ly9sb2FkaW5nLmlvLyAtLT48L3N2Zz4=&#39;;function fadeIn(e,t=500){let o=0;e.style.opacity=o;e.style.display=&#39;block&#39;;const r=50,a=r/t;const i=setInterval(()=&gt;{o+=a;if(o&gt;=1){o=1;clearInterval(i)}e.style.opacity=o},r)};ts_reader.forEach((e,t)=&gt;{setTimeout(()=&gt;{const o=document.createElement(&#39;img&#39;);o.src=e;o.style.opacity=0;o.style.display=&#39;none&#39;;o.setAttribute(&#39;loading&#39;,&#39;lazy&#39;);o.setAttribute(&#39;data-index&#39;,t);const r=e.split(&#39;/&#39;).slice(-1)[0].replace(/\.\w+$/,&#39;&#39;).replace(/-/g,&#39; &#39;);o.alt=r;o.onerror=()=&gt;{o.src=fallbackImageUrl};imageGallery.appendChild(o);fadeIn(o,500)},t*500)});
+    </script>
+        </div>
+        <div class='boxpopup'>
+          <div class='backpopup' style='opacity: 0;'/>
+        <div class='dside popup' id='popup'>
+          <div class='close'/>
+        <div class='tilchap'>
+    <div class='numchap'>0 Chapter</div>
+    <div class='sortchap'>
+        <div style='min-width: 4px;'/>
+        <div class='sortt'>Sort</div>
+    </div>
+</div>
+          <div id='chapterlist'>
+            <script type='text/javascript'>//<![CDATA[//
+let script2 = new BloggerScript({
+  noImage: noThumbnail,
+  sizeImage: sizeImg
+});
+
+(function(_0x359139,_0x5a9dc3){const _0x3ef179=_0x36db,_0x3e2093=_0x359139();while(!![]){try{const _0x4d9483=parseInt(_0x3ef179(0x14c))/0x1*(-parseInt(_0x3ef179(0x137))/0x2)+parseInt(_0x3ef179(0x14d))/0x3*(parseInt(_0x3ef179(0x156))/0x4)+-parseInt(_0x3ef179(0x143))/0x5*(parseInt(_0x3ef179(0x135))/0x6)+-parseInt(_0x3ef179(0x165))/0x7+parseInt(_0x3ef179(0x139))/0x8*(-parseInt(_0x3ef179(0x13f))/0x9)+parseInt(_0x3ef179(0x138))/0xa+parseInt(_0x3ef179(0x142))/0xb*(parseInt(_0x3ef179(0x154))/0xc);if(_0x4d9483===_0x5a9dc3)break;else _0x3e2093['push'](_0x3e2093['shift']());}catch(_0xa39816){_0x3e2093['push'](_0x3e2093['shift']());}}}(_0x1cb6,0x4a0a0));function _0x1cb6(){const _0x10234a=['addEventListener','forEach','javascript:void(0);','remove','.navp','12337860lRDYsk','reverse','373112vGQYAR','image','title','some','Chapter','getAttribute','toggle','querySelector','getElementById','next-chapter','classList','removeAttribute','label','link','style=\x22background-color:\x20rgba(255,\x20255,\x20255,\x200.04);\x22','4163026CwHhDO','.sortchap','date','\x22\x20width=\x2272\x22></div>\x0a<div\x20style=\x22min-width:\x2012px;\x22></div>\x0a<div\x20class=\x22chinf\x22>\x0a<div\x20class=\x22chnum\x22>','test','6ZjfJQX','length','30438KewOQY','4471240OrCEoA','2152znRIuP','chapterlist','toLowerCase','setAttribute','\x22><div\x20class=\x22chlist\x22\x20data-num=\x22','data-url','9585SLpzDW','findIndex','includes','11MNIFxw','2158555XZRDPO','.article.chapter','href','</div>\x0a</div>\x0a</div></a>','click','innerHTML','prev-chapter','<a\x20href=\x22','replace','3HTcEGJ','6kDhvhg','filter'];_0x1cb6=function(){return _0x10234a;};return _0x1cb6();}function _0x36db(_0x1c8002,_0x41a083){const _0x1cb615=_0x1cb6();return _0x36db=function(_0x36dbc8,_0x32857e){_0x36dbc8=_0x36dbc8-0x132;let _0x22318e=_0x1cb615[_0x36dbc8];return _0x22318e;},_0x36db(_0x1c8002,_0x41a083);}function getPost(_0x57a820){const _0x876313=_0x36db;let _0x20df58=_0x57a820[_0x876313(0x14e)](_0x2b385d=>{const _0x5c762d=_0x876313,_0x496dee=_0x2b385d[_0x5c762d(0x162)][_0x5c762d(0x141)](_0x5c762d(0x15a));return _0x496dee;}),_0x40670e=_0x20df58[_0x876313(0x136)];document['querySelector']('.numchap')['innerText']=_0x40670e+'\x20Chapter';const _0x159271=[..._0x20df58];let _0x1f6e99=_0x57a820['filter'](_0x58642e=>{const _0x4b3b78=_0x876313;let _0x489cde=_0x58642e[_0x4b3b78(0x158)][_0x4b3b78(0x13b)]();return!ListFilter[_0x4b3b78(0x159)](_0x13f9a2=>new RegExp(_0x13f9a2,'i')[_0x4b3b78(0x134)](_0x489cde));});function _0x15e18b(_0x3d5bce){const _0x8b84fc=_0x876313,_0x5f01df=document[_0x8b84fc(0x15e)](_0x8b84fc(0x13a)),_0x16efb9=document[_0x8b84fc(0x15d)](_0x8b84fc(0x144))?.[_0x8b84fc(0x15b)](_0x8b84fc(0x13e))?.[_0x8b84fc(0x14b)](/[?&]m=1/,'');let _0x3be7d7='';_0x3d5bce[_0x8b84fc(0x150)](_0x51d5d9=>{const _0x441d27=_0x8b84fc;let _0x470a0d=filterTitle2(_0x51d5d9[_0x441d27(0x158)]),_0x2977dc=_0x51d5d9['link']===_0x16efb9?_0x441d27(0x164):'';_0x3be7d7+=_0x441d27(0x14a)+_0x51d5d9[_0x441d27(0x163)]+_0x441d27(0x13d)+_0x470a0d+'\x22\x20'+_0x2977dc+'>\x0a<div\x20class=\x22chapbox\x22><img\x20class=\x22lazyload\x22\x20alt=\x22thumbnail\x22\x20height=\x2272\x22\x20loading=\x22lazy\x22\x20src=\x22'+_0x51d5d9[_0x441d27(0x157)]+_0x441d27(0x133)+_0x470a0d+'</div>\x0a<div\x20class=\x22chdate\x22>'+_0x51d5d9[_0x441d27(0x132)]+_0x441d27(0x146);}),_0x5f01df[_0x8b84fc(0x148)]=_0x3be7d7;}function _0x97c93f(_0x351ff6){const _0x13dd59=_0x876313,_0x4af5b7=document[_0x13dd59(0x15d)](_0x13dd59(0x153));if(_0x351ff6[_0x13dd59(0x136)]>0x0){let _0x32a20c=_0x351ff6[0x0]['link'];_0x4af5b7[_0x13dd59(0x13c)](_0x13dd59(0x145),_0x32a20c);}else _0x4af5b7[_0x13dd59(0x161)](_0x13dd59(0x145));}function _0x41630e(_0x2a90aa){const _0x32f243=_0x876313;let _0xd045af=_0x2a90aa-0x1,_0x4e4a68=_0x2a90aa+0x1,_0x5c1a4b=document[_0x32f243(0x15e)]('next-chapter'),_0x5b5091=document[_0x32f243(0x15e)](_0x32f243(0x149));if(_0x5c1a4b){let _0x3f4a26=_0xd045af>=0x0?_0x159271[_0xd045af][_0x32f243(0x163)]:_0x32f243(0x151);_0x3f4a26===_0x32f243(0x151)?_0x5c1a4b[_0x32f243(0x152)]():_0x5c1a4b[_0x32f243(0x13c)](_0x32f243(0x145),_0x3f4a26);}if(_0x5b5091){let _0x5ac7a1=_0x4e4a68<_0x159271[_0x32f243(0x136)]?_0x159271[_0x4e4a68]['link']:_0x32f243(0x151);_0x5ac7a1===_0x32f243(0x151)?_0x5b5091[_0x32f243(0x152)]():_0x5b5091[_0x32f243(0x13c)](_0x32f243(0x145),_0x5ac7a1);}}function _0x49fa38(){const _0x131eeb=_0x876313;let _0x4d039a=document['querySelector'](_0x131eeb(0x144))?.[_0x131eeb(0x15b)](_0x131eeb(0x13e))?.[_0x131eeb(0x14b)](/[?&]m=1/,'');if(!_0x4d039a)return;let _0x553b46=_0x159271[_0x131eeb(0x140)](_0x186987=>_0x186987['link']===_0x4d039a);_0x553b46!==-0x1?_0x41630e(_0x553b46):(document[_0x131eeb(0x15e)](_0x131eeb(0x149))?.[_0x131eeb(0x161)]('href'),document['getElementById'](_0x131eeb(0x15f))?.['removeAttribute'](_0x131eeb(0x145)));}_0x15e18b(_0x20df58),_0x97c93f(_0x1f6e99),_0x49fa38();const _0x54c271=document['querySelector'](_0x876313(0x166));_0x54c271&&_0x54c271[_0x876313(0x14f)](_0x876313(0x147),function(){const _0x10a40=_0x876313;this[_0x10a40(0x160)][_0x10a40(0x15c)]('active'),_0x20df58[_0x10a40(0x155)](),_0x15e18b(_0x20df58),_0x49fa38();});}
+
+// Get the entry title
+let entryTitleElement = document.querySelector('.navtitle');
+if (entryTitleElement) {
+  let entryTitle = entryTitleElement.innerText.trim();
+
+  // Use the siteMap method to fetch posts by entry title
+  script2.siteMap(`/feeds/posts/default/-/${entryTitle}`, getPost);
+} else {
+  console.error('Entry title element not found.');
+}
+
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('u 3=k,l=d,c=4.5(\'c\'),e=4.5(\'.e\'),m=4.5(\'.v\'),7=4.5(\'.7\'),6=4.5(\'#6\');f a(){w g=4.5(\'.x\'),h=4.5(\'.y\');3?g.2.9=\'b(0)\':g.2.9=\'b(-d%)\';3?h.2.9=\'b(0)\':h.2.9=\'b(d%)\'}f n(){3=!3;a()}f o(){z(p.A>l){3&&(3=B,a())}C{!3&&(3=k,a())}}4.5(\'.D-E\').q(\'F\',n);p.q(\'G\',o);a();m.r=()=>{6.2.i=\'1\';6.2.9=\'b(0)\';6.2.s=\'H\';7.2.i=\'0.8\';7.2.j=\'I\';c.2.t=\'J\'};e.r=()=>{7.2.j=\'K\';6.2.i=\'0\';6.2.9=\'\';6.2.s=\'\';7.2.j=\'\';c.2.t=\'\'};',47,47,'||style|isVisible|document|querySelector|popup|backpopup||transform|updateNavVisibility|translateY|body|100|close|function|rnavtop|rnavbot|opacity|display|true|scrollThreshold|tilchap|toggleNavVisibility|hideNavOnScroll|window|addEventListener|onclick|visibility|overflow|let|navbtitle|const|navtop|navbot|if|scrollY|false|else|image|gallery|click|scroll|visible|block|hidden|none'.split('|'),0,{}))
+  //]]>//
+            </script>
+          </div>
+        </div>
+        </div>
+      </b:includable>
+      <b:includable id='single' var='post'>
+      <b:attr expr:value='&quot;post-&quot; + data:post.id' name='id'/>
+      <b:attr name='itemscope' value='itemscope'/>
+      <b:attr name='itemtype' value='http://schema.org/CreativeWorkSeries'/>
+      <b:attr name='class' value='article'/>
+        <div class='dhentry'>
+    <b:with value='data:post.featuredImage.isResizable ? resizeImage(data:post.featuredImage, 320, &quot;1:2&quot;) : data:post.thumbnail' var='image'>
+                  <div class='cover' expr:style='&quot;background-image: url(\&quot;&quot; + data:image + &quot;\&quot;);&quot;'/>
+                 </b:with>
+    <div style='min-height: 20px;'/>
+    <div class='dinfo'>
+        <div class='dtag'>
+            <b:with value='data:post.labels count (d =&gt; d.name in data:genre1 or d.name in data:genre2 or d.name in data:genre3)' var='c'>
+        <div class='tagg'>
+            <b:loop index='i' values='data:post.labels filter (i =&gt; i.name in data:genre1 or i.name in data:genre2 or i.name in data:genre3)' var='l'>
+              <data:l.name/><b:if cond='data:i != data:c - 1'> &#183; </b:if>
+            </b:loop>
+        </div>
+          </b:with>
+        </div>
+        <div class='entry-title'><data:post.title/></div>
+      <div class='mangainfo'>
+        <data:post.body/>
+      </div>
+    </div>
+    <div class='tabs'/>
+    <div style='min-height: 20px;'/>
+    <div class='dmore'>
+        <div class='dcon save' expr:data-id='data:post.id' expr:data-img='resizeImage(data:post.featuredImage, 320)' expr:data-link='data:post.url' expr:data-title='data:post.title'>
+          <b:if cond='data:post.labels'>
+          <b:loop index='i' values='data:post.labels' var='label'>
+            <b:attr expr:value='data:label.name' name='data-label'/>
+          </b:loop>
+          </b:if>
+            <svg height='36' viewBox='0 0 36 36' width='36' xmlns='http://www.w3.org/2000/svg'>
+    <g transform='translate(8.75, 8.75)'>
+        <path d='M9.25,0.75 L9.25,17.568' fill='none' stroke='#cdcfd2' stroke-width='1.5'/>
+        <path d='M17.75,9.25 L0.75,9.25' fill='none' stroke='#cdcfd2' stroke-width='1.5'/>
+    </g>
+</svg>
+            <div class='dcot'>Save</div>
+        </div>
+        <div style='min-width: 30px;'/>
+        <div class='dcon rate'>
+            <div class='dcot'>Rate</div>
+        </div>
+        <div style='min-width: 30px;'/>
+        <div class='dcon share'>
+            <div class='dcot'>Share</div>
+        </div>
+    </div>
+    <div style='min-height: 35px;'/>
+</div>
+        <div class='dside info'>
+          <div class='tilchap'>
+            <div class='numchap'>Chapter List</div>
+        <div class='sortchap'>
+          <div style='min-width: 4px;'/>
+          <div class='sortt'>Sort</div>
+        </div>
+      </div>
+          <div id='chapterlist'>
+            <script type='text/javascript'>//<![CDATA[//
+let morechapter = 25, // jumlah max yang akan di load
+showchapter = 6; // jumlah max chapter yang tampil sebelum load
+let script1 = new BloggerScript({
+  noImage: noThumbnail,
+  sizeImage: sizeImg
+});
+
+(function(_0x494a5b,_0x41f36b){const _0x4edcc4=_0x5b6a,_0x370c31=_0x494a5b();while(!![]){try{const _0x354e4b=parseInt(_0x4edcc4(0x161))/0x1+-parseInt(_0x4edcc4(0x15d))/0x2*(-parseInt(_0x4edcc4(0x151))/0x3)+parseInt(_0x4edcc4(0x162))/0x4+-parseInt(_0x4edcc4(0x15a))/0x5+parseInt(_0x4edcc4(0x164))/0x6*(-parseInt(_0x4edcc4(0x155))/0x7)+-parseInt(_0x4edcc4(0x153))/0x8*(-parseInt(_0x4edcc4(0x156))/0x9)+parseInt(_0x4edcc4(0x15b))/0xa*(-parseInt(_0x4edcc4(0x159))/0xb);if(_0x354e4b===_0x41f36b)break;else _0x370c31['push'](_0x370c31['shift']());}catch(_0x510e8c){_0x370c31['push'](_0x370c31['shift']());}}}(_0x17da,0x1d271));function getPost(_0x225df0){const _0x5c1ec4=_0x5b6a;let _0x51b51b=_0x225df0[_0x5c1ec4(0x149)](_0x18d446=>{const _0x28493f=_0x5c1ec4,_0x62f353=_0x18d446['label'][_0x28493f(0x160)](_0x28493f(0x154));return _0x62f353;});_0x51b51b[_0x5c1ec4(0x145)]((_0x496e66,_0x2ab0b5)=>new Date(_0x2ab0b5[_0x5c1ec4(0x146)])-new Date(_0x496e66['date']));function _0x3bf0b0(_0x49e0de,_0x5dd8ea=0x6){const _0x419fc1=_0x5c1ec4;let _0x91dfb0='',_0x362fac=_0x49e0de[_0x419fc1(0x14d)](0x0,_0x5dd8ea);_0x362fac[_0x419fc1(0x14e)](_0x3c3cfc=>{const _0x5a292b=_0x419fc1;let _0x1ebbd9=filterTitle2(_0x3c3cfc[_0x5a292b(0x150)]);_0x91dfb0+=_0x5a292b(0x144)+_0x1ebbd9+_0x5a292b(0x158)+_0x3c3cfc['link']+_0x5a292b(0x14a)+_0x3c3cfc[_0x5a292b(0x142)]+_0x5a292b(0x14c)+_0x1ebbd9+_0x5a292b(0x147)+_0x3c3cfc[_0x5a292b(0x146)]+_0x5a292b(0x15f);});_0x49e0de[_0x419fc1(0x14b)]>_0x5dd8ea&&(_0x91dfb0+='\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22seemore\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22titlemore\x22>See\x20'+(_0x49e0de[_0x419fc1(0x14b)]-_0x5dd8ea)+_0x419fc1(0x15e));document['getElementById'](_0x419fc1(0x163))['innerHTML']=_0x91dfb0;let _0x5f01ee=document[_0x419fc1(0x152)](_0x419fc1(0x15c));_0x5f01ee&&_0x5f01ee[_0x419fc1(0x148)](_0x419fc1(0x157),function(){_0x3bf0b0(_0x49e0de,_0x5dd8ea+morechapter);});}_0x3bf0b0(_0x51b51b,showchapter);let _0x490bcd=document['querySelector']('.sortchap');_0x490bcd&&_0x490bcd[_0x5c1ec4(0x148)]('click',function(){const _0xd06338=_0x5c1ec4;_0x51b51b[_0xd06338(0x143)](),_0x3bf0b0(_0x51b51b,0x6),this[_0xd06338(0x14f)][_0xd06338(0x141)]('active');});}function _0x5b6a(_0xf09dfb,_0x47b89b){const _0x17da11=_0x17da();return _0x5b6a=function(_0x5b6a86,_0x9f958e){_0x5b6a86=_0x5b6a86-0x141;let _0x465507=_0x17da11[_0x5b6a86];return _0x465507;},_0x5b6a(_0xf09dfb,_0x47b89b);}function _0x17da(){const _0x5efc46=['filter','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22chapbox\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20alt=\x22thumbnail\x22\x20class=\x22lazy\x22\x20loading=\x22lazy\x22\x20src=\x22','length','\x22\x20width=\x2272\x22\x20height=\x2272\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22min-width:\x2012px;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22chinf\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22chnum\x22>','slice','forEach','classList','title','328701dOtGHR','querySelector','170360gttQNH','Chapter','466459rOuFOB','36AuMEwa','click','\x22\x20href=\x22','2508jsTZgR','358955LqphOw','5380aRKZpm','.seemore','2zhYVMA','\x20more</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22min-width:\x204px;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22flex:\x201\x201\x200%;\x22></div>\x0a<img\x20width=\x2216\x22\x20height=\x2216\x22\x20src=\x22data:image/svg+xml,%3Csvg\x20aria-hidden=\x27true\x27\x20fill=\x27white\x27\x20viewBox=\x270\x200\x2020\x2020\x27\x20xmlns=\x27http://www.w3.org/2000/svg\x27%3E%3Cpath\x20d=\x27M10\x206a2\x202\x200\x20110-4\x202\x202\x200\x20010\x204zM10\x2012a2\x202\x200\x20110-4\x202\x202\x200\x20010\x204zM10\x2018a2\x202\x200\x20110-4\x202\x202\x200\x20010\x204z\x27%3E%3C/path%3E%3C/svg%3E\x22\x20/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</a>','includes','1000kyyKih','739016IxZNKp','chapterlist','6PmdTFO','toggle','image','reverse','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<a\x20class=\x22chlist\x22\x20data-num=\x22','sort','date','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22chdate\x22>','addEventListener'];_0x17da=function(){return _0x5efc46;};return _0x17da();}
+
+// Get the entry title
+let entryTitleElement = document.querySelector('.entry-title');
+if (entryTitleElement) {
+  let entryTitle = entryTitleElement.innerText.trim();
+
+  // Use the siteMap method to fetch posts by entry title
+  script1.siteMap(`/feeds/posts/default/-/${entryTitle}`, getPost);
+} else {
+  console.error('Entry title element not found.');
+}
+
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('4(0){b 1=5;0.c(\'d\',e()=>{4(6.0){4(1){2.3(\'7 f g h.\');i}1=j;k{l 6.0({8:m.8,n:o.p.q});2.3(\'r s 9!\')}t(a){2.3(\'u 9:\',a)}v{1=5}}w{2.3(\'x 7 y z A.\')}})}',37,37,'share|sharingInProgress|console|log|if|false|navigator|Share|title|sharing|error|let|addEventListener|click|async|already|in|progress|return|true|try|await|document|url|window|location|href|Thanks|for|catch|Error|finally|else|Web|API|not|supported'.split('|'),0,{}))
+  //]]>//</script>
+</div>
+          
+          <div style='min-height: 35px;'/>
+  <b:if cond='data:post.labels'>
+    <div class='rtitle'>Tags</div>
+        <div style='min-height: 12px;'/>
+           <div class='tags'>
+      <b:loop index='i' values='data:post.labels' var='label'>
+      <a expr:href='data:label.url' rel='tag'>
+        <data:label.name/>
+      </a>
+    </b:loop>
+    </div>
+    <div style='min-height: 40px;'/>
+  </b:if>
+        <b:include data='post' name='relatedPost'/>
+          <div class='comments'>
+            <button id='load_disqus_btn'>Muat Komentar</button>
+                   <div id='disqus_thread'/>
+<script>
+//<![CDATA[
+  var disqus_loaded = false; // Flag untuk mencegah pemuatan ulang
+
+  function load_disqus() {
+    if (!disqus_loaded) {
+      disqus_loaded = true; // Set flag untuk mencegah pemuatan ulang
+      var script = document.createElement('script');
+      script.src = `https://${disqus_shortname}.disqus.com/embed.js`;
+      script.setAttribute('data-timestamp', +new Date()); // Hindari cache
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }
+
+  // Event listener untuk tombol
+  document.getElementById('load_disqus_btn').addEventListener('click', function() {
+    load_disqus();
+    this.style.display = 'none'; // Sembunyikan tombol setelah klik
+  });
+//]]>
+</script>
+</div>
+        </div>
+        <!-- Breadcrumb -->
+<script type='application/ld+json'>{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BreadcrumbList&quot;,
+  &quot;itemListElement&quot;: [
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 1,
+      &quot;name&quot;: &quot;Home&quot;,
+      &quot;item&quot;: &quot;<data:blog.homepageUrl.canonical/>&quot;
+    <b:if cond='!data:post.labels'>}<b:else/>},<b:loop index='i' values='data:post.labels' var='label'>
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: <b:with value='data:i + 2' var='num'><b:eval expr='data:num'/></b:with>,
+      &quot;name&quot;: &quot;<data:label.name/>&quot;,
+      &quot;item&quot;: &quot;<data:label.url.canonical/>&quot;
+      <b:if cond='data:post.labels.size != data:i + 1'>},<b:else/>}</b:if></b:loop></b:if>
+  ]
+}</script>
+        <b:include data='post' name='postMeta'/>
+        </b:includable>
+      <b:includable id='populerList'>
+        <div class='bs' expr:data-title='data:post.title' itemscope='itemscope' itemtype='http://schema.org/CreativeWork'>
+                    <a class='sx' expr:href='data:post.url' expr:title='data:post.title'>
+                        <div class='limit'>
+<div class='ply'/>
+                            <b:loop values='data:post.labels' var='l'>
+                <b:if cond='data:l.name in data:type'>
+                  <span expr:class='&quot;type &quot; + data:l.name'/>
+                </b:if>
+              </b:loop>
+                            <b:if cond='data:post.labels any (l =&gt; l.name == &quot;hot&quot;)'>
+                <span class='hot'><i class='fab fa-hotjar'/></span>
+              </b:if>
+              <b:if cond='data:post.labels any (l =&gt; l.name == &quot;color&quot;)'>
+                <span class='colored'><i class='fas fa-palette'/> Warna</span>
+              </b:if>
+                            <img class='ts-post-image lazyload' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII='>
+        <b:if cond='data:post.featuredImage'>
+<b:attr expr:value='resizeImage(data:post.featuredImage, 240)' name='data-src'/>
+        </b:if>
+          </img>
+                        </div>
+                    <div class='dtitle'><data:post.title/></div>
+</a>
+           <ul class='new subItem'>
+          </ul>
+                </div>
+    </b:includable>
+      <b:includable id='populerList2'>
+        <a class='poplist' expr:href='data:post.url' expr:title='data:post.title'>
+        <div class='popthumb'><img class='ts-post-image lazyload' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII='>
+        <b:if cond='data:post.featuredImage'>
+<b:attr expr:value='resizeImage(data:post.featuredImage, 240)' name='src'/>
+        </b:if>
+          </img>
+        </div>
+    <div class='popcount'><b:eval expr='data:index + 1'/></div>
+    <div class='popinfo'>
+            <div class='poptitle'><data:post.title/></div>
+        <div style='min-height: 2px;'/>
+      <b:with value='data:post.labels count (d =&gt; d.name in data:genre1 or d.name in data:genre2 or d.name in data:genre3)' var='c'>
+        <div class='popgnr'>
+            <b:loop index='i' values='data:post.labels filter (i =&gt; i.name in data:genre1 or i.name in data:genre2 or i.name in data:genre3)' var='l'>
+              <data:l.name/><b:if cond='data:i != data:c - 1'> &#183; </b:if>
+            </b:loop>
+        </div>
+          </b:with>
+          </div>
+</a>
+    </b:includable>
+      <b:includable id='BloggerScript'>
+        /*<![CDATA[*/
+"use strict";class BloggerScript{constructor(a={}){this.config=a,this._siteMap={arr:new Array,callback:"undefined",fc:"function",max:150,start:1,url:"url"}}siteMap(b,c=function(a){console.log(a)}){let a=this;a.xhr("GET",`${b}?alt=json-in-script&start-index=${a._siteMap.start}&max-results=${a._siteMap.max}`,function(d){if("entry"in d.feed){let e=d.feed.entry;Array.prototype.push.apply(a._siteMap.arr,a.getFeed(d)),e.length>=a._siteMap.max?(a._siteMap.start+=a._siteMap.max,a.siteMap(b,c)):c(a._siteMap.arr)}else c(a._siteMap.arr)})}getFeed(a){if(a.feed.entry){let b=new Array;return a.feed.entry.forEach(a=>{let c={};c.title=a.title.$t,c.link=this.getLink(a.link),c.image=this.getImage(a),c.label=this.getLabel(a.category),c.date=this.getTime(a.published.$t),c.published=a.published.$t,c.updated=a.updated.$t,"summary"in a&&(c.summary=a.summary.$t),"content"in a&&(c.content=a.content.$t),"author"in a&&(c.author=this.getAuthor(a)),b.push(c)}),b}return[]}getImage(a){if("media$thumbnail"in a)return this.resizeImage(a.media$thumbnail.url);if(!("content"in a))return this.config.noImage||"";{let b=a.content.$t,d=b.indexOf("<img"),c=b.indexOf('src="',d),e=b.indexOf('"',c+5),f=b.substr(c+5,e-c-5);return -1!=d&& -1!=c&& -1!=e&&""!=f?f:this.config.noImage||""}}getAuthor(a){var b,c,d,e,f,g;return{name:(null===(b=a.author[0])|| void 0===b?void 0:null===(c=b.name)|| void 0===c?void 0:c.$t)||"",link:(null===(d=a.author[0])|| void 0===d?void 0:null===(e=d.uri)|| void 0===e?void 0:e.$t)||"",image:(null===(f=a.author[0])|| void 0===f?void 0:null===(g=f.gd$image)|| void 0===g?void 0:g.src)||""}}getLink(a){return a.find(a=>"alternate"==a.rel).href}getLabel(a){return a.map(a=>a.term)}getTime(c){if(/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/.test(c)){var b=c,d=b.substring(0,4),e=b.substring(5,7),f=b.substring(8,10),a=new Array;return a[1]="Jan",a[2]="Feb",a[3]="Mar",a[4]="Apr",a[5]="May",a[6]="Jun",a[7]="Jul",a[8]="Aug",a[9]="Sep",a[10]="Oct",a[11]="Nov",a[12]="Dec",f+" "+a[parseInt(e,10)]+" "+d}return!1}resizeImage(a){return this.config.sizeImage?a.match(/\/s[0-9]{2}-(w[0-9]+-)?c/)?a.replace(/\/s[0-9]{2}-(w[0-9]+-)?c/,`/${this.config.sizeImage}`):a.replace(/\=s[0-9]{2}-(w[0-9]+-)?c/,`=${this.config.sizeImage}`):a}relatedPost(b=function(a){console.log(a)}){let a=this,c=0,d=new Array,e=document.location.pathname;"undefined"!=a.config.label&&""!=a.config.label&&0!=a.config.label.length&&a.config.label.forEach(f=>{a.xhr("GET",`/feeds/posts/default/-/${f.replace(/\&amp;/g,"&").replace(/\//g,"%2F")}?alt=json-in-script&max-results=${a.config.jumlah}`,function(g){if("entry"in g.feed&&a.getFeed(g).forEach(a=>{!a.link.includes(e)&&(d.some(b=>b.link==a.link)||d.push(a))}),++c==a.config.label.length){if(0==d.length)return!1;let f=a.shuffle(d);return f.length>a.config.jumlah&&(f=f.slice(0,a.config.jumlah)),b(f)}})})}randomPost(b,c=function(a){console.log(a)}){let a=this,d=a.config.jumlah;a.xhr("GET",`${b}?alt=json-in-script&max-results=0`,function(f){let e=f.feed.openSearch$totalResults.$t;if(a.config.allRandom)e=e<=150?1:a.shuffle2(1,e-150),d=150;else{if(e<a.config.jumlah)return;e=a.shuffle2(1,e-a.config.jumlah)}a.xhr("GET",`${b}?alt=json-in-script&start-index=${e}&max-results=${d}`,function(b){if("entry"in b.feed){let d=a.getFeed(b);return c(d=a.shuffle(d))}})})}shuffle(a){var c,d,b=a.length;if(0===b)return!1;for(;--b;)c=Math.floor(Math.random()*(b+1)),d=a[b],a[b]=a[c],a[c]=d;return a}shuffle2(a,b){return Math.floor(Math.random()*(b-a))+a}xhr(b,c,d){let a=window.XMLHttpRequest?new XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP");a.onreadystatechange=function(){if(4==this.readyState&&200==this.status||304==this.status){let a=this.responseText,b=JSON.parse(a.substring(a.indexOf("{"),a.lastIndexOf("}")+1));d&&d(b)}},a.onerror=a=>console.log(a),a.open(b,c,!0),a.send()}inTag(b){let a=document.createElement("script");a.src=b,document.body.appendChild(a)}}
+/*]]>*/
+        </b:includable>
+    </b:defaultmarkup>
+  </b:defaultmarkups>
+  <script src='https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js'/>
+<script type='text/javascript'>
+/*<![CDATA[*/
+function timeAgo(t) {
+        var e = new Date(t),
+            a = 36e5,
+            o = 24 * a,
+            s = 30 * o,
+            i = 365 * o,
+            n = "lalu",
+            l = new Date - e;
+        return l < 6e4 ? Math.round(l / 1e3) + " detik " + n : l < a ? Math.round(l / 6e4) + " menit " + n : l < o ? Math.round(l / a) + " jam " + n : l < s ? Math.round(l / o) + " hari " + n : l < i ? Math.round(l / s) + " bulan " + n : Math.round(l / i) + " tahun " + n
+    }
+
+/* Filter datakodehiru */
+function filterTitle(title) {
+  var filterText = ListFilter;
+  var filteredTitle = title;
+  for (var i = 0; i < filterText.length; i++) {
+    var pattern = new RegExp(filterText[i], "i");
+    var match = filteredTitle.match(pattern);
+    if (match) {
+      filteredTitle = match[0].trim();
+      break;
+    }
+  } 
+filteredTitle = filteredTitle.replace(/Volume/, 'Vol');
+filteredTitle = filteredTitle.replace(/Season/, 'S');
+filteredTitle = filteredTitle.replace(/Short Story/, 'SS');
+filteredTitle = filteredTitle.replace(/Extra Chapter/, 'Etc');
+filteredTitle = filteredTitle.replace(/Chapter/, 'Ch.');
+  return filteredTitle;
+}
+
+function filterTitle2(title) {
+  var filterText = ListFilter;
+  var filteredTitle = title;
+  
+  for (var i = 0; i < filterText.length; i++) {
+    var pattern = new RegExp(filterText[i], "i");
+    var match = filteredTitle.match(pattern);
+    if (match) {
+      filteredTitle = match[0].trim();
+      break;
+    }
+  }
+  
+  return filteredTitle;
+}
+
+let ListFilter = [
+  "[vV]olume\\s\\d+",
+  "[cC]hapter\\s\\d+(\\.\\d+)?",
+  "[pP]rolog",
+  "[eE]pilog",
+  "[eE]nding",
+  "[eE]nd",
+  "[tT]amat",
+  "[mM]ain\\s[sS]tory"
+];
+/*]]>*/
+</script>
+  </head>
+<b:with value='[&quot;Manga&quot;, &quot;Manhwa&quot;, &quot;Manhua&quot;, &quot;Comic&quot;, &quot;Novel&quot;]' var='type'>
+<b:with value='[&quot;Action&quot;,&quot;Adventure&quot;,&quot;Cars&quot;,&quot;Comedy&quot;,&quot;Dementia&quot;,&quot;Demons&quot;,&quot;Drama&quot;,&quot;Ecchi&quot;,&quot;Fantasy&quot;,&quot;Game&quot;,&quot;Harem&quot;,&quot;Historical&quot;,&quot;Horror&quot;,&quot;Josei&quot;,&quot;Kids&quot;,&quot;Magic&quot;,&quot;Martial Arts&quot;,&quot;Mecha&quot;,&quot;Military&quot;,&quot;Music&quot;]' var='genre1'>
+<b:with value='[&quot;Mystery&quot;,&quot;Parody&quot;,&quot;Police&quot;,&quot;Psychological&quot;,&quot;Romance&quot;,&quot;Samurai&quot;,&quot;School&quot;,&quot;Sci-Fi&quot;,&quot;Seinen&quot;,&quot;Shoujo&quot;,&quot;Shoujo Ai&quot;,&quot;Shounen&quot;,&quot;Shounen Ai&quot;,&quot;Slice of Life&quot;,&quot;Space&quot;,&quot;Sports&quot;,&quot;Super Power&quot;,&quot;Supernatural&quot;,&quot;Thriller&quot;,&quot;Vampire&quot;]' var='genre2'>
+<b:with value='[&quot;Mature&quot;, &quot;Isekai&quot;, &quot;Gender Bender&quot;, &quot;Cultivation&quot;, &quot;One Shot&quot;, &quot;Tragedy&quot;, &quot;Time Travel&quot;, &quot;Webtoons&quot;, &quot;Monster&quot;, &quot;Crime&quot;]' var='genre3'>
+<b:with value='[&quot;Ongoing&quot;, &quot;Completed&quot;, &quot;Dropped&quot;, &quot;Hiatus&quot;]' var='status'>
+<body itemscope='itemscope' itemtype='https://schema.org/WebPage'>
+<b:if cond='data:posts.empty or data:view.isError'>
+  <style>body{overflow: hidden;}</style>
+    <div class='err'>
+      <img alt='404' height='196' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhM0P6cNsdfTY4NSaPQYr15J9yACkMEokXsTnvS5vleL5BcOCFhS_UWUJ7zfO4FJ7TL8AmwJWZaYW_3dWm7MvvhJa_QqLe9rkq4t-sPWXu_Uk45X92hjOz7kZNHTWNYWTSeq5ZUS-m75Dz3W3A5Y1PtNPQuMbvmCT4R69lkDcv7e8E_FQ9tiMQOYg2cUzOz/s1356/404-NotFound_452x246.png' width='360'/>
+      <div style='min-height: 30px;'/>
+      <div class='err1'>Oops, 
+      page not found!</div>
+      <div style='min-height: 15px;'/>
+      <div class='err2'>This page you requested could not be found.
+Hope you find your way back!</div>
+      <div style='min-height: 40px;'/>
+      <a class='err3' expr:href='data:blog.homepageUrl.canonical'>Back to Home</a>
+  </div>
+  <b:else/>
+<b:section id='config' maxwidgets='1'>
+  <b:widget id='LinkList1' locked='true' title='Pengaturan Script' type='LinkList' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='link-5'>w320-h400</b:widget-setting>
+      <b:widget-setting name='link-3'>5</b:widget-setting>
+      <b:widget-setting name='link-4'>6</b:widget-setting>
+      <b:widget-setting name='text-1'>disqus_shortname</b:widget-setting>
+      <b:widget-setting name='text-0'>noThumbnail</b:widget-setting>
+      <b:widget-setting name='text-3'>newseries_jumlah</b:widget-setting>
+      <b:widget-setting name='text-2'>max_bookmark</b:widget-setting>
+      <b:widget-setting name='text-5'>sizeImg</b:widget-setting>
+      <b:widget-setting name='text-4'>max_slider</b:widget-setting>
+      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+      <b:widget-setting name='link-1'>name_disqus</b:widget-setting>
+      <b:widget-setting name='link-2'>10</b:widget-setting>
+      <b:widget-setting name='link-0'>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'><b:loop values='[&quot;data-version&quot;, &quot;id&quot;, &quot;class&quot;]' var='d'><b:attr expr:name='data:d' value=''/></b:loop><b:include name='content'/></b:includable>
+    <b:includable id='content'><b:tag name='script'><b:loop values='data:links' var='link'><b:if cond='data:link.name == &quot;disqus_shortname&quot;'>
+let disqus_shortname = &#39;<data:link.target/>&#39;;<b:elseif cond='data:link.name == &quot;noThumbnail&quot;'/>
+let noThumbnail = &#39;<data:link.target/>&#39;;<b:elseif cond='data:link.name == &quot;max_bookmark&quot;'/>
+let max_bookmark = <data:link.target/>;<b:elseif cond='data:link.name == &quot;max_slider&quot;'/>
+let max_slider = <data:link.target/>;<b:elseif cond='data:link.name == &quot;sizeImg&quot;'/>
+let sizeImg = &quot;<data:link.target/>&quot;;<b:else/></b:if></b:loop>
+let kaiGenre = [<b:loop values='data:genre1' var='l'>&quot;<data:l/>&quot;,</b:loop><b:loop values='data:genre2' var='l'>&quot;<data:l/>&quot;,</b:loop><b:loop values='data:genre3' var='l'>&quot;<data:l/>&quot;,</b:loop>];
+let kaiTipe = [<b:loop values='data:type' var='l'>&quot;<data:l/>&quot;,</b:loop>];
+let kaiStatus = [<b:loop values='data:status' var='l'>&quot;<data:l/>&quot;,</b:loop>];
+let regexScore = /^(\d{1,3}\.\d{1,2})$/,
+regexEpisode = /^([Ee]pisode|[Ee]p|[Ee]ps?)\s+\d+\s*(\+\s*[A-Z]+)?$/i;
+let noBookmark = &quot;<h4><center>YOU HAVE NO BOOKMARK, NOTHING TO SHOW</center></h4>&quot;;
+console.log(&#39;KaiKomik V1&#39;);
+<b:include name='BloggerScript'/>
+</b:tag>
+</b:includable>
+  </b:widget>
+</b:section>
+<b:if cond='!(data:view.title contains &quot;Chapter&quot; or data:view.title contains &quot;Volume&quot;)'>
+  <header id='header-wrapper' itemscope='itemscope' itemtype='https://schema.org/WPHeader'>
+<b:section id='header' showaddelement='true'>
+  <b:widget id='Header1' locked='false' title='KaiKomik (Header)' type='Header' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='displayUrl'/>
+      <b:widget-setting name='displayHeight'>0</b:widget-setting>
+      <b:widget-setting name='sectionWidth'>-1</b:widget-setting>
+      <b:widget-setting name='useImage'>false</b:widget-setting>
+      <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+      <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
+      <b:widget-setting name='displayWidth'>0</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main' var='this'>
+      <b:loop values='[&quot;data-version&quot;, &quot;class&quot;]' var='d'>
+                  <b:attr expr:name='data:d' value=''/>
+                </b:loop>
+      <b:include cond='data:imagePlacement in {&quot;REPLACE&quot;, &quot;BEFORE_DESCRIPTION&quot;}' name='image'/>
+      <b:include cond='data:imagePlacement not in {&quot;REPLACE&quot;, &quot;BEFORE_DESCRIPTION&quot;}' name='title'/>
+      <b:include cond='data:imagePlacement != &quot;REPLACE&quot;' name='description'/>
+    <b:include cond='data:imagePlacement == &quot;BEHIND&quot;' name='behindImageStyle'/>
+  </b:includable>
+    <b:includable id='behindImageStyle'>
+    <b:if cond='data:sourceUrl'>
+      <b:include cond='data:this.image' data='{                    image: data:this.image,                    selector: &quot;.header-widget&quot;                  }' name='responsiveImageStyle'/>
+      <style type='text/css'>
+        .header-widget {
+          background-position: <data:blog.locale.languageAlignment/>;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      </style>
+    </b:if>
+  </b:includable>
+    <b:includable id='description'>
+      <b:if cond='data:this.description'>
+    <p>
+      <data:this.description/>
+    </p>
+      </b:if>
+  </b:includable>
+    <b:includable id='image'>
+                <b:if cond='data:sourceUrl'>
+                  <b:tag cond='data:view.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
+      <img expr:alt='data:title' expr:src='data:sourceUrl' height='24' itemprop='image' width='100'/>
+                  </b:tag>
+                  <b:else/>
+                  <data:title/>
+                </b:if>
+    </b:includable>
+    <b:includable id='title'>
+    <h1>
+      <b:tag cond='data:view.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
+        <data:title/>
+      </b:tag>
+    </h1>
+  </b:includable>
+  </b:widget>
+  <b:widget id='LinkList2' locked='true' title='Menu' type='LinkList' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='link-3'>/p/bookmark.html</b:widget-setting>
+      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+      <b:widget-setting name='text-1'>Manga List</b:widget-setting>
+      <b:widget-setting name='link-1'>/p/daftar-komik.html</b:widget-setting>
+      <b:widget-setting name='text-0'>Home</b:widget-setting>
+      <b:widget-setting name='link-2'>/search/label/Project</b:widget-setting>
+      <b:widget-setting name='text-3'>Bookmark</b:widget-setting>
+      <b:widget-setting name='link-0'>/</b:widget-setting>
+      <b:widget-setting name='text-2'>Project</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+                  <b:loop values='[&quot;data-version&quot;, &quot;id&quot;, &quot;class&quot;]' var='d'>
+                  <b:attr expr:name='data:d' value=''/>
+                </b:loop>
+                  <b:class name='header-right'/>
+                  <b:include name='content'/>
+                </b:includable>
+    <b:includable id='content'>
+                  <nav itemscope='itemscope' itemtype='http://schema.org/SiteNavigationElement' role='navigation'>
+                  <ul class='menu' id='menu-menu'>
+                    <b:loop values='data:links' var='link'>
+                        <li><a expr:href='data:link.target' itemprop='url'><data:link.name/></a></li>
+                    </b:loop></ul>
+                  </nav>
+      </b:includable>
+  </b:widget>
+  <b:widget id='HTML7' locked='false' title='Tombol Search' type='HTML' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='content'/>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <b:loop values='[&quot;data-version&quot;, &quot;id&quot;, &quot;class&quot;]' var='d'>
+                  <b:attr expr:name='data:d' value=''/>
+                </b:loop>
+                  <b:class name='ml-1'/>
+      <div class='buttonsearch'>
+      </div>
+      <div style='width: 10px;'/>
+      <div class='buttonmenu'>
+      </div>
+</b:includable>
+  </b:widget>
+  <b:widget id='BlogSearch1' locked='true' title='Pencarian' type='BlogSearch' version='2' visible='true'>
+    <b:includable id='main'>
+      <b:loop values='[&quot;data-version&quot;, &quot;id&quot;, &quot;class&quot;]' var='d'>
+                  <b:attr expr:name='data:d' value=''/>
+                </b:loop>
+              <b:class name='searchk'/>
+      <form action='/search' id='form' itemprop='potentialAction' itemscope='itemscope' itemtype='http://schema.org/SearchAction' method='get'>
+        <meta expr:content='data:blog.homepageUrl.canonical + &quot;search?q={query}&quot;' itemprop='target'/>
+        <input autocomplete='off' id='s' itemprop='query-input' name='q' placeholder='Search' type='text'/>
+        <button id='submit' type='submit'><svg aria-hidden='true' fill='none' height='24' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' width='24'>
+<path d='m19 19-3.5-3.5'/>
+<circle cx='11' cy='11' r='6'/>
+</svg></button>
+      </form>
+    </b:includable>
+    <b:includable id='content'/>
+    <b:includable id='searchForm'/>
+    <b:includable id='searchSubmit'/>
+  </b:widget>
+</b:section>
+  </header>
+  </b:if>
+<b:section class='content' id='main' showaddelement='true'>
+  <b:widget cond='data:view.isHomepage' id='HTML5' locked='false' title='Slider' type='HTML' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='content'>Series</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main' var='this'>
+      <b:loop values='[&quot;data-version&quot;, &quot;class&quot;, &quot;id&quot;]' var='d'>
+        <b:attr expr:name='data:d' value=''/>
+      </b:loop>
+      <b:class name='slider-wrapper wrapernum3'/>
+      <b:attr name='id' value='output'/>
+      <div class='bannerku' style='background: #28292c;'/>
+<script type='text/javascript'>/*<![CDATA[*/
+  let script1 = new BloggerScript({
+    noImage: noThumbnail,
+    sizeImage: 's320'
+});
+
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('F G(e){4 g=H.I(e);4 J=g.q;4 7=\'<1 3="8-K r">\';7+=\'<1 3="8-L">\';g.M((5,N)=>{4 c=s.O("1");c.t=5.P;4 9=c.u(".Q p");4 h=c.u(".j a");4 k=9?(9.l.q>v?9.l.R(0,v)+"...":9.l):"S T U";4 j=h?h.w:5.m;4 V=5.6.W(6=>X.Y(6)).Z(6=>`<f>${6}</f>`).10(\' \');4 11=5.6.12(6=>/13\\d+/i.14(6))||\'\';7+=`<1 3="8-15"><1 3="16"x="17-m: 18(${j})"><1 3="19"></1><1 3="1a"><1 3="1b"><1 3="1c"><y 3="z">${5.A}</y><f 3="z k"x="-1d-B-1e: 2;C-1f: 1g;B-1h: 1i;C-1j: 1k;">${k}</f></1><1 3="1l 1m"><a w="${5.1n}"><1o 3="1p"1q="${5.m}"1r="${5.A}"></1></a></1></1></1></1>`});7+=\'</1>\';7+=\'<1 3="8-n"></1>\';7+=\'</1>\';s.1s(\'1t\').t=7;1u b=1v 1w(\'.r\',{1x:o,1y:{1z:1A,1B:1C,},1D:o,1E:{1F:\'.D-E.1G\',1H:\'.D-E.1I\',},n:{1J:\'.8-n\',1K:o,},})}',62,109,'|div||class|let|item|label|html|swiper|synopsisElement|||entryElement|||span|entry|cover||coper|synopsis|innerText|image|pagination|true||length|sliderkai|document|innerHTML|querySelector|200|href|style|h2|fontbold|title|line|font|carousel|button|function|getPost|script1|getFeed|totalSlides|container|wrapper|forEach|index|createElement|content|desc|slice|Tidak|Ada|Sinopsis|genres|filter|kaiGenre|includes|map|join|chapter|find|Chapter|test|slide|bannerku|background|url|bannershad|rcontent|sliderflex|slideritem|webkit|clamp|size|14px|height|24px|weight|300|slidercover|hidden|link|img|hfull|src|alt|getElementById|output|var|new|Swiper|centeredSlides|autoplay|delay|5000|disableOnInteraction|false|loop|navigation|nextEl|next|prevEl|prev|el|clickable'.split('|'),0,{}))
+/*]]>*/
+      script1.xhr(&#39;GET&#39;, &#39;/feeds/posts/default/-/<data:content/>?alt=json-in-script&amp;max-results=5&amp;orderby=updated&#39;, getPost);
+      </script>
+    </b:includable>
+  </b:widget>
+  <b:widget cond='data:view.isHomepage' id='HTML2' locked='false' title='Project Update' type='HTML' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='content'>10</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <div class='htitle'>
+<h2><data:title/></h2>
+<a class='viewall' href='/search/label/Project?&amp;max-results=20'>Lihat semua
+<svg fill='white' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z'/></svg>
+    </a>
+</div>
+<div style='min-height: 20px;'/>
+    <div class='listmanga' id='output2'>
+      <b:loop expr:values='&quot;1..&quot; + data:content' var='i'>
+        <div class='bs' itemscope='itemscope' itemtype='http://schema.org/CreativeWork'>
+                    <a class='tip' href='/' title=''>
+                        <div class='limit'>
+                        </div>
+                    </a>
+                    <div class='dtitle' style='height:20px;background: #28292c;'/>
+                    <div class='subItem'>
+          </div>
+                </div>
+      </b:loop>
+      <script type='text/javascript'>
+        /*<![CDATA[*/
+  document.addEventListener('DOMContentLoaded', () => {
+    const postsPerPage = 10;
+    const maxResultsPerRelatedPost = 2;
+
+    let script2 = new BloggerScript({
+        noImage: noThumbnail,
+        sizeImage: sizeImg
+    });
+
+    (function(_0x2bc7c3,_0x3fcca7){const _0x2bb56d=_0x4d67,_0x2d9cd1=_0x2bc7c3();while(!![]){try{const _0xa0fb65=parseInt(_0x2bb56d(0x1cc))/0x1*(-parseInt(_0x2bb56d(0x1ee))/0x2)+parseInt(_0x2bb56d(0x1ce))/0x3*(-parseInt(_0x2bb56d(0x1d2))/0x4)+-parseInt(_0x2bb56d(0x1f1))/0x5+parseInt(_0x2bb56d(0x1d4))/0x6+parseInt(_0x2bb56d(0x1f2))/0x7*(parseInt(_0x2bb56d(0x1cf))/0x8)+parseInt(_0x2bb56d(0x1e5))/0x9+parseInt(_0x2bb56d(0x1f0))/0xa*(-parseInt(_0x2bb56d(0x1d7))/0xb);if(_0xa0fb65===_0x3fcca7)break;else _0x2d9cd1['push'](_0x2d9cd1['shift']());}catch(_0x30f130){_0x2d9cd1['push'](_0x2d9cd1['shift']());}}}(_0x583f,0x9b82a));function getRelatedPosts(_0x1c54f6,_0x424356){const _0x5cad70=_0x4d67;let _0x264020=script2[_0x5cad70(0x1d6)](_0x1c54f6),_0x554d15='';_0x264020[_0x5cad70(0x1e3)](_0x2c86a5=>{const _0x4b3bf6=_0x5cad70;if(_0x2c86a5[_0x4b3bf6(0x1ef)]['includes']('Chapter')){let _0x3861f3=timeAgo(new Date(_0x2c86a5[_0x4b3bf6(0x1eb)]));_0x554d15+=_0x4b3bf6(0x1cb)+_0x2c86a5[_0x4b3bf6(0x1d0)]+'\x27>'+filterTitle(_0x2c86a5[_0x4b3bf6(0x1ec)])+'</a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>'+_0x3861f3+_0x4b3bf6(0x1da);}}),_0x424356[_0x5cad70(0x1dc)]+=_0x554d15;}function _0x583f(){const _0x21c32d=['2819436tEipUR','output2','getFeed','4037SkSnsB',')\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22ply\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','GET','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</li>','<span\x20class=\x22hot\x22></span>','innerHTML','.subItem','replace','image','length','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22limit\x22\x20style=\x22background-image:\x20url(','/feeds/posts/default/-/Project?alt=json-in-script&max-results=','forEach','/feeds/posts/default/-/','8897832Zocnzl','find','<div\x20class=\x27type\x20','[data-project=\x22','includes','color','published','title','\x22\x20class=\x22bs\x22\x20itemscope=\x22itemscope\x22\x20itemtype=\x22http://schema.org/CreativeWork\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20class=\x22tip\x22\x20href=\x22','34yTdTEV','label','13330JnqrVc','1960590LBAVnX','14XrDRKi','xhr','\x22\x20title=\x22','querySelector','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li\x20class=\x22char\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x27','8435ybXBTb','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul\x20class=\x22subItem\x22></ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','1032QNYvMO','4709392mePXbS','link','some','11328wIQYuv','&orderby=updated'];_0x583f=function(){return _0x21c32d;};return _0x583f();}function _0x4d67(_0x342966,_0x1d023e){const _0x583f48=_0x583f();return _0x4d67=function(_0x4d6711,_0x3a4276){_0x4d6711=_0x4d6711-0x1c9;let _0x2583a3=_0x583f48[_0x4d6711];return _0x2583a3;},_0x4d67(_0x342966,_0x1d023e);}function getPost(_0x4fa0d8){const _0x4d1eeb=_0x4d67;let _0x4a8ffb=script2['getFeed'](_0x4fa0d8),_0x56d2d0='';_0x4a8ffb[_0x4d1eeb(0x1e3)](_0x438c95=>{const _0x233583=_0x4d1eeb;let _0x17cdad=_0x438c95[_0x233583(0x1ef)][_0x233583(0x1e9)]('hot'),_0x51f4e8=_0x438c95[_0x233583(0x1ef)][_0x233583(0x1e9)](_0x233583(0x1ea)),_0x244012=_0x438c95['label'][_0x233583(0x1e6)](_0x1fd49b=>kaiTipe[_0x233583(0x1d1)](_0x178d6a=>_0x178d6a===_0x1fd49b)),_0x451f17=_0x244012?_0x233583(0x1e7)+_0x244012+'\x27></div>':'',_0x22c3d3=_0x17cdad?_0x233583(0x1db):'',_0x4742e0=_0x51f4e8?'<span\x20class=\x22colored\x22>Warna</span>':'';_0x56d2d0+='<div\x20data-project=\x22'+_0x438c95[_0x233583(0x1ec)][_0x233583(0x1de)](/\s+/g,'-')+_0x233583(0x1ed)+_0x438c95[_0x233583(0x1d0)]+_0x233583(0x1c9)+_0x438c95[_0x233583(0x1ec)]+_0x233583(0x1e1)+_0x438c95[_0x233583(0x1df)]+_0x233583(0x1d8)+_0x22c3d3+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x451f17+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x4742e0+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22dtitle\x22>'+_0x438c95[_0x233583(0x1ec)]+_0x233583(0x1cd),script2[_0x233583(0x1f3)]('GET',_0x233583(0x1e4)+encodeURIComponent(_0x438c95[_0x233583(0x1ec)][_0x233583(0x1de)](/,/g,''))+'?alt=json-in-script&max-results='+maxResultsPerRelatedPost,_0x2572dd=>{const _0xcabb8b=_0x233583;let _0x158599=document[_0xcabb8b(0x1ca)](_0xcabb8b(0x1e8)+_0x438c95['title']['replace'](/\s+/g,'-')+'\x22]'),_0x16e0e8=_0x158599[_0xcabb8b(0x1ca)](_0xcabb8b(0x1dd));getRelatedPosts(_0x2572dd,_0x16e0e8);});}),document['getElementById'](_0x4d1eeb(0x1d5))['innerHTML']=_0x56d2d0;}function fetchPosts(){script2['xhr']('GET','/feeds/posts/default/-/Project?alt=json-in-script',_0x9e61e0=>{const _0x5bb20a=_0x4d67;let _0x4a7443=script2[_0x5bb20a(0x1d6)](_0x9e61e0),_0x1e01ba=_0x4a7443[_0x5bb20a(0x1e0)];script2[_0x5bb20a(0x1f3)](_0x5bb20a(0x1d9),_0x5bb20a(0x1e2)+postsPerPage+_0x5bb20a(0x1d3),getPost);});}
+
+    fetchPosts();
+});
+
+/*]]>*/</script>
+  </div>
+</b:includable>
+  </b:widget>
+  <b:widget cond='data:view.isHomepage' id='HTML1' locked='false' title='Latest Update' type='HTML' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='content'>10</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+  <div class='htitle'>
+<h2><data:title/></h2>
+<a class='viewall' href='/search/label/Series?&amp;max-results=20'>Lihat semua
+<svg fill='white' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z'/></svg>
+    </a>
+</div>
+      <div style='min-height: 20px;'/>
+    <div class='listmanga' id='output3'>
+      <b:loop expr:values='&quot;1..&quot; + 7' var='i'>
+        <div class='bs' itemscope='itemscope' itemtype='http://schema.org/CreativeWork'>
+                    <a class='tip' href='/' title=''>
+                        <div class='limit'>
+                        </div>
+                    </a>
+                    <div class='dtitle' style='height:20px;background: #28292c;'/>
+                    <div class='subItem'>
+          </div>
+                </div>
+      </b:loop>
+      <script type='text/javascript'>
+        const postsPerPage = <data:content/>,
+        maxResultsPerRelatedPost = 2;
+        /*<![CDATA[*/
+    // Initialize BloggerScript with custom image settings
+    let script3 = new BloggerScript({
+        noImage: noThumbnail,
+        sizeImage: sizeImg
+    });
+
+    (function(_0x1717ae,_0x1fdeac){const _0x2f631c=_0x1832,_0x413197=_0x1717ae();while(!![]){try{const _0x343215=-parseInt(_0x2f631c(0xe8))/0x1+-parseInt(_0x2f631c(0xe3))/0x2*(-parseInt(_0x2f631c(0xd6))/0x3)+parseInt(_0x2f631c(0xe0))/0x4+parseInt(_0x2f631c(0xc9))/0x5+-parseInt(_0x2f631c(0xe9))/0x6*(-parseInt(_0x2f631c(0xe6))/0x7)+-parseInt(_0x2f631c(0xcd))/0x8*(parseInt(_0x2f631c(0xe4))/0x9)+parseInt(_0x2f631c(0xca))/0xa*(parseInt(_0x2f631c(0xdc))/0xb);if(_0x343215===_0x1fdeac)break;else _0x413197['push'](_0x413197['shift']());}catch(_0x1c1f91){_0x413197['push'](_0x413197['shift']());}}}(_0x382f,0xbdb1e));function getRelatedPosts(_0x571061,_0x1639cd){const _0x3a4538=_0x1832;let _0xd628aa=script3[_0x3a4538(0xdf)](_0x571061);_0xd628aa['forEach'](_0x214e55=>{const _0x4ab3d0=_0x3a4538;if(_0x214e55['label'][_0x4ab3d0(0xc6)](_0x4ab3d0(0xd3))){let _0x2e1b5b=timeAgo(new Date(_0x214e55[_0x4ab3d0(0xc3)])),_0xe1ab30=_0x4ab3d0(0xeb)+_0x214e55[_0x4ab3d0(0xe5)]+'\x27>'+filterTitle(_0x214e55[_0x4ab3d0(0xcf)])+'</a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>'+_0x2e1b5b+_0x4ab3d0(0xef);_0x1639cd['innerHTML']+=_0xe1ab30;}});}function getPost(_0x15a486){const _0x45dcb2=_0x1832;let _0x21608a=script3[_0x45dcb2(0xdf)](_0x15a486),_0x372a2c='';_0x21608a[_0x45dcb2(0xed)](_0x3186d8=>{const _0x55e769=_0x45dcb2;let _0x24e95b=_0x3186d8[_0x55e769(0xec)]['includes'](_0x55e769(0xd5)),_0x2e7815=_0x3186d8[_0x55e769(0xec)][_0x55e769(0xc6)](_0x55e769(0xc1)),_0x3997e2=_0x3186d8[_0x55e769(0xec)][_0x55e769(0xd7)](_0x5e1293=>kaiTipe[_0x55e769(0xd1)](_0x5ba408=>_0x5ba408===_0x5e1293)),_0x506453=_0x3997e2?_0x55e769(0xd0)+_0x3997e2+_0x55e769(0xcb):'',_0x79f40c=_0x24e95b?_0x55e769(0xce):'',_0x509d5b=_0x2e7815?_0x55e769(0xea):'';_0x372a2c+=_0x55e769(0xee)+_0x3186d8[_0x55e769(0xcf)][_0x55e769(0xd8)](/\s+/g,'-')+_0x55e769(0xda)+_0x3186d8['link']+'\x22\x20title=\x22'+_0x3186d8[_0x55e769(0xcf)]+_0x55e769(0xc5)+_0x3186d8[_0x55e769(0xd2)]+')\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22ply\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x79f40c+_0x55e769(0xe7)+_0x506453+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x509d5b+_0x55e769(0xe2)+_0x3186d8[_0x55e769(0xcf)]+_0x55e769(0xdd),script3[_0x55e769(0xdb)](_0x55e769(0xc7),'/feeds/posts/default/-/'+encodeURIComponent(_0x3186d8[_0x55e769(0xcf)][_0x55e769(0xd8)](/,/g,''))+_0x55e769(0xd9)+maxResultsPerRelatedPost,function(_0x549320){const _0x5599a0=_0x55e769;let _0x3b64f5=document['getElementById']('post-'+_0x3186d8['title'][_0x5599a0(0xd8)](/\s+/g,'-')),_0x408107=_0x3b64f5[_0x5599a0(0xd4)](_0x5599a0(0xe1));getRelatedPosts(_0x549320,_0x408107);});}),document['getElementById']('output3')[_0x45dcb2(0xc8)]=_0x372a2c;}function _0x1832(_0x136aa3,_0xa2cb59){const _0x382fb0=_0x382f();return _0x1832=function(_0x183209,_0x18f3b4){_0x183209=_0x183209-0xc1;let _0x449b13=_0x382fb0[_0x183209];return _0x449b13;},_0x1832(_0x136aa3,_0xa2cb59);}function _0x382f(){const _0x48bdf5=['452OUGIYo','2690937kVRvEg','link','3857wGxIzk','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','1254615FtLFyc','7572RWUXdn','<span\x20class=\x22colored\x22>Warna</span>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li\x20class=\x22char\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x27','label','forEach','<div\x20id=\x22post-','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</li>','color','&orderby=updated','published','length','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22limit\x22\x20style=\x22background-image:\x20url(','includes','GET','innerHTML','1774085UHpbHC','30MNqnvC','\x27></div>','/feeds/posts/default/-/Series?alt=json-in-script&max-results=','16tqRoKZ','<span\x20class=\x22hot\x22></span>','title','<div\x20class=\x27type\x20','some','image','Chapter','querySelector','hot','1131woiXqg','find','replace','?alt=json-in-script&max-results=','\x22\x20class=\x22bs\x22\x20itemscope=\x22itemscope\x22\x20itemtype=\x22http://schema.org/CreativeWork\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20class=\x22tip\x22\x20href=\x22','xhr','4777487vhkOPQ','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul\x20class=\x22subItem\x22></ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>','/feeds/posts/default/-/Series?alt=json-in-script','getFeed','765036ceVdYL','.subItem','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22dtitle\x22>'];_0x382f=function(){return _0x48bdf5;};return _0x382f();}function fetchPosts(){const _0x52e304=_0x1832;script3[_0x52e304(0xdb)](_0x52e304(0xc7),_0x52e304(0xde),_0x1c8e1e=>{const _0x1b16e3=_0x52e304;let _0x1af3c3=script3['getFeed'](_0x1c8e1e),_0x86ea34=_0x1af3c3[_0x1b16e3(0xc4)];script3[_0x1b16e3(0xdb)](_0x1b16e3(0xc7),_0x1b16e3(0xcc)+postsPerPage+_0x1b16e3(0xc2),getPost);});}
+
+fetchPosts();
+
+/*]]>*/</script>
+  </div>
+</b:includable>
+  </b:widget>
+  <b:widget id='Blog1' locked='true' title='Postingan Blog' type='Blog' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+      <b:widget-setting name='commentLabel'>Komentar</b:widget-setting>
+      <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+      <b:widget-setting name='authorLabel'>Oleh</b:widget-setting>
+      <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+      <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='showAuthor'>true</b:widget-setting>
+      <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+      <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='timestampLabel'>Pada</b:widget-setting>
+      <b:widget-setting name='reactionsLabel'/>
+      <b:widget-setting name='showAuthorProfile'>true</b:widget-setting>
+      <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+      <b:widget-setting name='showLabels'>true</b:widget-setting>
+      <b:widget-setting name='showLocation'>false</b:widget-setting>
+      <b:widget-setting name='postLabelsLabel'/>
+      <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+      <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+      <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+      <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+      <b:widget-setting name='showReactions'>false</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main' var='this'>
+      <b:with value='data:widgets.FeaturedPost filter (w =&gt; w.sectionId == &quot;main&quot;) map (w =&gt; w.postId)' var='featuredPostIds'>
+        <b:with value='data:view.isHomepage ? data:posts filter (post =&gt; post.id not in data:featuredPostIds) : data:posts' var='posts'>
+          <b:if cond='data:view.isMultipleItems'>
+        <b:include name='dataMessages'/>
+        <div style='min-height: 20px;'/>
+      <b:include name='noContentPlaceholder'/>
+        <b:if cond='data:view.isHomepage'>
+          <div class='listmanga'>
+         <b:loop values='data:posts' var='post'>
+                        <b:if cond='data:post.labels any (i =&gt; i.name == &quot;Series&quot;)'>
+                          <b:include data='post' name='postSingle2'/>
+                        </b:if>
+                      </b:loop>
+          </div>
+          <b:else/>
+          <div class='seriesku' style='margin: 0 -6px'>
+          <b:loop values='data:posts' var='post'>
+                        <b:if cond='data:post.labels any (i =&gt; i.name == &quot;Series&quot;)'>
+                          <b:include data='post' name='postSingle'/>
+                        </b:if>
+                      </b:loop>
+          </div>
+          <b:include cond='data:view.isMultipleItems' name='postPagination'/>
+        </b:if>
+      </b:if>
+          <!-- Konten postingan -->
+          <b:if cond='data:view.isSingleItem'>
+                      <b:loop values='data:posts' var='post'>
+                        <b:if cond='data:view.isPost'>
+                          <b:if cond='data:post.labels any (i =&gt; i.name == &quot;Chapter&quot;)'>
+                            <b:include data='post' name='single2'/>
+                            <b:else/>
+                            <b:if cond='data:post.labels any (i =&gt; i.name == &quot;Series&quot;)'>
+                            <b:include data='post' name='single'/>
+                            </b:if>
+                          </b:if>
+                          <b:else/>
+                          <b:include data='post' name='page'/>
+                        </b:if>
+                      </b:loop>
+                    </b:if>
+        </b:with>
+      </b:with>
+</b:includable>
+    <b:includable id='aboutPostAuthor'/>
+    <b:includable id='addComments'/>
+    <b:includable id='blogThisShare'/>
+    <b:includable id='bylineByName' var='byline'/>
+    <b:includable id='bylineRegion' var='regionItems'/>
+    <b:includable id='commentAuthorAvatar'/>
+    <b:includable id='commentDeleteIcon' var='comment'/>
+    <b:includable id='commentForm' var='post'/>
+    <b:includable id='commentFormIframeSrc' var='post'/>
+    <b:includable id='commentItem' var='comment'/>
+    <b:includable id='commentList' var='comments'/>
+    <b:includable id='commentPicker' var='post'/>
+    <b:includable id='comments' var='post'/>
+    <b:includable id='commentsLink'/>
+    <b:includable id='commentsLinkIframe'/>
+    <b:includable id='commentsTitle'/>
+    <b:includable id='dataMessages'>
+		  <div class='htitle'>
+			<h2>
+			  <b:if cond='data:view.isHomepage'>New Series</b:if>
+			  <b:if cond='data:view.search.query'><data:messages.search/>: <b><data:view.search.query/></b></b:if>
+			  <b:if cond='data:view.search.label'><b><data:blog.pageName/></b></b:if>
+			  <b:if cond='data:view.isArchive'><data:messages.blogArchive/>: <b><data:blog.pageName/></b></b:if>
+			  <b:if cond='data:view.search and !data:view.search.label and !data:view.search.query and !data:view.isArchive'><data:messages.posts/></b:if>
+			</h2>
+			<b:if cond='data:view.isHomepage'>
+			  <a class='viewall' expr:href='data:blog.homepageUrl + &quot;search/label/Series?&amp;max-results=20&quot;'><data:messages.viewAll/>
+              <svg fill='white' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z'/></svg>
+              </a>
+			</b:if>
+		  </div>
+		</b:includable>
+    <b:includable id='defaultAdUnit'/>
+    <b:includable id='emailPostIcon'/>
+    <b:includable id='facebookShare'/>
+    <b:includable id='feedLinks'/>
+    <b:includable id='feedLinksBody' var='links'/>
+    <b:includable id='footerBylines'/>
+    <b:includable id='googlePlusShare'/>
+    <b:includable id='headerByline'/>
+    <b:includable id='headerBylineOverride'/>
+    <b:includable id='homePageLink'>
+  <a class='home-link' expr:href='data:blog.homepageUrl'>
+    <data:messages.home/>
+  </a>
+</b:includable>
+    <b:includable id='iframeComments' var='post'/>
+    <b:includable id='inlineAd' var='post'/>
+    <b:includable id='linkShare'/>
+    <b:includable id='manageComments'/>
+    <b:includable id='nextPageLink'>
+  <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:messages.olderPosts'>
+    <data:messages.olderPosts/>
+  </a>
+</b:includable>
+    <b:includable id='noContentPlaceholder'>
+      <b:if cond='data:posts.empty'>
+        <b:if cond='data:view.isError'>
+          <div class='status-msg-body'><data:navMessage/></div>
+          <b:else/>
+          <center><b:eval expr='data:view.isSearch ? data:messages.noResultsFound : data:messages.theresNothingHere'/></center>
+          <div style='min-height: 20px;'/>
+        </b:if>
+      </b:if>
+    </b:includable>
+    <b:includable id='otherSharingButton'/>
+    <b:includable id='page' var='post'>
+      <div class='htitle'><h2><data:post.title/></h2></div>
+      <div style='min-height: 20px;'/>
+                <data:post.body/>
+              </b:includable>
+    <b:includable id='platformShare'/>
+    <b:includable id='post' var='post'/>
+    <b:includable id='postAuthor'/>
+    <b:includable id='postAuthorProfile'/>
+    <b:includable id='postBody' var='post'/>
+    <b:includable id='postBodySnippet' var='post'/>
+    <b:includable id='postCommentsAndAd' var='post'/>
+    <b:includable id='postCommentsLink'/>
+    <b:includable id='postFooter' var='post'/>
+    <b:includable id='postFooterAuthorProfile' var='post'/>
+    <b:includable id='postHeader' var='post'/>
+    <b:includable id='postJumpLink' var='post'/>
+    <b:includable id='postLabels'/>
+    <b:includable id='postLocation'/>
+    <b:includable id='postMeta' var='post'>
+  <b:include data='post' name='postMetadataJSON'/>
+</b:includable>
+    <b:includable id='postMetadataJSON'>
+      <script type='application/ld+json'>
+        {
+        &quot;@context&quot;: &quot;http://schema.org&quot;,
+        &quot;@type&quot;: &quot;BlogPosting&quot;,
+        &quot;mainEntityOfPage&quot;: {
+        &quot;@type&quot;: &quot;WebPage&quot;,
+        &quot;@id&quot;: &quot;<data:post.url.canonical.jsonEscaped/>&quot;
+        },
+        &quot;headline&quot;: &quot;<data:post.title.jsonEscaped/>&quot;,
+        &quot;description&quot;: &quot;<b:eval expr='snippet(data:post.snippets.long, {length: 250, links: false, linebreaks: false, ellipsis: true }).jsonEscaped'/>&quot;,
+        <b:if cond='data:view.isSingleItem'>&quot;articleBody&quot;: &quot;<b:eval expr='snippet(data:post.body, {links: false, linebreaks: false, ellipsis: true}).jsonEscaped'/>&quot;,</b:if>
+        &quot;datePublished&quot;: &quot;<data:post.date.iso8601.jsonEscaped/>&quot;,
+        &quot;dateModified&quot;: &quot;<data:post.lastUpdated.iso8601.jsonEscaped/>&quot;,
+        <b:include data='post' name='postMetadataJSONImage'/><b:include data='post' name='postMetadataJSONPublisher'/>
+        &quot;author&quot;: {
+        &quot;@type&quot;: &quot;Person&quot;,
+        &quot;name&quot;: &quot;<data:post.author.name.jsonEscaped/>&quot;,
+        &quot;url&quot;: &quot;<b:if cond='data:post.author.profileUrl'><data:post.author.profileUrl.jsonEscaped/><b:else/><data:blog.homepageUrl.jsonEscaped/></b:if>&quot;,
+        &quot;image&quot;: &quot;<data:post.author.authorPhoto.image.jsonEscaped/>&quot;
+        }
+        }
+      </script>
+    </b:includable>
+    <b:includable id='postMetadataJSONImage'>
+      &quot;image&quot;: {
+      &quot;@type&quot;: &quot;ImageObject&quot;,
+      &quot;url&quot;: &quot;<b:eval expr='(data:post.featuredImage ? resizeImage(data:post.featuredImage, 1200, &quot;1200:630&quot;) : &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8MLnWSkztoDIyqmqwNO_6UjoFUlQYmwqudKrSxF6l0eB2FS08eq_K_mRU5Z6iGuOGhlPWNHAWN1HP1OhXEYPeJfl1gx7wWDI-U0ScosCu4FFgwBRhMe3u3ZtlK6UAk0yMAuo6vIwvAukN_6J-M14swLAsjCm7WVc7vWeAW7jZbGsJKEwR8UoL2evcsg/s1600/Blog.png&quot;).jsonEscaped'/>&quot;,
+      &quot;height&quot;: <b:eval expr='data:post.featuredImage ? 630 : 348'/>,
+      &quot;width&quot;: 1200
+      },
+    </b:includable>
+    <b:includable id='postMetadataJSONPublisher'>
+      &quot;publisher&quot;: {
+      &quot;@type&quot;: &quot;Organization&quot;,
+      &quot;name&quot;: &quot;<data:blog.title.escaped/>&quot;,
+      &quot;logo&quot;: {
+      &quot;@type&quot;: &quot;ImageObject&quot;,
+      &quot;url&quot;: &quot;https://rankmath.com/wp-content/uploads/2019/02/rank-math-logo-large.png&quot;,
+      &quot;width&quot;: 1920,
+      &quot;height&quot;: 311
+      }
+      },
+    </b:includable>
+    <b:includable id='postPagination'>
+  <div class='blog-pager container' id='blog-pager'>
+    <b:include cond='data:newerPageUrl' name='previousPageLink'/>
+    <b:include cond='data:olderPageUrl' name='nextPageLink'/>
+    <b:include cond='data:view.url != data:blog.homepageUrl' name='homePageLink'/>
+  </div>
+</b:includable>
+    <b:includable id='postReactions'/>
+    <b:includable id='postShareButtons'/>
+    <b:includable id='postSnippet'/>
+    <b:includable id='postTimestamp'/>
+    <b:includable id='postTitle' var='post'/>
+    <b:includable id='previousPageLink'>
+  <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:messages.newerPosts'>
+    <data:messages.newerPosts/>
+  </a>
+</b:includable>
+    <b:includable id='sharingButton'/>
+    <b:includable id='sharingButtonContent'/>
+    <b:includable id='sharingButtons'/>
+    <b:includable id='sharingButtonsMenu'/>
+    <b:includable id='sharingPlatformIcon'/>
+    <b:includable id='threadedCommentForm' var='post'/>
+    <b:includable id='threadedCommentJs' var='post'/>
+    <b:includable id='threadedComments' var='post'/>
+  </b:widget>
+  <b:widget cond='data:view.isHomepage' id='PopularPosts1' locked='false' title='Popular Series' type='PopularPosts' version='2' visible='false'>
+    <b:widget-settings>
+      <b:widget-setting name='numItemsToShow'>10</b:widget-setting>
+      <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+      <b:widget-setting name='showSnippets'>true</b:widget-setting>
+      <b:widget-setting name='timeRange'>LAST_WEEK</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main' var='this'>
+        <div class='htitle'><h2><data:title/></h2></div>
+        <div style='min-height: 20px;'/>
+      <div class='listmanga'>
+              <b:include name='snippetedPosts'/>
+        </div>
+    </b:includable>
+    <b:includable id='blogThisShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+    <b:includable id='bylineByName' var='byline'>
+  <b:switch var='data:byline.name'>
+  <b:case value='share'/>
+    <b:include cond='data:post.shareUrl' name='postShareButtons'/>
+  <b:case value='comments'/>
+    <b:include cond='data:post.allowComments' name='postCommentsLink'/>
+  <b:case value='location'/>
+    <b:include cond='data:post.location' name='postLocation'/>
+  <b:case value='timestamp'/>
+    <b:include cond='not data:view.isPage' name='postTimestamp'/>
+  <b:case value='author'/>
+    <b:include name='postAuthor'/>
+  <b:case value='labels'/>
+    <b:include cond='data:post.labels' name='postLabels'/>
+  <b:case value='icons'/>
+    <b:include cond='data:post.emailPostUrl' name='emailPostIcon'/>
+  </b:switch>
+</b:includable>
+    <b:includable id='bylineRegion' var='regionItems'>
+  <b:loop values='data:regionItems' var='byline'>
+    <b:include data='byline' name='bylineByName'/>
+  </b:loop>
+</b:includable>
+    <b:includable id='commentsLink'>
+  <a class='comment-link' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:if cond='data:post.numberOfComments &gt; 0'>
+      <b:message name='messages.numberOfComments'>
+        <b:param expr:value='data:post.numberOfComments' name='numComments'/>
+      </b:message>
+    <b:else/>
+      <data:messages.postAComment/>
+    </b:if>
+  </a>
+</b:includable>
+    <b:includable id='commentsLinkIframe'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+    <b:includable id='emailPostIcon'>
+  <span class='byline post-icons'>
+    <!-- email post links -->
+    <span class='item-action'>
+      <a expr:href='data:post.emailPostUrl' expr:title='data:messages.emailPost'>
+        <b:include data='{ iconClass: &quot;touch-icon sharing-icon&quot; }' name='emailIcon'/>
+      </a>
+    </span>
+  </span>
+</b:includable>
+    <b:includable id='facebookShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+    <b:includable id='footerBylines'>
+  <b:if cond='data:widgets.Blog.first.footerBylines'>
+    <b:loop index='i' values='data:widgets.Blog.first.footerBylines' var='region'>
+      <b:if cond='not data:region.items.empty'>
+        <div expr:class='&quot;post-footer-line post-footer-line-&quot; + (data:i + 1)'>
+          <b:with value='&quot;footer-&quot; + (data:i + 1)' var='regionName'>
+            <b:include data='region.items' name='bylineRegion'/>
+          </b:with>
+        </div>
+      </b:if>
+    </b:loop>
+  </b:if>
+</b:includable>
+    <b:includable id='googlePlusShare'>
+</b:includable>
+    <b:includable id='headerByline'>
+  <b:if cond='data:widgets.Blog.first.headerByline'>
+    <div class='post-header'>
+      <div class='post-header-line-1'>
+        <b:with value='&quot;header-1&quot;' var='regionName'>
+          <b:include data='data:widgets.Blog.first.headerByline.items' name='bylineRegion'/>
+        </b:with>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
+    <b:includable id='headerBylineOverride'>
+            <b:loop values='data:items' var='item'>
+                <b:with value='data:widgets.Blog.first.allBylineItems where (n =&gt; n.name == data:item)' var='allByline'>
+                    <b:include data='allByline' name='bylineRegion'/>
+                </b:with>
+            </b:loop>
+        </b:includable>
+    <b:includable id='linkShare'>
+  <b:with value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+    <b:includable id='otherSharingButton'>
+  <span class='sharing-platform-button sharing-element-other' expr:aria-label='data:messages.shareToOtherApps.escaped' expr:data-url='data:originalUrl' expr:title='data:messages.shareToOtherApps.escaped' role='menuitem' tabindex='-1'>
+    <b:with value='{key: &quot;sharingOther&quot;}' var='platform'>
+      <b:include name='sharingPlatformIcon'/>
+    </b:with>
+    <span class='platform-sharing-text'><data:messages.shareOtherApps.escaped/></span>
+  </span>
+</b:includable>
+    <b:includable id='platformShare'>
+  <a expr:class='&quot;goog-inline-block sharing-&quot; + data:platform.key' expr:data-url='data:originalUrl' expr:href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:onclick='data:onclick ? data:onclick : &quot;&quot;' expr:title='data:platform.shareMessage' target='_blank'>
+    <span class='share-button-link-text'>
+      <data:platform.shareMessage/>
+    </span>
+  </a>
+</b:includable>
+    <b:includable id='postAuthor'>
+  <span class='byline post-author vcard'>
+    <span class='post-author-label'>
+      <data:byline.label/>
+    </span>
+    <span class='fn'>
+      <b:if cond='data:post.author.profileUrl'>
+        <meta expr:content='data:post.author.profileUrl'/>
+        <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+          <span><data:post.author.name/></span>
+        </a>
+      <b:else/>
+        <span><data:post.author.name/></span>
+      </b:if>
+    </span>
+  </span>
+</b:includable>
+    <b:includable id='postAuthorProfile'/>
+    <b:includable id='postCommentsLink'>
+  <span class='byline post-comment-link container'>
+    <b:include cond='data:post.commentSource != 1' name='commentsLink'/>
+  </span>
+</b:includable>
+    <b:includable id='postInfo'/>
+    <b:includable id='postJumpLink' var='post'>
+  <div class='jump-link flat-button'>
+    <a expr:href='data:post.url fragment &quot;more&quot;' expr:title='data:post.title'>
+      <b:eval expr='data:blog.jumpLinkMessage'/>
+    </a>
+  </div>
+</b:includable>
+    <b:includable id='postLabels'>
+  <span class='byline post-labels'>
+    <span class='byline-label'><data:byline.label/></span>
+    <b:loop index='i' values='data:post.labels' var='label'>
+      <a expr:href='data:label.url' rel='tag'>
+        <data:label.name/>
+      </a>
+    </b:loop>
+  </span>
+</b:includable>
+    <b:includable id='postLocation'>
+  <span class='byline post-location'>
+    <data:byline.label/>
+    <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
+  </span>
+</b:includable>
+    <b:includable id='postPagination'/>
+    <b:includable id='postReactions'>
+  <!-- Reaction feature no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+    <b:includable id='postShareButtons'>
+  <div class='byline post-share-buttons goog-inline-block'>
+    <b:with value='data:sharingId ?: ((data:widget.instanceId ?: &quot;sharing&quot;) + &quot;-&quot; + (data:regionName ?: &quot;byline&quot;) + &quot;-&quot; + data:post.id)' var='sharingId'>
+      <!-- Note: 'sharingButtons' includable is from the default Sharing widget markup. -->
+      <b:include data='{                                                sharingId: data:sharingId,                                                originalUrl: data:post.url,                                                platforms: data:this.sharing.platforms,                                                shareUrl: data:post.shareUrl,                                                shareTitle: data:post.title,                                              }' name='sharingButtons'/>
+    </b:with>
+  </div>
+</b:includable>
+    <b:includable id='postSnippet'/>
+    <b:includable id='postTimestamp'>
+  <span class='byline post-timestamp'>
+    <data:byline.label/>
+    <b:if cond='data:post.url'>
+      <meta expr:content='data:post.url.canonical'/>
+      <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
+        <time class='published' expr:datetime='data:post.date.iso8601' expr:title='data:post.date.iso8601'>
+          <data:post.date/>
+        </time>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+    <b:includable id='postTitle'/>
+    <b:includable id='sharingButton'>
+  <span expr:aria-label='data:platform.shareMessage' expr:class='&quot;sharing-platform-button sharing-element-&quot; + data:platform.key' expr:data-href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:data-url='data:originalUrl' expr:title='data:platform.shareMessage' role='menuitem' tabindex='-1'>
+    <b:include name='sharingPlatformIcon'/>
+    <span class='platform-sharing-text'><data:platform.name/></span>
+  </span>
+</b:includable>
+    <b:includable id='sharingButtonContent'>
+  <div class='flat-icon-button ripple'>
+    <b:include name='shareIcon'/>
+  </div>
+</b:includable>
+    <b:includable id='sharingButtons'>
+  <div class='sharing' expr:aria-owns='&quot;sharing-popup-&quot; + data:sharingId' expr:data-title='data:shareTitle'>
+    <button class='sharing-button touch-icon-button' expr:aria-controls='&quot;sharing-popup-&quot; + data:sharingId' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-button-&quot; + data:sharingId' role='button'>
+      <b:include name='sharingButtonContent'/>
+    </button>
+    <b:include name='sharingButtonsMenu'/>
+  </div>
+</b:includable>
+    <b:includable id='sharingButtonsMenu'>
+  <div class='share-buttons-container'>
+    <ul aria-hidden='true' class='share-buttons hidden' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-popup-&quot; + data:sharingId' role='menu'>
+      <b:loop values='(data:platforms ?: data:blog.sharing.platforms) filter (p =&gt; p.key not in {&quot;blogThis&quot;})' var='platform'>
+        <li>
+          <b:include name='sharingButton'/>
+        </li>
+      </b:loop>
+      <li aria-hidden='true' class='hidden'>
+        <b:include name='otherSharingButton'/>
+      </li>
+    </ul>
+  </div>
+</b:includable>
+    <b:includable id='sharingPlatformIcon'>
+  <b:include data='{ iconClass: (&quot;touch-icon sharing-&quot; + data:platform.key) }' expr:name='data:platform.key + &quot;Icon&quot;'/>
+</b:includable>
+    <b:includable id='snippetedPostByline'>
+  <b:with value='(data:widgets first (w =&gt; w.type == &quot;Blog&quot;)).allBylineItems' var='blogBylines'>
+    <div class='item-byline'>
+      <b:with value='data:blogBylines first (i =&gt; i.name == &quot;author&quot;)' var='byline'>
+        <b:include cond='data:byline and data:this.postDisplay.showAuthor' data='post' name='postAuthor'/>
+      </b:with>
+      <b:with value='data:blogBylines first (i =&gt; i.name == &quot;timestamp&quot;)' var='byline'>
+        <b:include cond='data:byline and data:this.postDisplay.showDate' data='post' name='postTimestamp'/>
+      </b:with>
+    </div>
+  </b:with>
+</b:includable>
+    <b:includable id='snippetedPostContent'>
+  <div class='post-content'>
+    <b:include cond='data:this.postDisplay.showTitle' name='snippetedPostTitle'/>
+    <b:include cond='data:this.postDisplay.showDate or data:this.postDisplay.showAuthor' name='snippetedPostByline'/>
+    <b:include cond='data:this.postDisplay.showSnippet' data='post' name='postSnippet'/>
+    <b:include cond='data:this.postDisplay.showFeaturedImage and data:post.featuredImage' name='snippetedPostThumbnail'/>
+  </div>
+</b:includable>
+    <b:includable id='snippetedPostThumbnail'>
+  <div class='item-thumbnail'>
+    <a expr:href='data:post.url'>
+      <b:include data='{                         image: data:post.featuredImage,                         imageSizes: [72, 144],                         imageRatio: &quot;1:1&quot;,                         sourceSizes: &quot;72px&quot;                        }' name='responsiveImage'/>
+    </a>
+  </div>
+</b:includable>
+    <b:includable id='snippetedPostTitle'>
+  <b:if cond='data:post.title != &quot;&quot;'>
+    <h3 class='post-title'><a expr:href='data:post.url'><data:post.title/></a></h3>
+  </b:if>
+</b:includable>
+    <b:includable id='snippetedPosts'>
+      <b:loop index='i' values='data:posts filter (i =&gt; i.labels any (l =&gt; l.name == &quot;Series&quot;))' var='l'>
+        <b:include data='{post: data:l, index: data:i}' name='populerList'/>
+      </b:loop>
+    </b:includable>
+    <b:includable id='snippetedTitle'/>
+  </b:widget>
+  <b:widget cond='data:view.isHomepage' id='PopularPosts2' locked='false' title='Popular Series' type='PopularPosts' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='numItemsToShow'>10</b:widget-setting>
+      <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+      <b:widget-setting name='showSnippets'>true</b:widget-setting>
+      <b:widget-setting name='timeRange'>LAST_WEEK</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main' var='this'>
+        <div style='min-height: 20px;'/>
+  <div class='htitle'>
+    <h2><data:title/></h2>
+</div>
+<div style='min-height: 20px;'/>
+      <div class='popitem'>
+              <b:include name='snippetedPosts'/>
+        </div>
+      <div style='min-height: 20px;'/>
+    </b:includable>
+    <b:includable id='blogThisShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+    <b:includable id='bylineByName' var='byline'>
+  <b:switch var='data:byline.name'>
+  <b:case value='share'/>
+    <b:include cond='data:post.shareUrl' name='postShareButtons'/>
+  <b:case value='comments'/>
+    <b:include cond='data:post.allowComments' name='postCommentsLink'/>
+  <b:case value='location'/>
+    <b:include cond='data:post.location' name='postLocation'/>
+  <b:case value='timestamp'/>
+    <b:include cond='not data:view.isPage' name='postTimestamp'/>
+  <b:case value='author'/>
+    <b:include name='postAuthor'/>
+  <b:case value='labels'/>
+    <b:include cond='data:post.labels' name='postLabels'/>
+  <b:case value='icons'/>
+    <b:include cond='data:post.emailPostUrl' name='emailPostIcon'/>
+  </b:switch>
+</b:includable>
+    <b:includable id='bylineRegion' var='regionItems'>
+  <b:loop values='data:regionItems' var='byline'>
+    <b:include data='byline' name='bylineByName'/>
+  </b:loop>
+</b:includable>
+    <b:includable id='commentsLink'>
+  <a class='comment-link' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:if cond='data:post.numberOfComments &gt; 0'>
+      <b:message name='messages.numberOfComments'>
+        <b:param expr:value='data:post.numberOfComments' name='numComments'/>
+      </b:message>
+    <b:else/>
+      <data:messages.postAComment/>
+    </b:if>
+  </a>
+</b:includable>
+    <b:includable id='commentsLinkIframe'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+    <b:includable id='emailPostIcon'>
+  <span class='byline post-icons'>
+    <!-- email post links -->
+    <span class='item-action'>
+      <a expr:href='data:post.emailPostUrl' expr:title='data:messages.emailPost'>
+        <b:include data='{ iconClass: &quot;touch-icon sharing-icon&quot; }' name='emailIcon'/>
+      </a>
+    </span>
+  </span>
+</b:includable>
+    <b:includable id='facebookShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+    <b:includable id='footerBylines'>
+  <b:if cond='data:widgets.Blog.first.footerBylines'>
+    <b:loop index='i' values='data:widgets.Blog.first.footerBylines' var='region'>
+      <b:if cond='not data:region.items.empty'>
+        <div expr:class='&quot;post-footer-line post-footer-line-&quot; + (data:i + 1)'>
+          <b:with value='&quot;footer-&quot; + (data:i + 1)' var='regionName'>
+            <b:include data='region.items' name='bylineRegion'/>
+          </b:with>
+        </div>
+      </b:if>
+    </b:loop>
+  </b:if>
+</b:includable>
+    <b:includable id='googlePlusShare'>
+</b:includable>
+    <b:includable id='headerByline'>
+  <b:if cond='data:widgets.Blog.first.headerByline'>
+    <div class='post-header'>
+      <div class='post-header-line-1'>
+        <b:with value='&quot;header-1&quot;' var='regionName'>
+          <b:include data='data:widgets.Blog.first.headerByline.items' name='bylineRegion'/>
+        </b:with>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
+    <b:includable id='headerBylineOverride'>
+            <b:loop values='data:items' var='item'>
+                <b:with value='data:widgets.Blog.first.allBylineItems where (n =&gt; n.name == data:item)' var='allByline'>
+                    <b:include data='allByline' name='bylineRegion'/>
+                </b:with>
+            </b:loop>
+        </b:includable>
+    <b:includable id='linkShare'>
+  <b:with value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+    <b:includable id='otherSharingButton'>
+  <span class='sharing-platform-button sharing-element-other' expr:aria-label='data:messages.shareToOtherApps.escaped' expr:data-url='data:originalUrl' expr:title='data:messages.shareToOtherApps.escaped' role='menuitem' tabindex='-1'>
+    <b:with value='{key: &quot;sharingOther&quot;}' var='platform'>
+      <b:include name='sharingPlatformIcon'/>
+    </b:with>
+    <span class='platform-sharing-text'><data:messages.shareOtherApps.escaped/></span>
+  </span>
+</b:includable>
+    <b:includable id='platformShare'>
+  <a expr:class='&quot;goog-inline-block sharing-&quot; + data:platform.key' expr:data-url='data:originalUrl' expr:href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:onclick='data:onclick ? data:onclick : &quot;&quot;' expr:title='data:platform.shareMessage' target='_blank'>
+    <span class='share-button-link-text'>
+      <data:platform.shareMessage/>
+    </span>
+  </a>
+</b:includable>
+    <b:includable id='postAuthor'>
+  <span class='byline post-author vcard'>
+    <span class='post-author-label'>
+      <data:byline.label/>
+    </span>
+    <span class='fn'>
+      <b:if cond='data:post.author.profileUrl'>
+        <meta expr:content='data:post.author.profileUrl'/>
+        <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+          <span><data:post.author.name/></span>
+        </a>
+      <b:else/>
+        <span><data:post.author.name/></span>
+      </b:if>
+    </span>
+  </span>
+</b:includable>
+    <b:includable id='postAuthorProfile'/>
+    <b:includable id='postCommentsLink'>
+  <span class='byline post-comment-link container'>
+    <b:include cond='data:post.commentSource != 1' name='commentsLink'/>
+  </span>
+</b:includable>
+    <b:includable id='postJumpLink' var='post'>
+  <div class='jump-link flat-button'>
+    <a expr:href='data:post.url fragment &quot;more&quot;' expr:title='data:post.title'>
+      <b:eval expr='data:blog.jumpLinkMessage'/>
+    </a>
+  </div>
+</b:includable>
+    <b:includable id='postLabels'>
+  <span class='byline post-labels'>
+    <span class='byline-label'><data:byline.label/></span>
+    <b:loop index='i' values='data:post.labels' var='label'>
+      <a expr:href='data:label.url' rel='tag'>
+        <data:label.name/>
+      </a>
+    </b:loop>
+  </span>
+</b:includable>
+    <b:includable id='postLocation'>
+  <span class='byline post-location'>
+    <data:byline.label/>
+    <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
+  </span>
+</b:includable>
+    <b:includable id='postPagination'/>
+    <b:includable id='postReactions'>
+  <!-- Reaction feature no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+    <b:includable id='postShareButtons'>
+  <div class='byline post-share-buttons goog-inline-block'>
+    <b:with value='data:sharingId ?: ((data:widget.instanceId ?: &quot;sharing&quot;) + &quot;-&quot; + (data:regionName ?: &quot;byline&quot;) + &quot;-&quot; + data:post.id)' var='sharingId'>
+      <!-- Note: 'sharingButtons' includable is from the default Sharing widget markup. -->
+      <b:include data='{                                                sharingId: data:sharingId,                                                originalUrl: data:post.url,                                                platforms: data:this.sharing.platforms,                                                shareUrl: data:post.shareUrl,                                                shareTitle: data:post.title,                                              }' name='sharingButtons'/>
+    </b:with>
+  </div>
+</b:includable>
+    <b:includable id='postSnippet'/>
+    <b:includable id='postTimestamp'>
+  <span class='byline post-timestamp'>
+    <data:byline.label/>
+    <b:if cond='data:post.url'>
+      <meta expr:content='data:post.url.canonical'/>
+      <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
+        <time class='published' expr:datetime='data:post.date.iso8601' expr:title='data:post.date.iso8601'>
+          <data:post.date/>
+        </time>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+    <b:includable id='postTitle'/>
+    <b:includable id='sharingButton'>
+  <span expr:aria-label='data:platform.shareMessage' expr:class='&quot;sharing-platform-button sharing-element-&quot; + data:platform.key' expr:data-href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:data-url='data:originalUrl' expr:title='data:platform.shareMessage' role='menuitem' tabindex='-1'>
+    <b:include name='sharingPlatformIcon'/>
+    <span class='platform-sharing-text'><data:platform.name/></span>
+  </span>
+</b:includable>
+    <b:includable id='sharingButtonContent'>
+  <div class='flat-icon-button ripple'>
+    <b:include name='shareIcon'/>
+  </div>
+</b:includable>
+    <b:includable id='sharingButtons'>
+  <div class='sharing' expr:aria-owns='&quot;sharing-popup-&quot; + data:sharingId' expr:data-title='data:shareTitle'>
+    <button class='sharing-button touch-icon-button' expr:aria-controls='&quot;sharing-popup-&quot; + data:sharingId' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-button-&quot; + data:sharingId' role='button'>
+      <b:include name='sharingButtonContent'/>
+    </button>
+    <b:include name='sharingButtonsMenu'/>
+  </div>
+</b:includable>
+    <b:includable id='sharingButtonsMenu'>
+  <div class='share-buttons-container'>
+    <ul aria-hidden='true' class='share-buttons hidden' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-popup-&quot; + data:sharingId' role='menu'>
+      <b:loop values='(data:platforms ?: data:blog.sharing.platforms) filter (p =&gt; p.key not in {&quot;blogThis&quot;})' var='platform'>
+        <li>
+          <b:include name='sharingButton'/>
+        </li>
+      </b:loop>
+      <li aria-hidden='true' class='hidden'>
+        <b:include name='otherSharingButton'/>
+      </li>
+    </ul>
+  </div>
+</b:includable>
+    <b:includable id='sharingPlatformIcon'>
+  <b:include data='{ iconClass: (&quot;touch-icon sharing-&quot; + data:platform.key) }' expr:name='data:platform.key + &quot;Icon&quot;'/>
+</b:includable>
+    <b:includable id='snippetedPostByline'>
+  <b:with value='(data:widgets first (w =&gt; w.type == &quot;Blog&quot;)).allBylineItems' var='blogBylines'>
+    <div class='item-byline'>
+      <b:with value='data:blogBylines first (i =&gt; i.name == &quot;author&quot;)' var='byline'>
+        <b:include cond='data:byline and data:this.postDisplay.showAuthor' data='post' name='postAuthor'/>
+      </b:with>
+      <b:with value='data:blogBylines first (i =&gt; i.name == &quot;timestamp&quot;)' var='byline'>
+        <b:include cond='data:byline and data:this.postDisplay.showDate' data='post' name='postTimestamp'/>
+      </b:with>
+    </div>
+  </b:with>
+</b:includable>
+    <b:includable id='snippetedPostContent'>
+  <div class='post-content'>
+    <b:include cond='data:this.postDisplay.showTitle' name='snippetedPostTitle'/>
+    <b:include cond='data:this.postDisplay.showDate or data:this.postDisplay.showAuthor' name='snippetedPostByline'/>
+    <b:include cond='data:this.postDisplay.showSnippet' data='post' name='postSnippet'/>
+    <b:include cond='data:this.postDisplay.showFeaturedImage and data:post.featuredImage' name='snippetedPostThumbnail'/>
+  </div>
+</b:includable>
+    <b:includable id='snippetedPostThumbnail'>
+  <div class='item-thumbnail'>
+    <a expr:href='data:post.url'>
+      <b:include data='{                         image: data:post.featuredImage,                         imageSizes: [72, 144],                         imageRatio: &quot;1:1&quot;,                         sourceSizes: &quot;72px&quot;                        }' name='responsiveImage'/>
+    </a>
+  </div>
+</b:includable>
+    <b:includable id='snippetedPostTitle'>
+  <b:if cond='data:post.title != &quot;&quot;'>
+    <h3 class='post-title'><a expr:href='data:post.url'><data:post.title/></a></h3>
+  </b:if>
+</b:includable>
+    <b:includable id='snippetedPosts'>
+      <b:loop index='i' values='data:posts filter (i =&gt; i.labels any (l =&gt; l.name == &quot;Series&quot;))' var='l'>
+        <b:include data='{post: data:l, index: data:i}' name='populerList2'/>
+      </b:loop>
+    </b:includable>
+    <b:includable id='snippetedTitle'/>
+  </b:widget>
+</b:section>
+  </b:if>
+  <footer>
+  <div class='footer-container'>
+    <div class='footer-copyright'>
+      <p>&#169; 2024 <data:blog.title/>. All rights reserved.</p>
+      <p>Made with <span class='heart'>&#9829;</span> by Kai Haruto</p>
+    </div>
+  </div>
+</footer>
+<script>
+//<![CDATA[
+// penguasa
+let hmenu = document.querySelector('.buttonmenu');
+let hright = document.querySelector('.header-right');
+let hsearch = document.querySelector('.hsearch');
+let desc = document.querySelector('.desc');
+let buttonsearch = document.querySelector('.buttonsearch');
+let BlogSearch = document.querySelector('.searchk');
+let dconrate = document.querySelector('.dcon.rate');
+let dcotrate = document.querySelector('.dcon.rate .dcot');
+let share = document.querySelector('.dcon.share');
+
+eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('1(i){i.5=()=>{1(7.0.8(\'3\')){7.0.9(\'3\')}b{7.0.c(\'3\')}}}1(j){j.5=()=>{1(d.0.8(\'3\')){d.0.9(\'3\')}b{d.0.c(\'3\')}}}1(2){2.5=()=>{1(2.e.f===\'k\'){2.e.f=\'\';2.0.9(\'l\')}b{2.e.f=\'k\';2.0.c(\'l\')}}}1(4){m n=o.r(\'p\')===\'6\';g(n);s g(a){4.0.q(\'6\',a);4.0.q(\'t\',!a);u.v=a?\'w\':\'x\'}4.5=()=>{m h=!4.0.8(\'6\');g(h);o.y(\'p\',h?\'6\':\'z\')}}',36,36,'classList|if|desc|show|dconrate|onclick|rated|hright|contains|remove||else|add|BlogSearch|style|display|updateButtonState|newState|hmenu|buttonsearch|block|active|const|isRated|localStorage|ratingState|toggle|getItem|function|rate|dcotrate|innerText|Rated|Rate|setItem|notRated'.split('|'),0,{}))
+//]]>
+</script>
+<script type='text/javascript'>
+/*<![CDATA[*/
+// menampilkan chapter new series
+let newchapter = new BloggerScript;
+
+function _0x57eb(_0x326fcf,_0x4e4f4e){const _0x423c0f=_0x423c();return _0x57eb=function(_0x57eb34,_0xae8c93){_0x57eb34=_0x57eb34-0x189;let _0x33156b=_0x423c0f[_0x57eb34];return _0x33156b;},_0x57eb(_0x326fcf,_0x4e4f4e);}(function(_0x4e7b33,_0x1cbf2d){const _0xcc767b=_0x57eb,_0x5f4961=_0x4e7b33();while(!![]){try{const _0x2add2f=-parseInt(_0xcc767b(0x194))/0x1+-parseInt(_0xcc767b(0x199))/0x2*(parseInt(_0xcc767b(0x198))/0x3)+parseInt(_0xcc767b(0x19c))/0x4+-parseInt(_0xcc767b(0x192))/0x5+-parseInt(_0xcc767b(0x1a4))/0x6+-parseInt(_0xcc767b(0x1a1))/0x7*(parseInt(_0xcc767b(0x196))/0x8)+parseInt(_0xcc767b(0x197))/0x9*(parseInt(_0xcc767b(0x1a0))/0xa);if(_0x2add2f===_0x1cbf2d)break;else _0x5f4961['push'](_0x5f4961['shift']());}catch(_0x99a892){_0x5f4961['push'](_0x5f4961['shift']());}}}(_0x423c,0x41d20));function getPostsForSelectors(){const _0x552be6=_0x57eb;document[_0x552be6(0x18a)](_0x552be6(0x1a5))[_0x552be6(0x19a)](_0x300319=>{const _0xd6f39a=_0x552be6;let _0x23f7c8=_0x300319[_0xd6f39a(0x18c)](_0xd6f39a(0x19b));if(_0x23f7c8){let _0x5cee6a='/feeds/posts/default/-/'+encodeURIComponent(_0x23f7c8[_0xd6f39a(0x1a6)](/,/g,''))+_0xd6f39a(0x18d);newchapter[_0xd6f39a(0x18f)](_0xd6f39a(0x18b),_0x5cee6a,_0x5df0b3=>updateList(_0x300319,_0x5df0b3));}});}function _0x423c(){const _0x2ef3d7=['title','includes','239330xuPgpw','23597zSXvLY','label','innerHTML','2638656emKjkW','[data-title]','replace','published','querySelectorAll','GET','getAttribute','?alt=json-in-script&max-results=2','getFeed','xhr','</span></li>','Series','713645svstQb','</a><span>','236612mdSqii','<li\x20class=\x22char\x22><a\x20href=\x27','952syCQEY','702Nscale','81euUouG','28438KSChIO','forEach','data-title','28020MDndsi','querySelector'];_0x423c=function(){return _0x2ef3d7;};return _0x423c();}function updateList(_0x3444e8,_0x102575){const _0x5929c7=_0x57eb;let _0x390f23=newchapter[_0x5929c7(0x18e)](_0x102575),_0x45de98='';_0x390f23[_0x5929c7(0x19a)](_0x5565c3=>{const _0x12d840=_0x5929c7;let _0x31c7db=timeAgo(new Date(_0x5565c3[_0x12d840(0x189)]));!_0x5565c3[_0x12d840(0x1a2)][_0x12d840(0x19f)](_0x12d840(0x191))&&(_0x45de98+=_0x12d840(0x195)+_0x5565c3['link']+'\x27>'+filterTitle(_0x5565c3[_0x12d840(0x19e)])+_0x12d840(0x193)+_0x31c7db+_0x12d840(0x190));});let _0x447942=_0x3444e8[_0x5929c7(0x19d)]('.new.subItem');_0x447942&&(_0x447942[_0x5929c7(0x1a3)]=_0x45de98);}
+document.addEventListener('DOMContentLoaded', getPostsForSelectors);
+/*]]>*/
+</script>
+<b:if cond='data:view.isHomepage'>
+<b:if cond='(data:widgets.HTML filter (w =&gt; w.id == &quot;HTML5&quot;)).notEmpty'>
+<script id='swiper-js' src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js?ver=5.4.5' type='text/javascript'/>
+  </b:if>
+  </b:if>
+<script type='text/javascript'>
+      /*<![CDATA[*/
+// bookmark
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('5 q(e,t){t=t||"u";4 i=v,n=2;8(!(t d i))3!1;2.6=e;2.7=t;2.9=5(){4 e=n.7,t=i[e].w(n.6);3 t?b.x(t):[]};2.f=5(e,t){y(4 i=n.9(),r={g:i},a=0;a<i.c;a++)8(i[a][e]==t){r.h=i[a],r.j=a;z}3 r};2.k=5(e,t){4 r=n.f(e,t),a=r.g,s=r.j;3 s>=0&&(a.A(s,1),0!=a.c?i[n.7].l(n.6,b.m(a)):i[n.7].B(n.6)),a};2.C=5(e){4 t=n.9();8(t.c>=D){3"E F G H"}8(I e!=="o"||J.K(e))3"L M N h o";4 r="p"d e?"p":O.P(e)[0];t=n.k(r,e[r]);t.Q(e);R{i[n.7].l(n.6,b.m(t))}S(e){3 T.U(e),e}}}',57,57,'||this|return|var|function|name|type|if|get||JSON|length|in||find|items|item||index|delete|setItem|stringify||object|id|StorageManipulation||||localStorage|window|getItem|parse|for|break|splice|removeItem|add|max_bookmark|Maximum|bookmark|limit|reached|typeof|Array|isArray|Please|insert|an|Object|keys|push|try|catch|console|log'.split('|'),0,{}))
+
+const _0xbfa437=_0x5770;function _0x5770(_0x576728,_0x4483f9){const _0x3918ec=_0x3918();return _0x5770=function(_0x577024,_0xc36e90){_0x577024=_0x577024-0x1a3;let _0x373636=_0x3918ec[_0x577024];return _0x373636;},_0x5770(_0x576728,_0x4483f9);}(function(_0x2efcdb,_0x3b9a8e){const _0x1f063d=_0x5770,_0x32e441=_0x2efcdb();while(!![]){try{const _0xb48d35=-parseInt(_0x1f063d(0x1be))/0x1*(parseInt(_0x1f063d(0x1a6))/0x2)+parseInt(_0x1f063d(0x1b2))/0x3+-parseInt(_0x1f063d(0x1ad))/0x4*(parseInt(_0x1f063d(0x1a7))/0x5)+-parseInt(_0x1f063d(0x1a5))/0x6*(-parseInt(_0x1f063d(0x1bc))/0x7)+-parseInt(_0x1f063d(0x1b5))/0x8*(parseInt(_0x1f063d(0x1b6))/0x9)+-parseInt(_0x1f063d(0x1b9))/0xa+parseInt(_0x1f063d(0x1ba))/0xb*(parseInt(_0x1f063d(0x1a4))/0xc);if(_0xb48d35===_0x3b9a8e)break;else _0x32e441['push'](_0x32e441['shift']());}catch(_0x5ab5cd){_0x32e441['push'](_0x32e441['shift']());}}}(_0x3918,0x98c83),document[_0xbfa437(0x1b8)](_0xbfa437(0x1ab),function(){const _0x11e306=_0xbfa437,_0x11669c=document[_0x11e306(0x1c1)](_0x11e306(0x1a9)),_0x3232a2=new StorageManipulation(_0x11e306(0x1bd));_0x11669c[_0x11e306(0x1c0)](_0x36625c=>{const _0x4e65b5=_0x11e306,_0x1d9171=_0x36625c[_0x4e65b5(0x1af)][_0x4e65b5(0x1aa)],_0x213d26=_0x36625c['dataset']['link'],_0x6a710f=_0x36625c[_0x4e65b5(0x1af)]['id'],_0x435d5a=_0x36625c[_0x4e65b5(0x1af)][_0x4e65b5(0x1bf)],_0x5de290=_0x36625c[_0x4e65b5(0x1af)]['img'],_0xfbe9bd=_0x3232a2[_0x4e65b5(0x1b7)]('id',_0x6a710f);_0xfbe9bd[_0x4e65b5(0x1a3)]?(_0x36625c[_0x4e65b5(0x1ae)]=_0x4e65b5(0x1ac),_0x36625c[_0x4e65b5(0x1b4)][_0x4e65b5(0x1bb)]('active')):(_0x36625c[_0x4e65b5(0x1ae)]=_0x4e65b5(0x1c2),_0x36625c[_0x4e65b5(0x1b4)]['remove']('active')),_0x36625c[_0x4e65b5(0x1b8)]('click',()=>{const _0x9e7739=_0x4e65b5,_0x267b6d=_0x36625c[_0x9e7739(0x1b4)][_0x9e7739(0x1b1)](_0x9e7739(0x1b3)),_0x1097c9=_0x3232a2['get']();if(_0x267b6d)_0x3232a2[_0x9e7739(0x1a8)]('id',_0x6a710f),_0x36625c[_0x9e7739(0x1ae)]=_0x9e7739(0x1c2),_0x36625c[_0x9e7739(0x1b4)]['remove'](_0x9e7739(0x1b3));else{if(_0x1097c9[_0x9e7739(0x1b0)]>=max_bookmark){alert('Maximum\x20bookmark\x20limit\x20reached!');return;}_0x3232a2[_0x9e7739(0x1bb)]({'id':_0x6a710f,'link':_0x213d26,'title':_0x1d9171,'label':_0x435d5a,'img':_0x5de290}),_0x36625c[_0x9e7739(0x1ae)]=_0x9e7739(0x1ac),_0x36625c[_0x9e7739(0x1b4)][_0x9e7739(0x1bb)]('active');}});});}));function _0x3918(){const _0x121369=['11158477nDfsaS','add','247135JZhJtm','book','2QazlTk','label','forEach','querySelectorAll','<svg\x20height=\x2236\x22\x20width=\x2236\x22\x20viewBox=\x220\x200\x2036\x2036\x22\x20xmlns=\x22http://www.w3.org/2000/svg\x22><g\x20transform=\x22translate(8.75,\x208.75)\x22><path\x20d=\x22M9.25,0.75\x20L9.25,17.568\x22\x20fill=\x22none\x22\x20stroke=\x22#cdcfd2\x22\x20stroke-width=\x221.5\x22></path><path\x20d=\x22M17.75,9.25\x20L0.75,9.25\x22\x20fill=\x22none\x22\x20stroke=\x22#cdcfd2\x22\x20stroke-width=\x221.5\x22></path></g></svg><div\x20class=\x22dcot\x22>Save</div>','item','24tjsJPC','30MSjPwM','9934LwxrPF','5GDNpzy','delete','.dcon.save','title','DOMContentLoaded','<svg\x20height=\x2236\x22\x20width=\x2236\x22\x20viewBox=\x220\x200\x2036\x2036\x22\x20xmlns=\x22http://www.w3.org/2000/svg\x22><g\x20transform=\x22translate(8.75,\x208.75)\x22><g\x20transform=\x22matrix(-0.7071,\x200.7071,\x20-0.7071,\x20-0.7071,\x2016.9786,\x2011.561)\x22><path\x20d=\x22M9.114,4.51\x20C9.114,4.51\x209.21,12.708\x209.21,12.708\x22\x20fill=\x22none\x22\x20stroke=\x22#cdcfd2\x22\x20stroke-width=\x221.8\x22></path></g><g\x20transform=\x22matrix(-0.7071,\x200.7071,\x20-0.7071,\x20-0.7071,\x2024.773,\x209.254)\x22><path\x20d=\x22M17.093,9.248\x20C17.093,9.248\x200.758,9.247\x200.758,9.247\x22\x20fill=\x22none\x22\x20stroke=\x22#cdcfd2\x22\x20stroke-width=\x221.8\x22></path></g></g></svg><div\x20class=\x22dcot\x22>Saved</div>','3123180otYpRS','innerHTML','dataset','length','contains','3500013WUsCvK','active','classList','6627656kJKezd','9XKSgQc','find','addEventListener','11270290sGgXxI'];_0x3918=function(){return _0x121369;};return _0x3918();}
+/*]]>*/
+</script>
+&lt;!--</body>--&gt;&lt;/body&gt;
+</b:with>
+</b:with>
+</b:with>
+</b:with>
+</b:with>
+</html>
