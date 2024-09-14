@@ -1026,6 +1026,9 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
       <b:widget-setting name='content'>10</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
+      <b:loop values='[&quot;data-version&quot;, &quot;id&quot;, &quot;class&quot;]' var='d'>
+                  <b:attr expr:name='data:d' value=''/>
+                </b:loop>
   <div class='htitle'>
 <h2><data:title/></h2>
 <a class='viewall' href='/search/label/Project?&amp;max-results=20'>Lihat semua
@@ -1071,6 +1074,9 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
       <b:widget-setting name='content'>10</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
+      <b:loop values='[&quot;data-version&quot;, &quot;id&quot;, &quot;class&quot;]' var='d'>
+                  <b:attr expr:name='data:d' value=''/>
+                </b:loop>
   <div class='htitle'>
 <h2><data:title/></h2>
 <a class='viewall' href='/search/label/Series?&amp;max-results=20'>Lihat semua
@@ -1136,6 +1142,9 @@ fetchPosts();
       <b:widget-setting name='showReactions'>false</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main' var='this'>
+      <b:loop values='[&quot;data-version&quot;, &quot;id&quot;, &quot;class&quot;]' var='d'>
+                  <b:attr expr:name='data:d' value=''/>
+                </b:loop>
       <b:with value='data:widgets.FeaturedPost filter (w =&gt; w.sectionId == &quot;main&quot;) map (w =&gt; w.postId)' var='featuredPostIds'>
         <b:with value='data:view.isHomepage ? data:posts filter (post =&gt; post.id not in data:featuredPostIds) : data:posts' var='posts'>
           <b:if cond='data:view.isMultipleItems'>
@@ -1346,6 +1355,9 @@ fetchPosts();
       <b:widget-setting name='timeRange'>LAST_WEEK</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main' var='this'>
+      <b:loop values='[&quot;data-version&quot;, &quot;id&quot;, &quot;class&quot;]' var='d'>
+                  <b:attr expr:name='data:d' value=''/>
+                </b:loop>
         <div class='htitle'><h2><data:title/></h2></div>
         <div style='min-height: 20px;'/>
       <div class='listmanga'>
@@ -1619,6 +1631,9 @@ fetchPosts();
       <b:widget-setting name='timeRange'>LAST_WEEK</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main' var='this'>
+      <b:loop values='[&quot;data-version&quot;, &quot;id&quot;, &quot;class&quot;]' var='d'>
+                  <b:attr expr:name='data:d' value=''/>
+                </b:loop>
         <div style='min-height: 20px;'/>
   <div class='htitle'>
     <h2><data:title/></h2>
