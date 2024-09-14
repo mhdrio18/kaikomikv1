@@ -1046,9 +1046,10 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                 </div>
       </b:loop>
       <script type='text/javascript'>
+        let max_project = <data:content/>;
         /*<![CDATA[*/
   document.addEventListener('DOMContentLoaded', () => {
-    const postsPerPage = 10;
+    const postsPerPage = max_project;
     const maxResultsPerRelatedPost = 2;
 
     let script2 = new BloggerScript({
