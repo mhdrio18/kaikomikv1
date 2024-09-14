@@ -414,7 +414,7 @@ relat.relatedPost(kerangkaRelated);
               </b:if>
               <img class='ts-post-image lazy' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII='>
         <b:if cond='data:post.featuredImage'>
-<b:attr expr:value='resizeImage(data:post.featuredImage, 240)' name='data-src'/>
+<b:attr expr:value='resizeImage(data:post.featuredImage, 240)' name='src'/>
         </b:if>
           </img>
             </div>
