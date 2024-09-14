@@ -701,6 +701,9 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
         <div class='bs' expr:data-title='data:post.title' itemscope='itemscope' itemtype='http://schema.org/CreativeWork'>
                     <a class='sx' expr:href='data:post.url' expr:title='data:post.title'>
                         <div class='limit'>
+				<b:with value='data:post.featuredImage.isResizable ? resizeImage(data:post.featuredImage, 320, &quot;1:2&quot;) : data:post.thumbnail' var='image'>
+                  <b:attr expr:value='&quot;background-image: url(\&quot;&quot; + data:image + &quot;\&quot;);&quot;' name='style'/>
+                 </b:with>
 <div class='ply'/>
                             <b:loop values='data:post.labels' var='l'>
                 <b:if cond='data:l.name in data:type'>
@@ -713,11 +716,6 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
               <b:if cond='data:post.labels any (l =&gt; l.name == &quot;color&quot;)'>
                 <span class='colored'><i class='fas fa-palette'/> Warna</span>
               </b:if>
-                            <img class='ts-post-image lazyload' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII='>
-        <b:if cond='data:post.featuredImage'>
-<b:attr expr:value='resizeImage(data:post.featuredImage, 240)' name='data-src'/>
-        </b:if>
-          </img>
                         </div>
                     <div class='dtitle'><data:post.title/></div>
 </a>
