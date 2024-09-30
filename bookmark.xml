@@ -1,0 +1,28 @@
+<ul id='hasil'/>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const hasil = document.querySelector('#hasil'); // Make sure #hasil is the correct selector
+
+    function generateBookmark() {
+        const book = new StorageManipulation('book');
+        const items = book.get();
+        let html = '';
+
+        if (items.length > 0) {
+            items.forEach(data => {
+                html += '<a href="' + data.link + '"><li><p>' + data.title + '</p>';
+                html += '<p>' + data.label + '</p></li>';
+                html += '<img class="lazyload" src="' + data.img + '" alt="' + data.title + '"></a>';
+            });
+        } else {
+            html = noBookmark;
+        }
+
+        if (hasil) {
+            hasil.innerHTML = html;
+        }
+    }
+
+    generateBookmark();
+});
+</script>
